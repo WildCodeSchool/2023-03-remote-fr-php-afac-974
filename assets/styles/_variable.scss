@@ -1,7 +1,28 @@
-$primary : #73658A;
-$secondary : #257593;
-$primary-box : #BC7C61;
-$secondary-box : #7F253E;
-$font-primary : 'Roboto', sans-serif;
-$font-secondary : 'Nunito Sans', sans-serif;
+$purple : #73658A;
+$blue : #257593;
+$brown : #BC7C61;
+$white : #FFFFFF;
+$burgundy : #7F253E;
+$grey : #E3E4E2;
+
+$primary: $blue;
+$primary-inverse : $grey;
+$secondary: $brown;
+$secondary-inverse: $burgundy;
+$info: $purple;
+$light: $white;
+
+$theme-colors: (
+    "primary": $primary,
+    "primary-inverse": $grey,
+    "secondary": $secondary,
+    "secondary-inverse": $secondary-inverse,
+    "info": $info,
+    "light": $light
+);
+
+$headings-font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: 'Nunito Sans', system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
 
