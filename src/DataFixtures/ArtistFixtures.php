@@ -17,13 +17,15 @@ class ArtistFixtures extends Fixture
         $artist->setDateofBirth($faker->dateTime());
         $artist->setNationality('French');
         $artist->setBiography($faker->paragraph(7));
+        $this->addReference('artist_1', $artist);
         $manager->persist($artist);
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i < 7; $i++) {
             $artist = new Artist();
             $artist->setName($faker->name());
             $artist->setDateofBirth($faker->dateTime());
             $artist->setNationality('French');
             $artist->setBiography($faker->paragraph(7));
+            $this->addReference('artist_' . ($i % 7 + 1), $artist);
             $manager->persist($artist);
         }
 
