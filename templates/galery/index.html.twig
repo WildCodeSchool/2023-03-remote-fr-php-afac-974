@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie
+{% endblock %}
+
+{% block body %}
+	<div class=" header-title d-flex justify-content-center ">
+		<div class=" titre_galery  d-flex align-items-center justify-content-center ">
+			<div
+				class="bg-info px-4 py-1   position-relative ">
+				{# purple #}
+				<h1 class="  text-info ">Galerie</h1>
+			</div>
+			<div
+				class="bg-secondary px-4 py-1   position-relative  ">
+				{# brown #}
+				<h1 class="  text-secondary ">Galerie</h1>
+			</div>
+			<div
+				class="bg-tertiary px-4 py-2  position-absolute shadow">
+				{# pink #}
+				<h1 class="  text-white ">Galerie</h1>
+			</div>
+		</div>
+	</div>
+	<div class="bg-info  ">
+
+		<div class="row row-cols-1 mx-4 row-cols-md-3   ">
+        
+			{% for painting in paintings %}
+				<div class="col d-inline-flex justify-content-center flex-column mt-5 ">
+					<div class="d-flex justify-content-center     ">
+						<div class="card h-100 w-50 bg-secondary  shadow  ">
+							<div class="card_header ">
+								<img src="{{painting.image}}" class="card-img-top " alt="...">
+							</div>
+
+							<svg class="position-absolute " xmlns="http://www.w3.org/2000/svg" viewbox="0 19 100 100">
+								<polygon points="50 90, 80 100, 20 100 " fill="hsl(18, 40%, 56%)"/>
+							</svg>
+							<div class="card-body">
+								<h5 class="card-title text-center">{{painting.title}}</h5>
+								<p class="card-text text-center">{{painting.artist.name}}</p>
+							</div>
+							<div class="card-footer">
+								<small class="text-body-secondary ">
+									<a class="text-primary-inverse " href="#">+ d'infos</a>
+								</small>
+							</div>
+						</div>
+					</div>
+					<div class="d-inline-flex justify-content-center  mt-4 mb-3 ">
+						<button type="button" class="btn btn-primary rounded-4 w-50  ">E-cards</button>
+					</div>
+				</div>
+
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+{% endblock %}
