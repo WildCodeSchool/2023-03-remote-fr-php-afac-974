@@ -1,8 +1,6 @@
 .h1-wrapper {
     position: relative;
-    .h1-main-background {
-        position: absolute;
-        inset: 0;
+    h1 {
         z-index: -1;
         background-color: $tertiary;
     }
@@ -30,28 +28,6 @@
     height: 10rem;
     width: 20rem
 }
-
-// .titre_galery div:nth-child(1) {
-//     z-index: 0;
-//     bottom: 1rem;
-//     right: 2rem;
-// }
-
-// .titre_galery div:nth-child(2) {
-//     z-index: 0;
-//     top: 2rem;
-//     left: 1rem;
-// }
-
-// .titre_galery div:nth-child(3) {
-//     z-index: 10;
-//     border: 1px solid white;
-
-//     h1 {
-//         -webkit-text-stroke-width: 1px;
-//         -webkit-text-stroke-color: black;
-//     }
-// }
 
 .card:hover img {
     transform: scale(1.25) rotate(2deg);
