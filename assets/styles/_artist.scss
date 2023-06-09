@@ -1,0 +1,64 @@
+@keyframes slidein {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+.clip-path img {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    max-height: 35rem;
+}
+.hexagon-2 {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    max-height: 60rem;
+    border: 20px solid $burgundy;
+    background-color: $burgundy;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+   }
+.hexagon-2:hover {
+    -webkit-transform: scale(1.10);
+    transform: scale(1.10);
+}
+
+.biography {
+    max-width: 75ch;
+    font-size: 1.5rem;
+}
+
+.nationality, .date-of-birth {
+    max-width: 10ch;
+    font-size: 1.5rem;
+}
+
+.work {
+    width: 25rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid $white;
+}
+
+@media screen and (max-width: 920px) {
+    .main-artist {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+    @media screen and (min-width: 1900px) {
+        .clip-path img {
+            max-height: 55rem;
+        }
+        .biography {
+            max-width: 75ch;
+            font-size: 3rem;
+        }
+        .nationality, .date-of-birth {
+            max-width: 10ch;
+            font-size: 2.5rem;
+        }
+        .main-artist h1{
+            font-size: 4rem;
+        }
+}
+
+
