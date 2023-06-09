@@ -6,20 +6,21 @@
 {% block body %}
 	<div class=" header-title d-flex justify-content-center ">
 		<div class=" titre_galery  d-flex align-items-center justify-content-center ">
-			<div
+			<!-- <div
 				class="bg-info px-4 py-1   position-relative ">
 				{# purple #}
 				<h1 class="  text-info ">Galerie</h1>
-			</div>
-			<div
-				class="bg-secondary px-4 py-1   position-relative  ">
+			</div> -->
+			<!-- <div
+				class="bg-secondary px-4 py-1 position-relative">
 				{# brown #}
-				<h1 class="  text-secondary ">Galerie</h1>
-			</div>
+				<h1 class="text-secondary">Galerie</h1>
+			</div> -->
 			<div
-				class="bg-tertiary px-4 py-2  position-absolute shadow">
+				class="px-4 py-2 shadow h1-wrapper">
 				{# pink #}
-				<h1 class="  text-white ">Galerie</h1>
+				<div class="h1-main-background"></div>
+				<h1 class="text-white">Galerie</h1>
 			</div>
 		</div>
 	</div>
@@ -37,8 +38,8 @@
 
 							<div class="card-body d-flex flex-column  ">
 								<div class="hexagon  double m-0 align-self-center  "></div>
-								<h5 class="toto1 card-title text-center ">{{painting.title}}</h5>
-								<p class="toto2 card-text text-center ">{{painting.artist.name}}</p>
+								<h5 class="galery-h5-card card-title text-center ">{{painting.title}}</h5>
+								<p class="galery-p-card card-text text-center ">{{painting.artist.name}}</p>
 							</div>
 							<div class="card-footer">
 								<small class="text-body-secondary ">

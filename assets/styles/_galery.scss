@@ -1,29 +1,57 @@
+.h1-wrapper {
+    position: relative;
+    .h1-main-background {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color: $tertiary;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        background-color: $info;
+        top: 0;
+        left: 0;
+        transform: translateX(-50%) translateY(-30px);
+    }
+
+    &::after {
+        background-color: $secondary;
+        transform: translateX(50%) translateY(30px);
+    }
+}
+
 .titre_galery {
     height: 10rem;
     width: 20rem
 }
 
-.titre_galery div:nth-child(1) {
-    z-index: 0;
-    bottom: 1rem;
-    right: 2rem;
-}
+// .titre_galery div:nth-child(1) {
+//     z-index: 0;
+//     bottom: 1rem;
+//     right: 2rem;
+// }
 
-.titre_galery div:nth-child(2) {
-    z-index: 0;
-    top: 2rem;
-    left: 1rem;
-}
+// .titre_galery div:nth-child(2) {
+//     z-index: 0;
+//     top: 2rem;
+//     left: 1rem;
+// }
 
-.titre_galery div:nth-child(3) {
-    z-index: 10;
-    border: 1px solid white;
+// .titre_galery div:nth-child(3) {
+//     z-index: 10;
+//     border: 1px solid white;
 
-    h1 {
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
-    }
-}
+//     h1 {
+//         -webkit-text-stroke-width: 1px;
+//         -webkit-text-stroke-color: black;
+//     }
+// }
 
 .card:hover img {
     transform: scale(1.25) rotate(2deg);
@@ -76,12 +104,12 @@
     margin-bottom: 20rem;
 }
 
-.toto1 {
+.galery-h5-card {
     z-index: 50;
     margin-top: -150px;
 }
 
-.toto2 {
+.galery-p-card {
     z-index: 50;
 }
 
