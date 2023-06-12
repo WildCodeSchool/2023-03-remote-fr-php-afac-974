@@ -9,6 +9,7 @@ $yellow : #ffc107;
 $gray-900 : #212529;
 $red : #dc3545;
 
+
 $primary: $blue;
 $primary-inverse : $grey;
 $secondary: $brown;
@@ -36,5 +37,7 @@ $theme-colors: (
 $headings-font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-sans-serif: 'Nunito Sans', system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
+$carousel-control-color: $white;
+$carousel-control-opacity: 1;
 
 
