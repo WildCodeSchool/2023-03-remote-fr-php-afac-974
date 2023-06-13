@@ -8,6 +8,7 @@
         "core-js": "^3.23.0",
         "eslint": "^8.13.0",
         "file-loader": "^6.0.0",
+        "prettier": "^3.0.0-alpha.6",
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.56.0",
         "sass-loader": "^13.1.0",

@@ -8,18 +8,21 @@ $green : #198754;
 $yellow : #ffc107;
 $gray-900 : #212529;
 $red : #dc3545;
+$pink :#B982AE ;
 
 
 $primary: $blue;
 $primary-inverse : $grey;
 $secondary: $brown;
 $secondary-inverse: $burgundy;
+$tertiary : $pink;
 $success: $green;
 $info: $purple;
 $warning: $yellow;
 $danger: $red;
 $light: $white;
 $dark: $gray-900;
+
 
 $theme-colors: (
     "primary": $primary,
@@ -31,7 +34,8 @@ $theme-colors: (
     "warning": $warning,
     "danger": $danger,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "tertiary": $tertiary
 );
 
 $headings-font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
