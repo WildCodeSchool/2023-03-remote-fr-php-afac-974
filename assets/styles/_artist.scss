@@ -1,6 +1,5 @@
-@keyframes slidein {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
+.main-artist{
+    margin: 0;
 }
 .clip-path img {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -42,6 +41,7 @@
     .main-artist {
         display: flex;
         flex-direction: column-reverse;
+
     }
 }
     @media screen and (min-width: 1900px) {
