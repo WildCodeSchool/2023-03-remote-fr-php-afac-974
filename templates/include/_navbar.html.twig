@@ -1,42 +1,42 @@
-<nav class="navbar navbar-expand-lg bg-primary col">
-	<div class="container-fluid d-flex flex-column align-items-end">
-		<a class="align-self-center" href="/">
-			<img src="{{ asset('build/images/logo.png') }}" alt="Logo">
+<nav class="navbar navbar-expand-lg bg-primary justify-content-center p-0">
+	<div class="container-fluid row justify-content-around">
+		<a class="logo-link justify-content-center col-3 " href="/">
+			<img class="logo" src="{{ asset('build/images/logo2.png') }}" alt="Logo">
 		</a>
 		<button class="burger navbar-toggler my-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<ul class="user">
-			<li class="nav-item dropdown navbar-collapse collapse list-unstyled px-5 mt-2" id="navbarNavDropdown">
-				<a class="nav-link dropdown-toggle text-primary-inverse" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					<img src="{{ asset('build/images/user.png') }}" alt="Logo">
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a class="dropdown-item" href="#">Mon profil</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">Mes favoris</a>
-					</li>
-					<hr class="dropdown-divider">
-					<li>
-						<a class="dropdown-item" href="#">Deconnexion</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-		<div class="navdown collapse navbar-collapse align-self-center" id="navbarNavDropdown">
-			<ul class="navbar-nav mt-2">
+		<div class="navdown collapse navbar-collapse justify-content-center col-5 " id="navbarNavDropdown">
+			<ul class="navbar-nav mt-2 d-flex flex-row justify-content-between">
 				<li class="nav-item">
-					<a class="nav-link active px-5 text-primary-inverse" aria-current="page" href="#">Galerie</a>
+					<a class="mid-link nav-link active text-primary-inverse pe-4" aria-current="page" href="#">Galerie</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link px-5 text-primary-inverse" href="#">E-Cards</a>
+					<a class="mid-link nav-link text-primary-inverse ps-4 pe-4" href="#">E-Cards</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link px-5 text-primary-inverse" href="#">A propos</a>
+					<a class="mid-link nav-link text-primary-inverse ps-4" href="#">A propos</a>
 				</li>
 			</ul>
 		</div>
+        <ul class="user col-3 d-lg-flex flex-lg-column align-items-lg-end me-lg-5">
+            <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end" id="navbarNavDropdown">
+                <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{{ asset('build/images/user.png') }}" alt="Logo">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="#">Mon profil</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Mes favoris</a>
+                    </li>
+                    <hr class="dropdown-divider">
+                    <li>
+                        <a class="dropdown-item" href="#">Deconnexion</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
 	</div>
 </nav>
