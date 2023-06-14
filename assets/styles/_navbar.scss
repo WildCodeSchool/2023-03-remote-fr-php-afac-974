@@ -1,16 +1,26 @@
-.navdown{
-    border-top: 1px solid white;
+.logo{
+    height: 2.5rem
 }
 .user{
-    margin-top: -40px;
 img{
     height: 2.5rem;
     border-radius: 50px;
 }
 }
-@media screen and (max-width: 992px) {
-    .user {
-        align-self: center;
-        padding-right: 1rem;
+.mid-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 992px)  {
+    .logo-link{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo{
+        height: 2.5rem;
+        width: auto;
     }
 }
