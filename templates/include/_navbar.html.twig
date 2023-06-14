@@ -1,25 +1,26 @@
 <nav class="navbar navbar-expand-lg bg-primary justify-content-center p-0">
-	<div class="container-fluid row justify-content-around">
-		<a class="logo-link justify-content-center col-3 " href="/">
-			<img class="logo" src="{{ asset('build/images/logo2.png') }}" alt="Logo">
-		</a>
-		<button class="burger navbar-toggler my-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="navdown collapse navbar-collapse justify-content-center col-5 " id="navbarNavDropdown">
+    <div class="container-fluid flex-column flex-lg-row">
+        <a class="logo-link w-25" href="/">
+            <img class="logo" src="{{ asset('build/images/logo2.png') }}" alt="Logo">
+        </a>
+        <button class="burger navbar-toggler mt-3 mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+		<div class="navdown collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
 			<ul class="navbar-nav mt-2 d-flex flex-row justify-content-around ">
 				<li class="nav-item">
-                    <a class=" mid-link nav-link active px-lg-5 ps-md-1 text-primary-inverse" aria-current="page" href="/galery">Galerie</a>
+                    <a class=" mid-link nav-link active px-2 px-lg-4 text-primary-inverse" aria-current="page" href="/galery">Galerie</a>
 				</li>
 				<li class="nav-item">
-					<a class="mid-link nav-link text-primary-inverse ps-4 pe-4" href="#">E-Cards</a>
+					<a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">E-Cards</a>
 				</li>
 				<li class="nav-item">
-					<a class="mid-link nav-link text-primary-inverse ps-lg-4 ps-md-1" href="#">A propos</a>
+					<a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">A propos</a>
 				</li>
 			</ul>
 		</div>
-        <ul class="user col-3 d-lg-flex flex-lg-column align-items-lg-end me-lg-5">
+        <ul class="user d-lg-flex flex-lg-column align-items-lg-end me-lg-0 w-25 list-unstyled">
             <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end" id="navbarNavDropdown">
                 <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="{{ asset('build/images/user.png') }}" alt="Logo">
@@ -31,12 +32,14 @@
                     <li>
                         <a class="dropdown-item text-primary-inverse" href="#">Mes favoris</a>
                     </li>
-                    <hr class="dropdown-divider">
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
                     <li>
                         <a class="dropdown-item text-primary-inverse" href="#">Deconnexion</a>
                     </li>
                 </ul>
             </li>
         </ul>
-	</div>
+    </div>
 </nav>

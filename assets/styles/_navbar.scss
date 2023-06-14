@@ -15,8 +15,9 @@ img{
 @media screen and (max-width: 992px)  {
     .logo-link{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
     .logo{
         height: 2.5rem;
