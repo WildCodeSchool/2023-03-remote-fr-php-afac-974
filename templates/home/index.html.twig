@@ -4,15 +4,56 @@
 {% endblock %}
 
 {% block body %}
-	<div class="text-bg-secondary">
-		<h1>
-			Let's start coding&nbsp;&#129304;
-		</h1>
-		<p>Coucou</p>
-	</div>
-	<div class="box   d-block d-flex">
-		<div class="hexagone1 d-flex justify-content-center align-content-center position-absolute "></div>
-		<div class="hexagone2 d-flex justify-content-center align-content-center position-relative">
-        
-	</div>
+
+
+
+    <div class="containe2r-fluid w100">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+
+            </div>
+
+
+             <div class="carousel-inner home-carousel">
+
+                <div class="carousel-item active h-100 ">
+                    <img src="{{ asset('build/images/fessesJohann.jpg') }}" class="object-fit-cover w-100" alt="...">
+                    <div class="carousel-caption bg-dark ">
+                        <h4> Fesses de Johann</h4>
+                        <h5>Bienvenue sur le site de l'AFAC974</h5>
+                        <p>Lorem ipsum dolor sit amet. Nam placeat nihil qui iure quae eos magnam ipsum eos dolorem minus. Est facilis culpa sit quas tenetur ad nihil earum. Est tenetur dicta in sunt nihil ut nobis aperiam hic molestiae debitis ea neque illum et provident quibusdam et nihil nisi. Aut consectetur impedit et alias quia in eius dolore rem architecto voluptas.</p>
+                    </div>
+                </div>
+
+{% for painting in paintings %}
+
+
+                <div class="carousel-item  h-100 ">
+                    <img src="{{painting.image}}" class="object-fit-cover w-100" alt="...">
+                    <div class="carousel-caption bg-dark ">
+                        <h4> {{ painting.title }}</h4>
+                        <h5>Bienvenue sur le site de l'AFAC974</h5>
+                        <p>Lorem ipsum dolor sit amet. Nam placeat nihil qui iure quae eos magnam ipsum eos dolorem minus. Est facilis culpa sit quas tenetur ad nihil earum. Est tenetur dicta in sunt nihil ut nobis aperiam hic molestiae debitis ea neque illum et provident quibusdam et nihil nisi. Aut consectetur impedit et alias quia in eius dolore rem architecto voluptas.</p>
+                    </div>
+                </div>
+{% endfor %}
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 {% endblock %}

@@ -37,28 +37,13 @@
     border-bottom: 2px solid $white;
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 992px) {
     .main-artist {
         display: flex;
         flex-direction: column-reverse;
 
     }
 }
-    @media screen and (min-width: 1900px) {
-        .clip-path img {
-            max-height: 55rem;
-        }
-        .biography {
-            max-width: 75ch;
-            font-size: 3rem;
-        }
-        .nationality, .date-of-birth {
-            max-width: 10ch;
-            font-size: 2.5rem;
-        }
-        .main-artist h1{
-            font-size: 4rem;
-        }
-}
+
 
 

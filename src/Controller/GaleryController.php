@@ -13,8 +13,7 @@ class GaleryController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(PaintingRepository $paintingRepositery): Response
     {
-        $paintings = $paintingRepositery->findAll();
-
+        $paintings = $paintingRepositery->findBy(criteria:[], limit:6);
         return $this->render('galery/index.html.twig', [
             'paintings' => $paintings,
         ]);

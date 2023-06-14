@@ -4,46 +4,20 @@
 {% endblock %}
 
 {% block body %}
-	<div class=" header-title d-flex justify-content-center ">
-		<div class=" titre_galery  d-flex align-items-center justify-content-center ">
-			<div
-				class="h1-wrapper">
-				<h1 class="text-white px-4 py-2 mb-0 shadow">Galerie</h1>
-			</div>
-		</div>
-	</div>
-	<div class="bg-info  ">
-
-		<div class="row row-cols-1  row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3  g-0 mx-4  ">
-
+	<div class="container mt-3 p-3">
+		<div class=" card-deck grid gap-4 mt-2 mx-3">
 			{% for painting in paintings %}
-				<div class="col d-inline-flex justify-content-center flex-column mt-5 ">
-					<div class="d-flex justify-content-center     ">
-						<div class="card h-100 w-50 bg-secondary  shadow ">
-							<div class="card_header d-flex h-5 ">
-								<img src="{{painting.image}}" class="card-img-top  object-fit-cover" alt="...">
-							</div>
-
-							<div class="card-body d-flex flex-column  ">
-								<div class="hexagon  double m-0 align-self-center  "></div>
-								<h5 class="galery-h5-card card-title text-center ">{{painting.title}}</h5>
-								<p class="galery-p-card card-text text-center ">{{painting.artist.name}}</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-body-secondary ">
-									<a class="text-primary-inverse " href="#">+ d'infos</a>
-								</small>
-							</div>
-						</div>
-					</div>
-					<div class="d-inline-flex justify-content-center  mt-4 mb-3 ">
-						<button type="button" class="btn btn-primary rounded-4 w-50  ">E-cards</button>
+				<div class="galery card-apparition position-relative overflow-hidden ">
+					<img class="w-100 h-100 object-fit-cover" src="{{painting.image}}" alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}.">
+					<div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
+						<p class="text-white m-0">{{painting.title}}</p>
+						<a class=" text-decoration-none text-white" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{painting.artist.name}}</a>
 					</div>
 				</div>
-
-
 			{% endfor %}
-
 		</div>
-
-	{% endblock %}
+	</div>
+	<p class=" text-center mt-3">
+		-   1/ 5   -
+	</p>
+{% endblock %}
