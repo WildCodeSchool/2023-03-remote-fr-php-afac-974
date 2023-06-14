@@ -1,0 +1,26 @@
+.logo{
+    height: 2.5rem
+}
+.user{
+img{
+    height: 2.5rem;
+    border-radius: 50px;
+}
+}
+.mid-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 992px)  {
+    .logo-link{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo{
+        height: 2.5rem;
+        width: auto;
+    }
+}

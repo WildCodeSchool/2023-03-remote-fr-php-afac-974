@@ -1,0 +1,42 @@
+
+.galery:hover img {
+    transform: scale(1.25) rotate(2deg);
+    transition: all ease-in-out .4s;
+}
+
+.grid {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas:
+      "first first first second second second"
+      "first first first third third third"
+      "fourth fourth fifth fifth sixth sixth";
+    div:first-child{
+    grid-area: first;
+    }
+    div:nth-child(2){
+        grid-area: second;
+    }
+    div:nth-child(3){
+        grid-area: third;
+    }
+    div:nth-child(4){
+        grid-area: fourth;
+    }
+    div:nth-child(5){
+        grid-area: fifth;
+    }
+    div:nth-child(6){
+        grid-area: sixth;
+    }
+}
+@media screen and (max-width: 995px) {
+    .card-deck {
+        display: flex;
+        flex-direction: column;
+        height: 150rem;
+
+    }
+}
