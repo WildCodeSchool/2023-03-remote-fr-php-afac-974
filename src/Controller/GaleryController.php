@@ -17,14 +17,14 @@ class GaleryController extends AbstractController
         PaintingRepository $paintingRepositery,
         PaginatorInterface $paginator,
         Request $request
-        ): Response {
+    ): Response {
         $pagination = $paginator->paginate(
             $paintingRepositery->queryFindAll(),
-            $request->query->getInt('page', 1),6
+            $request->query->getInt('page', 1),
+            6
         );
         return $this->render('galery/index.html.twig', [
             'paintings' => $pagination,
         ]);
-
     }
 }
