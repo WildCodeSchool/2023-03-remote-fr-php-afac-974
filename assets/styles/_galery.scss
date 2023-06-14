@@ -32,3 +32,11 @@
         grid-area:sixth;
     }
 }
+@media screen and (max-width: 995px) {
+    .card-deck {
+        display: flex;
+        flex-direction: column;
+        height: 150rem;
+
+    }
+}
