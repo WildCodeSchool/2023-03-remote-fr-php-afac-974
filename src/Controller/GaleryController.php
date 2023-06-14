@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/','galery', name:'galery_')]
+#[Route('/galery', name:'galery_')]
 class GaleryController extends AbstractController
 {
     #[Route('/', name: 'index')]
