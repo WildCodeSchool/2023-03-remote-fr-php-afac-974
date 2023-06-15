@@ -3,7 +3,17 @@
     transform: scale(1.25) rotate(2deg);
     transition: all ease-in-out .4s;
 }
-
+.card-apparition{
+    -webkit-animation: fadein 2s;
+}
+@-webkit-keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
 .grid {
     height: 80vh;
     display: grid;
