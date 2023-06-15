@@ -9,10 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/galery', name:'galery_')]
+#[Route('/galery', name: 'galery_')]
 class GaleryController extends AbstractController
 {
     #[Route('/', name: 'index')]
+
     public function index(
         PaintingRepository $paintingRepositery,
         PaginatorInterface $paginator,
@@ -23,6 +24,7 @@ class GaleryController extends AbstractController
             $request->query->getInt('page', 1),
             6
         );
+
         return $this->render('galery/index.html.twig', [
             'paintings' => $pagination,
         ]);
