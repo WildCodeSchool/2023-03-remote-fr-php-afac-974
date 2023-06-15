@@ -41,12 +41,14 @@ class PaintingRepository extends ServiceEntityRepository
     }
     public function queryFindAll(): Query
     {
-        return $this->createQueryBuilder('i')->getQuery();
+        return $this->createQueryBuilder('p')->getQuery();
     }
     public function findLikeName(string $search): Query
     {
-        return $this->createQueryBuilder('i')
-        ->andWhere('i.title LIKE :search ')
+        return $this->createQueryBuilder('p')
+        ->join('p.artist', 'a')
+        ->andWhere('p.title LIKE :search ')
+        ->orWhere('a.name LIKE :search')
         ->setParameter('search', '%' . $search . '%')
         ->getQuery();
     }
