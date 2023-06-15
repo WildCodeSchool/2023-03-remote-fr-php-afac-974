@@ -1,9 +1,9 @@
-
 .home-carousel{
-    height:700px;
+    height:93vh;
 }
-.carousel-caption{
-    opacity: 0.77;
-border-radius: .75rem;
+@media screen and (max-width: 992px) {
+    .home-carousel{
+        height:85vh;
+    }
 }
 
