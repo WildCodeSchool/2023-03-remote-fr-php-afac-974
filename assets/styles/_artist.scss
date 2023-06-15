@@ -8,8 +8,8 @@
 .hexagon-2 {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     max-height: 60rem;
-    border: 20px solid $burgundy;
-    background-color: $burgundy;
+    border: 20px solid $info;
+    background-color: $info;
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .3s ease-in-out;
@@ -34,7 +34,7 @@
     width: 25rem;
     padding-bottom: 2rem;
     text-align: center;
-    border-bottom: 2px solid $white;
+    border-bottom: 2px solid $info;
 }
 
 @media screen and (max-width: 992px) {
