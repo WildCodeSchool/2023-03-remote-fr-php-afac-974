@@ -10,20 +10,30 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 
-#[Route('/galery', name:'galery_')]
+#[Route('/galery', name: 'galery_')]
 class GaleryController extends AbstractController
 {
     #[Route('/', name: 'index')]
+
+
+
     public function index(
         PaintingRepository $paintingRepositery,
         PaginatorInterface $paginator,
         Request $request
     ): Response {
+
         $form = $this->createFormBuilder(null, [
             'method' => 'get'
         ])
             ->add('search', SearchType::class)
             ->getForm();
+
+        $pagination = $paginator->paginate(
+            $paintingRepositery->queryFindAll(),
+            $request->query->getInt('page', 1),
+            6
+        );
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,6 +50,8 @@ class GaleryController extends AbstractController
         return $this->render('galery/index.html.twig', [
             'paintings' => $pagination,
             'form' => $form
+
+
         ]);
     }
 }

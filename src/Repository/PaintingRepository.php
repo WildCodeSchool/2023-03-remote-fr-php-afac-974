@@ -41,6 +41,7 @@ class PaintingRepository extends ServiceEntityRepository
     }
     public function queryFindAll(): Query
     {
+
         return $this->createQueryBuilder('p')->getQuery();
     }
     public function findLikeName(string $search): Query
