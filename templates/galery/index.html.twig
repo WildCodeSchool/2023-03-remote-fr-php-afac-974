@@ -11,7 +11,7 @@
 					<img class="w-100 h-100 object-fit-cover" src="{{painting.image}}" alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}.">
 					<div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
 						<p class="text-white m-0">{{painting.title}}</p>
-						<a class=" text-decoration-none text-white" href="#">{{painting.artist.name}}</a>
+						<a class=" text-decoration-none text-white" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{painting.artist.name}}</a>
 					</div>
 				</div>
 			{% endfor %}

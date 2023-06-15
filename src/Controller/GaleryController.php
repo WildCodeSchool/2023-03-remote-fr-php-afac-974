@@ -14,7 +14,6 @@ class GaleryController extends AbstractController
     public function index(PaintingRepository $paintingRepositery): Response
     {
         $paintings = $paintingRepositery->findBy(criteria:[], limit:6);
-
         return $this->render('galery/index.html.twig', [
             'paintings' => $paintings,
         ]);
