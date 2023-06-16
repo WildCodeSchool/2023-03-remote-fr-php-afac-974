@@ -9,6 +9,8 @@ $yellow : #ffc107;
 $gray-900 : #212529;
 $red : #dc3545;
 $pink :#B982AE ;
+$blue-ihoi :#405478;
+$blue-objetT : #303751;
 
 
 $primary: $blue;
@@ -22,6 +24,8 @@ $warning: $yellow;
 $danger: $red;
 $light: $white;
 $dark: $gray-900;
+$ihoi: $blue-ihoi;
+$objetT : $blue-objetT;
 
 
 $theme-colors: (
@@ -35,7 +39,10 @@ $theme-colors: (
     "danger": $danger,
     "light": $light,
     "dark": $dark,
-    "tertiary": $tertiary
+    "tertiary": $tertiary,
+    "ihoi": $ihoi,
+    "objetT": $objetT
+
 );
 
 $headings-font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
