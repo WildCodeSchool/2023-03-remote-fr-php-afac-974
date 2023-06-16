@@ -31,6 +31,7 @@ input[type="radio"]{
     display: none;
 }
 .accordion .content{
+
     padding: 0 10px;
     line-height: 26px;
     max-height: 0;
@@ -38,7 +39,7 @@ input[type="radio"]{
     transition: max-height 0.5s, padding 0.5s
 }
 .accordion input[type="radio"]:checked + label + .content{
-    max-height: 400px;
+    max-height: 1000px;
     padding: 10px 10px 20px;
 
 }
@@ -59,11 +60,11 @@ input[type="radio"]{
 }
 .afac {
 
-    top:-150px;
-    left:-150px;
+    bottom:-28%;
+    left:15%;
 }
 .afac2 {
 
-    top:30%;
+    top:-50%;
     left:65%;
 }
