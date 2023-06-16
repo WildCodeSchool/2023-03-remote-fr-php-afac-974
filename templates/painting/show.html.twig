@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Work
+{% endblock %}
+
+{% block body %}
+
+
+
+	<div class="containe21r-fluid w-100">
+		<div class=" w-100">
+			 <img src="{{ asset('build/images/fessesJohann.jpg') }}" class="object-fit-cover w-100" alt="...">
+		</div>
+	</div>
+
+	<!--Menu accordéon-->
+	<div class="accordion accordion-flush bg-info" id="accordionFlushExample">
+		<div class="accordion-item bg-info">
+			<h2 class="accordion-header" id="flush-headingOne">
+				<button class="accordion-button collapsed d-flex " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"></button>
+			</h2>
+			<div id="flush-collapseOne" class="accordion-collapse collapse " aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+				<div class="accordion-body text-light">Placeholder content for this accordion, which is intended to demonstrate the
+					<code>.accordion-flush</code>
+					class. This is the first item's accordion body.</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}
