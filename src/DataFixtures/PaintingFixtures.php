@@ -22,7 +22,7 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
             $painting->setAnecdote($faker->paragraph(4));
             $painting->setHeight($faker->numberBetween(50, 150));
             $painting->setWidth($faker->numberBetween(50, 150));
-            $painting->setImage('https://fakeimg.pl/1000x800/');
+            $painting->setImage('https://placebear.com/640/360');
             $painting->setCreatedAt(new DateTime('now'));
             $painting->setArtist($this->getReference('artist_' . $faker->numberBetween(1, 7)));
             $painting->setCategory($this->getReference('category_' . ($i % 4 + 1)));
