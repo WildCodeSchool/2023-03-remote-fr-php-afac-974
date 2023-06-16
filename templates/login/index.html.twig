@@ -15,6 +15,7 @@
 
         <label class="mb-2 text-primary-inverse" for="password">Mot de passe:</label>
         <input class="mb-2" type="password" id="password" name="_password">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <button class="btn btn-primary" type="submit">Se connecter</button>
     </form>
