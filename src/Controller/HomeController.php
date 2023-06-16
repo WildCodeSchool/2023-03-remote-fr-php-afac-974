@@ -7,10 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/', name: 'app_home')]
+#[Route('/', name: 'app_')]
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route('/', name: 'home')]
     public function index(PaintingRepository $paintingRepository): Response
     {
         $paintings = $paintingRepository->findBy([], null, 4);
