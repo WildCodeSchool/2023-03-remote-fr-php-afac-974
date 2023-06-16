@@ -4,17 +4,19 @@
 
 {% block body %}
     <div class="container">
-        <div class="bg-secondary-inverse w-50 m-auto p-3 mt-4 text-white rounded">
+        <div class="bg-secondary-inverse w-50 m-auto p-3 mt-3  text-white rounded">
             <p>
                 Veuillez noter que toutes les images présentes sur ce site ne sont pas libres de droit. Elles sont soumises à des droits d'auteur et ne peuvent être utilisées sans autorisation préalable.<br>Nous vous encourageons à respecter les droits de propriété intellectuelle des créateurs et à obtenir les autorisations nécessaires avant toute utilisation des images présentes sur ce site.
             </p>
         </div>
-        <ul class="accordion list-unstyled ">
-            <li class="afac ">
+        <ul class="accordion list-unstyled mt-3 ">
+            <li class="bg-primary position-relative overflow-hidden ">
+                <img class=" afac   z-0 position-absolute w-25"src="{{ asset('build/images/hexagone.png') }}" alt="">
                 <input type="radio" name="accordion" id="first" checked>
-                <label class="fw-bold" for="first" >AFAC974</label>
+                <label class="fw-bold text-white z-1" for="first" >AFAC974</label>
                 <div class="content row w-100 h-100 text-white ">
-                    <p class="col rounded bg-dark bg-opacity-50 p-4 ms-3">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+
+                    <p class="col rounded bg-dark bg-opacity-50 p-4 ms-3 z-2  ">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                         totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
                         explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
                         magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
@@ -23,9 +25,11 @@
                         suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
                         in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
                         nulla pariatur?"</p>
+
                     <a class="col d-flex flex-row" href="/">
-                        <img class="logo img-fluid w-75 h-auto align-items-center m-auto" src="{{ asset('build/images/afac_black.png') }}" alt="Logo">
+                        <img class="logo img-fluid w-75 h-auto align-items-center m-auto z-1" src="{{ asset('build/images/afac_black.png') }}" alt="Logo">
                     </a>
+                    <img class=" afac2   z-0 position-absolute w-50"src="{{ asset('build/images/hexagone.png') }}" alt="">
                 </div>
 
             </li>
@@ -67,4 +71,5 @@
             </li>
         </ul>
     </div>
+
 {% endblock %}

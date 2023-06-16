@@ -1,10 +1,8 @@
-.container{
-    height: 100vh;
-}
+
 .accordion{
-    margin: 3rem 0;
+    margin: 0;
     li{
-        list-style: none;
+
 
         margin: 20px 0 ;
         padding: 10px;
@@ -47,11 +45,7 @@ input[type="radio"]{
 .accordion input[type="radio"]:checked + label::before{
     content:'-';
 }
-.afac{
 
-    background-image: url("https://www.labalaguere.com/sites/default/files/styles/bandeau_edito_default/public/upload/thematiques/reunion.jpg?itok=mqZVeA8m");
-
-}
 
 .ihoi{
     background-color:#405478 ;
@@ -62,5 +56,14 @@ input[type="radio"]{
 }
 .bg-objetT label{
     color:#b18ccb ;
+}
+.afac {
 
+    top:-150px;
+    left:-150px;
+}
+.afac2 {
+
+    top:30%;
+    left:65%;
 }
