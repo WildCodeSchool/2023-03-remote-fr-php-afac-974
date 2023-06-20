@@ -7,7 +7,7 @@
         <div class="d-flex flex-row justify-content-start">
             <p class="nationality pt-1 text-black ">{{ artist.nationality }}</p>
             <p class="date-of-birth align-self-end text-black px-5">
-                08/07/1996</p>
+                {{ artist.dateOfBirth|date('d/m/Y') }}</p>
         </div>
         <div class="biography mt-5">
             <p class="text-black ">{{ artist.biography }}</p>
@@ -15,7 +15,11 @@
     </div>
     <div class="clip-path d-flex mt-3 pb-3 col justify-content-center align-self-center">
         <div class="hexagon-2 order-lg-2">
+            {% if artist.image %}
+                <img class="img-fluid" src="{{ vich_uploader_asset(artist) }}" alt="Logo">
+            {% else %}
             <img class="img-fluid" src="{{ asset('build/images/artist.png') }}" alt="Logo">
+            {% endif %}
         </div>
     </div>
 </div>
