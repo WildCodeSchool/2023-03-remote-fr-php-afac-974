@@ -21,7 +21,7 @@
 
     }
 }
-label::before{
+.accordion label::before{
     content:"+";
     margin-right:10px;
     font-size: 24px;
@@ -44,7 +44,7 @@ input[type="radio"]{
 
 }
 .accordion input[type="radio"]:checked + label::before{
-    content:'-';
+    content:'';
 }
 
 
