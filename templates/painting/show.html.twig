@@ -1,29 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Work
+{% block title %} {{ painting.title }}
 {% endblock %}
 
 {% block body %}
 
 
+        <div class=" container position-relative mt-3 p-0 ">
+            <div class="painting-frame  ">
+                <img src="{{ painting.image }}" class="  w-100 h-100   " alt="...">
+                <div class="name-painting  position-absolute bg-black bg-opacity-50  text-white blur px-3 mt-1    rounded ">
 
-	<div class="containe21r-fluid w-100">
-		<div class=" w-100">
-			 <img src="{{ asset('build/images/fessesJohann.jpg') }}" class="object-fit-cover w-100" alt="...">
-		</div>
-	</div>
+                    <p class="row "> {{ painting.title }} de {{ painting.artist.name }}</p> <!--mettre lien auteur-->
+                    <a class="row justify-content-center text-white " href="/"> +d'infos</a>
+                </div>
+                <div class="  position-absolute description blur w-75  ">
 
-	<!--Menu accordéon-->
-	<div class="accordion accordion-flush bg-info" id="accordionFlushExample">
-		<div class="accordion-item bg-info">
-			<h2 class="accordion-header" id="flush-headingOne">
-				<button class="accordion-button collapsed d-flex " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"></button>
-			</h2>
-			<div id="flush-collapseOne" class="accordion-collapse collapse " aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-				<div class="accordion-body text-light">Placeholder content for this accordion, which is intended to demonstrate the
-					<code>.accordion-flush</code>
-					class. This is the first item's accordion body.</div>
-			</div>
-		</div>
-	</div>
-</div>{% endblock %}
+                    <div class=" row  bg-black bg-opacity-50  text-white  rounded ">
+                        <div class=" row text-center pt-4 ">
+                            <p class="col">Artiste : {{ painting.artist.name }}</p>
+                            <p class="col">Date de réalisation : {{ painting.date|date('d/m/Y') }} </p>
+
+                        </div>
+
+                        <div class="row text-center ">
+                            <p class="col ">Technique : </p>
+                            <p class="col">Dimension : H : {{ painting.height }} - L : {{ painting.width }}</p>
+                        </div>
+                        <hr class="  ">
+                        <div class="px-5 ">
+                            <h2 class=" text-center">Anecdote :</h2>
+                            <p class=" p-5"> {{ painting.anecdote }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <div class="w-50 m-auto pt-5"><h2 class="text-center">Oeuvre du même artiste</h2>
+        <hr class="mb-0">
+    </div>
+    <div class="row gap-2">
+        <div class="oeuvre-artiste  col  h-100 image-fluid"><img src="{{ painting.image }}" alt=""></div>
+        <div class="oeuvre-artiste col  h-100 image-fluid"><img src="{{ painting.image }}" alt=""></div>
+        <div class="oeuvre-artiste col  h-100 object-fit-cover"><img src="{{ painting.image }}" alt=""></div>
+        <div class="oeuvre-artiste col  h-100 object-fit-cover"><img src="{{ painting.image }}" alt=""></div>
+    </div>
+
+{% endblock %}
