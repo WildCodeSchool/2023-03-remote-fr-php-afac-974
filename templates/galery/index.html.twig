@@ -6,19 +6,16 @@
 {% block body %}
 
 
-	<div class="container mt-1  p-3">
-        <div class="d-flex flex-row justify-content-center ">
+	<div class="container mt-1 p-3 ">
+        <div class= "d-flex flex-row justify-content-center">
 
-            <div class=" d-flex flex-column mb-2 ">
-                <h4>Tapez ici votre recherche</h4>
+            <div>
+                <h4 class="text-center fw-normal">Tapez ici votre recherche</h4>
 
-                <div class=" input-group d-flex justify-content-around ">
-                    {{ form_start(form) }}
-                    {{ form_widget(form.search) }}
-                    <a href="{{ path('galery_index') }}"
-                       class="btn btn-primary ">
-                        reset
-                    </a>
+                <div class="d-flex gap-2 mb-2">
+                    <div>{{ form_start(form) }}
+                    {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, oeuvre ..."} }) }}</div>
+                    <a class="btn btn-primary" href="{{ path('galery_index') }}">reset</a>
                 </div>
                 {{ form_end(form) }}
             </div>
