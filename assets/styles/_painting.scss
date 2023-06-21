@@ -1,8 +1,15 @@
-.accordion-body{
-text-decoration-color:#fff;
+.accordion-body {
+    text-decoration-color: #fff;
 }
 
-.containe21r-fluid{
-height: 50%;
-overflow:hidden
+.cont {
+    max-width: 60%;
+    object-fit: cover;
+    display: flex;
+    align-content: stretch;
+    height: 100%;
+}
+
+.accordion-button {
+    background-color: #73658A;
 }

@@ -1,0 +1,139 @@
+.logoprofil {
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-top: 2.5rem;
+    justify-content: center;
+    display: flex;
+}
+
+.logoprofil:hover {
+    transform: scale(1.25) rotate(2deg);
+    transition: all ease-in-out .4s;
+}
+
+.conta1ner-fluid,
+.btn-add {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-profile {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.b1t {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2.5rem;
+
+}
+
+.card1 {
+    border: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+}
+
+.kard {
+    justify-content: space-evenly;
+}
+
+.bton {
+    color: #ffffff;
+    border: #1a1a1a;
+    border-radius: 0;
+}
+
+.div.card1 {
+    border: 1px solid black;
+}
+
+.containe input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.containe {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.containe svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+    fill: #615b5b;
+}
+
+.containe svg:hover {
+    transform: scale(1.1);
+}
+
+.containe input:checked~svg {
+    fill: $primary;
+}
+
+.input-group-text {
+    color: #ffffff;
+}
+
+
+.btn {
+    padding: 5px 13px;
+    border: unset;
+    border-radius: 5px;
+    color: #ffffff;
+    z-index: 1;
+    background: $primary;
+    position: relative;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.btn:hover {
+    color: $blue;
+    background-color: $grey;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+@media screen and (max-width: 995px) {
+    .card1 {
+        justify-content: center;
+    }
+}
+
+.hr-profile {
+    color: #1a1a1a;
+    border-top: 2px solid black;
+}
