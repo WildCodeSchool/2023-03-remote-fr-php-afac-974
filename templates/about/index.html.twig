@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos{% endblock %}
+
+{% block body %}
+    <div class="rectangle p-4 d-flex justify-content-center">
+        <div class="rectangle_1 rounded p-1 bg-secondary-inverse text-white w-50 p-4 text-justify">
+            Veuillez noter que toutes les images présentes sur ce site ne sont pas libres de droit.<br>
+            Elles sont soumises à des droits d'auteur et ne peuvent être utilisées sans autorisation préalable.<br><br>
+            Nous vous encourageons à respecter les droits de propriété intellectuelle des créateurs et<br>
+            à obtenir les autorisations nécessaires avant toute utilisation des images présentes sur ce site.
+        </div>
+    </div>
+
+    <div class="container mb-4">
+        <div class="accordion accordion-flush" id="accordionFlush">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed border border-bottom-0" id="accordion"type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <img src="{{ asset('build/images/art_afac.png') }}" alt="" height="22" width="60" class="spacing-right"> AFAC974
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush">
+                    <div class="accordion-body text-justify">
+                        <b>CAPELINE 974</b> est un projet de plate-forme d'informations, et de formations à caractère pédagogiques, relatives aux outre-mers.<br><br>
+                        C'est aussi une mise en relation de partenaires divers, impliqués dans le développement durable des outre-mers, en particulier dans l'océan Indien.<br>
+                        Elle s'adresse aux élèves de la zone et à leurs enseignants, à leurs familles, et aux collectivités.<br><br>
+                        Ses publications pédagogiques ou scientifiques sont vérifiées par un Comité scientifique.<br>
+                        Ses actions en ligne et sur le terrain s'appuient sur des contributions bénévoles, mais aussi sur le travail de stagiaires rémunérés, et depuis 2021, d'un emploi aidé (stagiaire en formation à l'IUT de Saint-Pierre).<br><br>
+                        Des contributions occasionnelles de chercheurs ou de spécialistes dans le domaine du numérique et/ou de l'enseignement nourrissent la réflexion autour de l'enseignement avec le numérique (Réunion, Inde, Madagascar, Belgique...).
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed border border-bottom-0 border-top-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <img src="{{ asset('build/images/ihoi.png') }}" alt="" height="50" width="50" class="spacing-right"> IHOI
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlush">
+                    <div class="accordion-body">
+                        <b>IHOI</b> : <a href="https://www.ihoi.org/" target="_blank">Iconothèque historique de l'océan Indien</a><br><br>
+                        Dispersée, fragile, méconnue, la mémoire iconographique de l’océan Indien révèle l’Histoire.<br>
+                        À la croisée des routes et des peuples, dessins, aquarelles, peintures, gravures, photographies mettent en scène le kaléidoscope de l’humanité et de ses cultures.<br><br>
+                        Préservée par les familles, les collectionneurs, les entreprises, les associations et les institutions, l’image offre une source historique irremplaçable là où l’écrit est muet et le souvenir perdu.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed border border-top-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <img src="{{ asset('build/images/objet_temoin_favicon.png') }}" alt="" height="50" width="50" class="spacing-right"> Objet témoin
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush">
+                    <div class="accordion-body">
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col-2 w-10">
+                                    <a href="#"><img src="{{ asset('build/images/objet_temoin.png') }}" class="w-100" alt="Objet témoin"></a>
+                                </div>
+                                <div class="col-10 text-center">
+                                    Objet Témoin est un laboratoire d'étude, de production et de transmission du patrimoine à l'ère du numérique.<br><br>
+                                    <a href="https://www.linkedin.com/company/objet-temoin/" target="_blank">Cliquez-ici</a> pour découvrir ce qu'est ce laboratoire d'étude.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
