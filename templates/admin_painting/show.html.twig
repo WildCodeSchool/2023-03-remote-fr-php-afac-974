@@ -4,9 +4,9 @@
 
 {% block body %}
     <h1>Painting</h1>
-
-    <table class="table">
-        <tbody>
+    <div class="m-5 table-responsive">
+        <table class="table table-striped">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ painting.id }}</td>
@@ -39,9 +39,9 @@
                 <th>CreatedAt</th>
                 <td>{{ painting.createdAt ? painting.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
     <a href="{{ path('app_admin_painting_index') }}">back to list</a>
 
     <a href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">edit</a>
