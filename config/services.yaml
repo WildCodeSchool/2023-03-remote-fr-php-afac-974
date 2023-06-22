@@ -6,6 +6,7 @@
 parameters:
     uploads_dir: '/uploads'
     upload_artist_directory: '%uploads_dir%/artists/'
+    upload_painting_directory: '%uploads_dir%/paintings/'
 
 services:
     # default configuration for services in *this* file
