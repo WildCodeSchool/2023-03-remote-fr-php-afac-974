@@ -1,101 +1,11 @@
-.logoprofil {
-    border-radius: 50%;
-    border: 1px solid black;
-    margin-top: 2.5rem;
-    justify-content: center;
-    display: flex;
-}
-
+//Animation logo profil//
 .logoprofil:hover {
     transform: scale(1.25) rotate(2deg);
     transition: all ease-in-out .4s;
 }
 
-.conta1ner-fluid,
-.btn-add {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.form-profile {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.b1t {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2.5rem;
-
-}
-
-.card1 {
-    border: 1px solid #1a1a1a;
-    display: flex;
-    flex-direction: column;
-}
-
-.kard {
-    justify-content: space-evenly;
-}
-
-.bton {
-    color: #ffffff;
-    border: #1a1a1a;
-    border-radius: 0;
-}
-
-.div.card1 {
-    border: 1px solid black;
-}
-
-.containe input{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.containe {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-}
-
-.containe svg {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 50px;
-    width: 50px;
-    transition: all 0.3s;
-    fill: #615b5b;
-}
-
-.containe svg:hover {
-    transform: scale(1.1);
-}
-
-.containe input:checked~svg {
-    fill: $primary;
-}
-
-.input-group-text {
-    color: #ffffff;
-}
-
-
-.btn {
-    padding: 5px 13px;
+//Animation boutton//
+.avatar-user .btn {
     border: unset;
     border-radius: 5px;
     color: #ffffff;
@@ -108,7 +18,7 @@
     overflow: hidden;
 }
 
-.btn::before {
+.avatar-user .btn::before {
     content: "";
     position: absolute;
     border-radius: 5px;
@@ -118,22 +28,37 @@
     transition: all 250ms
 }
 
-.btn:hover {
+.avatar-user .btn:hover {
     color: $blue;
     background-color: $grey;
 }
 
-.btn:hover::before {
-    width: 100%;
+//Animation Etoiles//
+.star input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
 }
 
-@media screen and (max-width: 995px) {
-    .card1 {
-        justify-content: center;
-    }
+.star .container {
+    user-select: none;
 }
 
-.hr-profile {
-    color: #1a1a1a;
-    border-top: 2px solid black;
+.star .container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+    fill: #615b5b;
+}
+
+.star .container svg:hover {
+    transform: scale(1.1);
+}
+
+.star .container input:checked~svg {
+    fill: $tertiary;
 }
