@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ painting.title }}
+{% endblock %}
+
+{% block body %}
+
+
+        <div class="container position-relative mt-3 p-0">
+            <div class="painting-frame">
+                <img src="{{ painting.image }}" class="w-100 object-fit-cover" alt="{{ painting.title }} de {{ painting.artist.name }}">
+                <div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50 text-white blur px-3 mt-1 rounded-1" id="div-head">
+
+                    <p> {{ painting.title }} de <a class="text-white fw-bold" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a></p>
+                    <a class="row justify-content-center text-white " id="btn-painting" href="#"> + d'infos</a>
+                </div>
+                <div class="description w-xl-75" id="description">
+
+                    <div class=" row bg-black blur bg-opacity-50 text-white rounded-1">
+                        <a class="row justify-content-end text-white mt-3 text-decoration-none" id="btn-description" href="#"> X </a>
+                        <div class="row text-center pt-4">
+                            <p class="col">Artiste : <a class="text-white" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a></p>
+                            <p class="col">Date de réalisation : {{ painting.date|date('d/m/Y') }} </p>
+
+                        </div>
+
+                        <div class="row text-center ">
+                            <p class="col ">Technique : {{ painting.category.name }}</p>
+                            <p class="col">Hauteur : {{ painting.height }}cm | Longueur : {{ painting.width }}cm</p>
+                        </div>
+                        <hr>
+                        <div class="p-5">
+                            <h2 class="text-center">Anecdote :</h2>
+                            <p class="p-2"> {{ painting.anecdote }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="m-auto pt-5"><h2 class="text-center">Oeuvre du même artiste</h2>
+        <hr class="w-25 mx-auto">
+    </div>
+    <div class="row mx-3 justify-content-center">
+        {% for painting in painting.artist.paintings %}
+
+            <div class="col-md-6 col-xl-3 mt-3 mb-3">
+                <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
+                    <img class="w-100 h-100 object-fit-cover" src="{{ painting.image }}"
+                         alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
+                    <a href="{{ path('painting_show', { id: painting.id })  }}" class="stretched-link">
+                        <span class="visually-hidden-focusable">voir le détail</span>
+                    </a>
+                    <div class="position-absolute w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        const description = document.getElementById("description");
+        const divHead = document.getElementById("div-head")
+        const btnHead = document.getElementById("btn-painting");
+        const btnDescription = document.getElementById("btn-description")
+
+        btnHead.onclick = function () {
+            if (description.style.display !== "block") {
+                description.style.display = "block";
+                divHead.style.display= "none";
+            } else {
+                description.style.display = "none";
+                divHead.style.display="block";
+            }
+        };
+        btnDescription.onclick = function() {
+            if (divHead.style.display !== "block") {
+                divHead.style.display = "block";
+                description.style.display ="none";
+            } else{
+                divHead.style.display = "none";
+                description.style.display ="block";
+            }
+        };
+
+
+    </script>
+{% endblock %}
