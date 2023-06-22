@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Painting{% endblock %}
+{% block title %}{{ painting.title }}{% endblock %}
 
 {% block body %}
-    <h1>Painting</h1>
+    <h1 class="d-flex flex-row justify-content-center my-3">{{ painting.title }}</h1>
     <div class="m-5 table-responsive">
         <table class="table table-striped">
             <tbody>
@@ -42,9 +42,11 @@
             </tbody>
         </table>
     </div>
-    <a href="{{ path('app_admin_painting_index') }}">back to list</a>
+    <div class="mx-3">
+    <a class="btn btn-primary my-3" href="{{ path('app_admin_painting_index') }}">Retour à l'index</a>
 
-    <a href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">Edit</a>
 
     {{ include('admin_painting/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Painting index{% endblock %}
+{% block title %}Index des oeuvres{% endblock %}
 
 {% block body %}
-    <h1>Painting index</h1>
-    <div class="table-responsive">
+    <h1 class="d-flex flex-row justify-content-center my-3">Index des oeuvres</h1>
+    <div class="m-5 table-responsive">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -31,8 +31,8 @@
                     <td>{{ painting.image }}</td>
                     <td>{{ painting.createdAt ? painting.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                     <td>
-                        <a href="{{ path('app_admin_painting_show', {'id': painting.id}) }}">show</a>
-                        <a href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">edit</a>
+                        <a class="btn btn-primary my-1" href="{{ path('app_admin_painting_show', {'id': painting.id}) }}">Voir</a>
+                        <a class="btn btn-info" href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">Edit</a>
                     </td>
                 </tr>
             {% else %}
@@ -43,5 +43,5 @@
             </tbody>
         </table>
     </div>
-    <a href="{{ path('app_admin_painting_new') }}">Create new</a>
+    <a class="btn btn-success mb-3 ms-3" href="{{ path('app_admin_painting_new') }}">Create new</a>
 {% endblock %}

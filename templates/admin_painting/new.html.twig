@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Painting{% endblock %}
+{% block title %}Nouvelle oeuvre{% endblock %}
 
 {% block body %}
-    <h1>Create new Painting</h1>
-
+    <h1 class="d-flex flex-row justify-content-center my-3">Ajouter une oeuvre</h1>
+<div class="row col-lg-6 offset-lg-3  ">
     {{ include('admin_painting/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_painting_index') }}">back to list</a>
+    <a class="btn btn-primary my-3" href="{{ path('app_admin_painting_index') }}">Retour à l'index</a>
+</div>
 {% endblock %}

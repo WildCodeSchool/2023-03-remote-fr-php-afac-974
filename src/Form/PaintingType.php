@@ -31,6 +31,10 @@ class PaintingType extends AbstractType
             ])
             ->add("createdAt", DateTimeType::class, [
                 "data" => new DateTime("now"),
+                'label' => '  ',
+                'attr' => [
+                    'hidden' => true,
+                ]
             ])
             ->add('category', EntityType::class, [
                 "class" => Category::class,
