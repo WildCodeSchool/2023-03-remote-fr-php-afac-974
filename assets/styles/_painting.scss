@@ -1,4 +1,7 @@
-
+.painting-frame img{
+    max-height: 80vh;
+    width: auto;
+}
 .description{
     top: 50%;
     left: 50%;
@@ -60,9 +63,22 @@
         opacity: 1;
     }
 }
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 1200px) {
     .description{
-        position: inherit;
+        position: relative;
+        top:auto;
+        left: auto;
+        transform: none;
+        margin:3rem auto;
+        width: 90%;
+        height: auto;
+
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .description{
+        position: absolute;
     }
 
 }
