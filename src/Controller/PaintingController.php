@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Painting;
+use App\Repository\PaintingRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,7 @@ class PaintingController extends AbstractController
     {
         return $this->render('painting/show.html.twig', [
             'painting' => $painting,
+
         ]);
     }
 }
