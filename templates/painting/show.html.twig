@@ -5,19 +5,19 @@
 
 {% block body %}
 
-
-        <div class="container position-relative mt-3 p-0">
+    <h1 class="text-center my-4 ">{{ painting.title }}</h1>
+        <div class="container position-relative  p-0">
             <div class="painting-frame">
-                <a href="{{ painting.image }}" target="_blank" rel="noopener noreferrer" >
-                    <img src="{{ (""/uploads/paintings" ~ painting.image")|imagine_filter('sound_cover') }}"
+                <a href="{{ vich_uploader_asset(painting)|imagine_filter('watermark') }}" target="_blank" rel="noopener noreferrer" >
+                    <img src="{{ vich_uploader_asset(painting)|imagine_filter('watermark_bottom') }}"
                          class="w-100 object-fit-cover"
                          alt="{{ painting.title }} de {{ painting.artist.name }}">
                 </a>
                 <div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50
-                 text-white blur px-3 mt-1 rounded-1" id="div-head">
+                 text-white blur px-3 mt-3 rounded-1" id="div-head">
 
-                    <p> {{ painting.title }} de <a class="text-white fw-bold" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a></p>
-                    <a class="row justify-content-center text-white " id="btn-painting" href="#"> + d'infos</a>
+
+                    <a class="row justify-content-center text-white px-3 fs-4 " id="btn-painting" href="#"> + d'infos</a>
                 </div>
                 <div class="description w-xl-75" id="description">
 
@@ -44,17 +44,17 @@
             </div>
         </div>
 
-    <div class="m-auto pt-5"><h2 class="text-center">Oeuvre du même artiste</h2>
-        <hr class="w-25 mx-auto">
+    <div class="mx-auto pt-4"><h2 class="text-center">Autres oeuvres de {{ painting.artist.name }} </h2>
+        <hr class="w-50 mx-auto">
     </div>
     <div class="row mx-3 justify-content-center">
         {% for painting in painting.artist.paintings %}
 
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src="{{ painting.image }}"
+                    <img class="w-100 h-100 object-fit-cover" src="{{ vich_uploader_asset(painting)|imagine_filter('limit400')|imagine_filter('watermark_bottom') }}"
                          alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
-                    <a href="{{ path('painting_show', { id: painting.id })  }}" class="stretched-link">
+                    <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
                     </a>
                     <div class="position-absolute w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
