@@ -19,8 +19,8 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
     {
         $uploadPaintingDir = $this->parameterBag->get('upload_painting_directory');
 
-        if (!is_dir(__DIR__ . '/../../public/' . $uploadPaintingDir)) {
-            mkdir(__DIR__ . '/../../public/' . $uploadPaintingDir, recursive: true);
+        if (!is_dir(__DIR__ . '/../../public' . $uploadPaintingDir)) {
+            mkdir(__DIR__ . '/../../public' . $uploadPaintingDir, recursive: true);
         }
 
         $faker = Factory::create();
@@ -28,7 +28,7 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i < 20; $i++) {
             copy(
                 __DIR__ . '/data/paintings/' . 'reeunion_de_famille187438.jpg',
-                __DIR__ . '/../../public/' . $uploadPaintingDir . '/' . 'reeunion_de_famille187438.jpg'
+                __DIR__ . '/../../public' . $uploadPaintingDir . '/' . 'reeunion_de_famille187438.jpg'
             );
             $painting = new Painting();
             $painting->setTitle($faker->sentence(3));
