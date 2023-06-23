@@ -4,12 +4,14 @@
 
 {% block body %}
     <h1 class="d-flex flex-row justify-content-center my-3">Modifier l'oeuvre "{{ painting.title }}"</h1>
-    <div class="row col-lg-6 offset-lg-3">
+    <div class="row">
+    <div class="col-lg-6 offset-lg-3">
 
     {{ include('admin_painting/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a class="btn btn-primary my-3" href="{{ path('app_admin_painting_index') }}">Retour à l'index</a>
 
     {{ include('admin_painting/_delete_form.html.twig') }}
+    </div>
     </div>
 {% endblock %}
