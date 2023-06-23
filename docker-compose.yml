@@ -4,6 +4,7 @@ services:
   web:
     env_file:
       - .env
+      - .env.local
     environment:
       # @todo add APP_ENV default dev
       APP_ENV: ${APP_ENV:-test}
