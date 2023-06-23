@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use DateTimeImmutable;
 
 #[Route('/admin/painting')]
 #[IsGranted("ROLE_ADMIN")]
@@ -31,6 +32,7 @@ class AdminPaintingController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $painting->setCreatedAt(new DateTimeImmutable());
             $paintingRepository->save($painting, true);
 
             return $this->redirectToRoute('app_admin_painting_index', [], Response::HTTP_SEE_OTHER);

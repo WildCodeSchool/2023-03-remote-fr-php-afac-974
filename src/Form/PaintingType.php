@@ -29,13 +29,6 @@ class PaintingType extends AbstractType
             ->add('imageFile', VichFileType::class, [
                 "required" => false,
             ])
-            ->add("createdAt", DateTimeType::class, [
-                "data" => new DateTime("now"),
-                'label' => '  ',
-                'attr' => [
-                    'hidden' => true,
-                ]
-            ])
             ->add('category', EntityType::class, [
                 "class" => Category::class,
                 "choice_label" => "name",
