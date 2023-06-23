@@ -23,7 +23,8 @@
 		<div class=" card-deck grid gap-4 mt-2 mx-3">
 			{% for painting in paintings %}
 				<div class="galery card-apparition position-relative overflow-hidden ">
-					<img class="w-100 h-100 object-fit-cover" src="{{painting.image}}" alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}.">
+                    <a href="{{ path('painting_show', { id: painting.id }) }}" >
+                        <img class="w-100 h-100 object-fit-cover" src="{{painting.image }}" alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}."></a>
 					<div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
 						<p class="text-white m-0">{{painting.title}}</p>
 						<a class=" text-decoration-none text-white" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{painting.artist.name}}</a>
