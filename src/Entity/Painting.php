@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\PaintingRepository;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PaintingRepository::class)]
+#[Vich\Uploadable]
 class Painting
 {
     #[ORM\Id]
@@ -29,7 +33,10 @@ class Painting
     #[ORM\Column(nullable: true)]
     private ?int $width = null;
 
-    #[ORM\Column(length: 255)]
+    #[Vich\UploadableField(mapping: 'painting_file', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -40,6 +47,9 @@ class Painting
 
     #[ORM\ManyToOne(inversedBy: 'paintings')]
     private ?Artist $artist = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -111,7 +121,7 @@ class Painting
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
@@ -150,6 +160,36 @@ class Painting
     public function setArtist(?Artist $artist): self
     {
         $this->artist = $artist;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
