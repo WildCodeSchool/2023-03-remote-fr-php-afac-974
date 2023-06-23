@@ -6,7 +6,8 @@
 parameters:
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
     uploads_dir: '/uploads'
-    upload_artist_directory: '%uploads_dir%/artists/'
+    upload_artist_directory: '%uploads_dir%/artists'
+    upload_painting_directory: '%uploads_dir%/paintings'
 
 services:
     # default configuration for services in *this* file
