@@ -30,8 +30,9 @@
         {% for painting in artist.paintings %}
             <div class="col-md-6 col-xl-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src="{{ painting.image }}"
-                         alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
+                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting) }}"
+                         alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}.">
+
                     <a href="#" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
                     </a>
