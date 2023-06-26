@@ -4,56 +4,45 @@
 {% endblock %}
 
 {% block body %}
-	<section class="avatar-user container text-center mt-3">
-		<h2 class="text-black">Mon profil</h2>
-		<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
-		<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Logo">
-		<div class="text-center mt-2">
-			<a href="#" class="btn">Ajouter un avatar</a>
-		</div>
-	</section>
+	{% if app.user %}
+		<section class="avatar-user container text-center mt-3">
+			<h2 class="text-black">Mon profil</h2>
+			<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
+			<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Logo">
+			<div class="text-center mt-2"></div>
+		</section>
 
-	<section class="container">
-		<div class="row">
-			<div class="col-lg-4 offset-lg-4">
-				<form class="needs-validation mx-2" novalidate>
-					<div class=" mb-3">
-						<label for="validationCustom01" class="form-label">Prénom</label>
-						<input type="text" class="form-control bg-primary-inverse" id="validationCustom01" value="" required>
-						<div class="valid-feedback"></div>
-					</div>
-					<div class="mb-3">
-						<label for="validationCustom02" class="form-label">Nom</label>
-						<input type="text" class="form-control bg-primary-inverse" id="validationCustom02" value="" required>
-						<div class="valid-feedback"></div>
-					</div>
-					<div class="mb-3">
-						<label for="validationCustomUsername" class="form-label ">Email</label>
-						<div class="input-group has-validation">
-							<span class="input-group-text text-white bg-primary" id="inputGroupPrepend">@</span>
-							<input type="text" class="form-control bg-primary-inverse" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-							<div class="invalid-feedback"></div>
+		<section class="container">
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4">
+					<form class="text-center border-2 border border-info rounded-1 mb-3 pt-3 px-auto">
+						<div>
+							<p>Prénom :
+								{{app.user.firstname}}</p>
 						</div>
-					</div>
-					<div class="mb-3">
-						<label for="validationCustom03" class="form-label">Mot de passe</label>
-						<input type="password" class="form-control bg-primary-inverse" id="validationCustom03" required>
-						<div class="invalid-feedback"></div>
-					</div>
-					<div class="mb-3">
-						<label for="validationCustom03" class="form-label">Nouveau mot de passe</label>
-						<input type="password" class="form-control bg-primary-inverse" id="validationCustom03" required>
-						<div class="invalid-feedback"></div>
-					</div>
+						<div>
+							<p>Nom :
+								{{app.user.lastname}}
+							</p>
 
-					<div class="avatar-user mb-3 text-center">
-						<button class="  btn " type="submit">Enregistrer</button>
-					</div>
-				</form>
+						</div>
+						<div>
+							<p>Email :
+								{{app.user.email}}</p>
+						</div>
+					</form>
+				</div>
+			{% endif %}
+
+			<div class="avatar-user mb-3 text-center">
+
+				<a href="{{ path('app_profile_edit') }}" class="btn">Modifier mon profil</a>
+
+
 			</div>
 		</div>
 
-		<div class="d-flex flex-column pt-5">
+		<div class=" d-flex flex-column pt-5">
 			<h2 class=" text-black align-self-center">
 				Mes favoris</h2>
 			<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
