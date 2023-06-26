@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PaintingRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -40,6 +42,12 @@ class Painting
 
     #[ORM\ManyToOne(inversedBy: 'paintings')]
     private ?Artist $artist = null;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'paintings')]
+    private Collection $users;
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -150,6 +158,33 @@ class Painting
     public function setArtist(?Artist $artist): self
     {
         $this->artist = $artist;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addPainting($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removePainting($this);
+        }
 
         return $this;
     }

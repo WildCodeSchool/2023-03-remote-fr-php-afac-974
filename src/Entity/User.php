@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -37,6 +39,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
+    #[ORM\ManyToMany(targetEntity: Painting::class, inversedBy: 'users')]
+    private Collection $paintings;
+    public function __construct()
+    {
+        $this->paintings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -141,6 +149,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->avatar = $avatar;
 
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Painting>
+     */
+    public function getPaintings(): Collection
+    {
+        return $this->paintings;
+    }
+
+    public function addPainting(Painting $painting): static
+    {
+        if (!$this->paintings->contains($painting)) {
+            $this->paintings->add($painting);
+        }
+
+        return $this;
+    }
+
+    public function removePainting(Painting $painting): static
+    {
+        $this->paintings->removeElement($painting);
         return $this;
     }
 }
