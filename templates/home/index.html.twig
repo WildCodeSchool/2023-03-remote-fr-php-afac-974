@@ -5,69 +5,94 @@
 
 {% block body %}
 
-{% for category, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="alert alert-{{ category }}">
-            {{ message }}
-        </div>
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
 
-    <div class=" w-100 " >
+    <div class=" w-100 ">
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
 
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
 
             </div>
 
 
-             <div class="carousel-inner home-carousel ">
+            <div class="carousel-inner home-carousel ">
 
                 <div class="carousel-item active h-100 ">
-                    <img src="{{ asset('build/images/fessesJohann.jpg') }}" class="object-fit-cover w-100 h-100 img-fluid" alt="...">
+                    <img src="{{ asset('build/images/home-picture.jpg') }}"
+                         class="object-fit-cover w-100 h-100 img-fluid" alt="...">
                     <div class="carousel-caption d-flex align-content-stretch flex-wrap justify-content-evenly h-100 ">
-                        <div class=" align-self-center welcome-caption bg-black bg-opacity-50 py-5 px-4 rounded">
-                            <h1 class="mb-4" >Bienvenue sur le site de l'AFAC974</h1>
-                            <p>Lorem ipsum dolor sit amet. Nam placeat nihil qui iure quae eos magnam ipsum eos dolorem minus. Est facilis culpa sit quas tenetur ad nihil earum. Est tenetur dicta in sunt nihil ut nobis aperiam hic molestiae debitis ea neque illum et provident quibusdam et nihil nisi. Aut consectetur impedit et alias quia in eius dolore rem architecto voluptas.</p>
+                        <div class=" align-self-center welcome-caption bg-black bg-opacity-50 blur py-5 px-4 rounded">
+                            <h1 class="mb-4">Bienvenue sur Art-AFAC</h1>
+                            <p>L'Association des Familles Amies de CAPELINE vous présente une séléction d'oeuvre issue
+                                de la Réunion et de l'océan Indien.
+                                <br>
+                                Venez découvrir les richesses de la région en compagnie de nos partenaires : L'ihoi
+                                ainsi qu'Objet Témoin.
+
+                            </p>
                         </div>
                     </div>
                 </div>
 
-{% for painting in paintings %}
+                {% for painting in paintings %}
 
 
-                <div class="carousel-item  h-100   ">
-                    <img src="{{painting.image}}" class="object-fit-cover w-100 h-100 img-fluid " alt="...">
-                    <div class="carousel-caption d-flex align-content-stretch flex-wrap justify-content-evenly h-100 ">
-                        <div class="  align-self-center welcome-caption bg-black bg-opacity-50 py-5 px-4 rounded ">
-                            <h1 class="mb-4" >Bienvenue sur le site de l'AFAC974</h1>
-                            <p>Lorem ipsum dolor sit amet. Nam placeat nihil qui iure quae eos magnam ipsum eos dolorem minus. Est facilis culpa sit quas tenetur ad nihil earum. Est tenetur dicta in sunt nihil ut nobis aperiam hic molestiae debitis ea neque illum et provident quibusdam et nihil nisi. Aut consectetur impedit et alias quia in eius dolore rem architecto voluptas.</p>
-                        </div>
+                    <div class="carousel-item  h-100   ">
+                        <img src="{{ vich_uploader_asset(painting)|imagine_filter('watermark_bottom') }}"
+                             class="object-fit-cover w-100 h-100 img-fluid " alt="...">
+                        <div
+                            class="carousel-caption d-flex  flex-wrap align-content-stretch justify-content-evenly h-100 ">
+                            <div
+                                class=" align-self-center row welcome-caption bg-black bg-opacity-50 blur py-5 px-4 rounded">
+                                <h1 class="mb-4">Bienvenue sur Art-AFAC</h1>
+                                <p>L'Association des Familles Amies de CAPELINE vous présente une séléction d'oeuvre
+                                    issue de la Réunion et de l'océan Indien.
+                                    <br>
+                                    Venez découvrir les richesses de la région en compagnie de nos partenaires : L'ihoi
+                                    ainsi qu'Objet Témoin.
 
-                        <div class="painting-info align-self-end justify-content-center mb-2 d-inline-block py-2 px-5 bg-black bg-opacity-50 rounded ">
-                            <h4> {{ painting.title }}</h4>
-                            <a class="text-decoration-none text-primary-inverse "href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a>
+                                </p>
+                            </div>
+
+                            <div
+                                class="painting-info align-self-end row  justify-content-center  mx-auto mb-2  py-2 px-1 bg-black bg-opacity-50 blur rounded ">
+                                <h4> {{ painting.title }}</h4>
+                                <a class="text-decoration-none text-primary-inverse "
+                                   href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-{% endfor %}
+                {% endfor %}
 
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
-
 {% endblock %}

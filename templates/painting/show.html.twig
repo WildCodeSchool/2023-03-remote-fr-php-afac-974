@@ -6,11 +6,13 @@
 {% block body %}
 
     <h1 class="text-center my-4 ">{{ painting.title }}</h1>
-        <div class="container position-relative  p-0">
-            <div class="painting-frame">
-                <a href="{{ vich_uploader_asset(painting)|imagine_filter('watermark') }}" target="_blank" rel="noopener noreferrer" >
-                    <img src="{{ vich_uploader_asset(painting)|imagine_filter('watermark_bottom') }}"
-                         class="w-100 object-fit-cover"
+        <div class="container position-relative p-0 mb-5">
+            <div class=" ">
+                <a  class="stretched-link"
+                    href="{{ vich_uploader_asset(painting)|imagine_filter('watermark') }}"
+                   target="_blank" rel="noopener noreferrer" >
+                    <img class="painting-image d-block mx-auto object-fit-cover w-75  "
+                         src="{{ vich_uploader_asset(painting)|imagine_filter('limit780') }}"
                          alt="{{ painting.title }} de {{ painting.artist.name }}">
                 </a>
                 <div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50
@@ -52,7 +54,7 @@
 
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src="{{ vich_uploader_asset(painting)|imagine_filter('limit400')|imagine_filter('watermark_bottom') }}"
+                    <img class="w-100 h-100 object-fit-cover" src="{{ vich_uploader_asset(painting)|imagine_filter('limit400') }}"
                          alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
                     <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
