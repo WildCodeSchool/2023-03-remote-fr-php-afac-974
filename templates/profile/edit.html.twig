@@ -5,49 +5,49 @@
 
 {% block body %}
 
- {% if app.user %}
-	<section class="avatar-user container text-center mt-3">
-		<h2 class="text-black">Mon profil</h2>
-		<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
-		<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Logo">
-		<div class="text-center mt-2">
-			<a href="#" class="btn">Ajouter un avatar</a>
-		</div>
-	</section>
+	{% if app.user %}
+		<section class="avatar-user container text-center mt-3">
+			<h2 class="text-black">Mon profil</h2>
+			<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
+			<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Logo">
+			<div class="text-center mt-2">
+				<a href="#" class="btn">Ajouter un avatar</a>
+			</div>
+		</section>
 
-	<section class="container">
-		<div class="row">
-			<div class="col-lg-4 offset-lg-4">
-				<form class="needs-validation mx-2">
-					<div class=" mb-3">
-						<label for="{{app.user.firstname}}" class="form-label">Prénom</label>
-						<input type="text" class="form-control bg-primary-inverse" id="{{app.user.firstname}}" value="{{app.user.firstname}}" required>
-						<div class="valid-feedback"></div>
-					</div>
-					<div class="mb-3">
-						<label for="{{app.user.lastname}}" class="form-label">Nom</label>
-						<input type="text" class="form-control bg-primary-inverse" id="{{app.user.lastname}}" value="{{app.user.lastname}}" required>
-						<div class="valid-feedback"></div>
-					</div>
-					<div class="mb-3">
-						<label for="{{app.user.email}}" class="form-label ">Email</label>
-						<div class="input-group has-validation">
-							<span class="input-group-text text-white bg-primary" id="inputGroupPrepend">@</span>
-							<input type="text" class="form-control bg-primary-inverse" id="{{app.user.email}}" value="{{app.user.email}}"aria-describedby="inputGroupPrepend" required>
+		<section class="container">
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4">
+					<form class="needs-validation mx-2">
+						<div class=" mb-3">
+							<label for="{{app.user.firstname}}" class="form-label">Prénom</label>
+							<input type="text" class="form-control bg-primary-inverse" id="{{app.user.firstname}}" value="{{app.user.firstname}}" required>
+							<div class="valid-feedback"></div>
+						</div>
+						<div class="mb-3">
+							<label for="{{app.user.lastname}}" class="form-label">Nom</label>
+							<input type="text" class="form-control bg-primary-inverse" id="{{app.user.lastname}}" value="{{app.user.lastname}}" required>
+							<div class="valid-feedback"></div>
+						</div>
+						<div class="mb-3">
+							<label for="{{app.user.email}}" class="form-label ">Email</label>
+							<div class="input-group has-validation">
+								<span class="input-group-text text-white bg-primary" id="inputGroupPrepend">@</span>
+								<input type="text" class="form-control bg-primary-inverse" id="{{app.user.email}}" value="{{app.user.email}}" aria-describedby="inputGroupPrepend" required>
+								<div class="invalid-feedback"></div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="{{app.user.password}}" class="form-label">Mot de passe</label>
+							<input type="password" class="form-control bg-primary-inverse" id="{{app.user.password}}" required>
 							<div class="invalid-feedback"></div>
 						</div>
-					</div>
-					<div class="mb-3">
-						<label for="{{app.user.password}}" class="form-label">Mot de passe</label>
-						<input type="password" class="form-control bg-primary-inverse" id="{{app.user.password}}" required>
-						<div class="invalid-feedback"></div>
-					</div>
-					<div class="mb-3">
-						<label for="{{app.user.password}}" class="form-label">Nouveau mot de passe</label>
-						<input type="password" class="form-control bg-primary-inverse" id="{{app.user.password}}" required>
-						<div class="invalid-feedback"></div>
-					</div>
-{% endif %}
+						<div class="mb-3">
+							<label for="{{app.user.password}}" class="form-label">Nouveau mot de passe</label>
+							<input type="password" class="form-control bg-primary-inverse" id="{{app.user.password}}" required>
+							<div class="invalid-feedback"></div>
+						</div>
+					{% endif %}
 
 					<div class="avatar-user mb-3 text-center ">
 						<button class="btn bg-secondary-inverse" type="submit">Réinitialiser mot de passe</button>
