@@ -31,7 +31,7 @@
                     <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('watermark_bottom')|imagine_filter('limit400') }}"
                          alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}.">
 
-                    <a href="#" class="stretched-link">
+                    <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
                     </a>
                     <div class="position-absolute w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
