@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration
+{% endblock %}
+
+{% block body %}
+	<h2 class="text-black align-self-center mt-5">
+		Administration des contenus</h2>
+	<hr class="w-25 mx-auto mb-5 opacity-100 mt-3 border-2">
+	<div class="row d-flex justify-content-center">
+		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
+			<img class="card-img-top rounded img-thumbnail h-75 object-fit-cover" src="{{asset('build/images/artist.png')}}" alt="Card image cap">
+			<div class="card-body">
+				<a href="{{ path('app_admin_artist_index')}}" class="btn btn-primary">Artistes</a>
+			</div>
+		</div>
+		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
+			<img class="card-img-top rounded img-thumbnail h-75 object-fit-cover" src="{{asset('build/images/artist.png') }}" alt="Card image cap">
+			<div class="card-body">
+				<a href="{{ path('app_admin_painting_index')}}" class="btn btn-primary">Peintures</a>
+			</div>
+		</div>
+		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
+			<img class="card-img-top rounded img-thumbnail h-75 object-fit-cover" src="{{asset('build/images/artist.png')}}" alt="Card image cap">
+			<div class="card-body">
+				<a href="#" class="btn btn-primary">Catégories</a>
+			</div>
+		</div>
+		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
+			<img class="card-img-top rounded img-thumbnail h-75 object-fit-cover" src="{{asset('build/images/user.png')}}" alt="Card image cap">
+			<div class="card-body">
+				<a href="{{ path('app_admin_user_index')}}" class="btn btn-primary">Utilisateurs</a>
+			</div>
+		</div>
+
+	{% endblock %}
