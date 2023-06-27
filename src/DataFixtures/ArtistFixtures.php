@@ -15,7 +15,7 @@ class ArtistFixtures extends Fixture
         $artist = new Artist();
         $artist->setName('Hypolite Charles Napoleon Mortier');
         $artist->setDateofBirth($faker->dateTime());
-        $artist->setNationality('Français.e');
+        $artist->setNationality('Français·e');
         $artist->setBiography($faker->paragraph(7));
         $this->addReference('artist_1', $artist);
         $manager->persist($artist);
@@ -23,7 +23,7 @@ class ArtistFixtures extends Fixture
             $artist = new Artist();
             $artist->setName($faker->name());
             $artist->setDateofBirth($faker->dateTime());
-            $artist->setNationality('Français.e');
+            $artist->setNationality('Français·e');
             $artist->setBiography($faker->paragraph(7));
             $this->addReference('artist_' . ($i % 7 + 1), $artist);
             $manager->persist($artist);
