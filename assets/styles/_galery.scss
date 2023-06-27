@@ -1,11 +1,23 @@
-
+.painting-frame img:hover{
+    cursor:zoom-in;
+}
 .galery:hover img {
     transform: scale(1.25) rotate(2deg);
     transition: all ease-in-out .4s;
 }
-
+.card-apparition{
+    -webkit-animation: fadein 2s;
+}
+@-webkit-keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
 .grid {
-    height: 80vh;
+    height: 75vh;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-auto-rows: minmax(100px, auto);
@@ -36,7 +48,7 @@
     .card-deck {
         display: flex;
         flex-direction: column;
-        height: 150rem;
+        height:auto;
 
     }
 }

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Modifier ou supprimer une page{% endblock %}
+
+{% block body %}
+    <div class="container my-2">
+        <h1>Modifier la page</h1>
+        {{ include('page/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        <hr>
+        {{ include('page/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

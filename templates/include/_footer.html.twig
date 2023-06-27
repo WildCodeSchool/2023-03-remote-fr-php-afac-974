@@ -1,4 +1,4 @@
-<div class="footer p-2 mt-5 bg-primary">
+<div class="footer p-2 bg-primary">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 col-md-4 align-self-center text-start">
@@ -6,12 +6,13 @@
                 <img src="{{ asset('build/images/email.png') }}" alt="Adresse e-mail"> Adresse e-mail : afac974@gmail.com
             </div>
             <div class="col-lg-4 col-md-4 text-lg-center">
+                &copy; {{ 'now'|date('Y') }}
                 Association AFAC<br>
                 10 rue Albert Fréjaville<br>
                 97430 Le Tampon, île de La Réunion
             </div>
             <div class="col-lg-4 col-md-4 d-flex align-items-center justify-content-lg-end justify-content-around">
-                <a href="{{ path('app_page_show') }}" class="text-light text-decoration-none me-5">RGPD</a>
+                <a href="{{ path('app_page_show', {id: 1}) }}" class="text-light text-decoration-none me-5">RGPD</a>
                 <a href="https://www.facebook.com/pedagolab" target="_blank"><img src="{{ asset('build/images/fb.png') }}" alt="Facebook" title="Facebook"></a>
             </div>
         </div>
