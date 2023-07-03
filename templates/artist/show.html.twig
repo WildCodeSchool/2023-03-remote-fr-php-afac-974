@@ -26,11 +26,11 @@
     <h2 class="text-center border-bottom border-black pb-3 text-black align-self-center"> Ses oeuvres</h2>
     <div class="row justify-content-center m-auto mt-3">
         {% for painting in artist.paintings %}
-            <div class="col-md-6 col-xl-3 mb-3 p-0">
-                <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit400') }}"
-                         alt="aperçu de l'oeuvre {{painting.title}} réalisé par {{painting.artist.name}}.">
 
+            <div class="col-md-6 col-xl-3 mt-3 mb-3">
+                <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
+                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit450') }}"
+                         alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
                     <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
                     </a>

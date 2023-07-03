@@ -50,11 +50,12 @@
         <hr class="w-50 mx-auto">
     </div>
     <div class="row mx-3 justify-content-center">
+
         {% for painting in painting.artist.paintings %}
 
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit400') }}"
+                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit450') }}"
                          alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
                     <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
