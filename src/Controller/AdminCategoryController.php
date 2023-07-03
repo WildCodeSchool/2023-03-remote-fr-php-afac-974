@@ -70,3 +70,4 @@ class AdminCategoryController extends AbstractController
         return $this->redirectToRoute('app_admin_category_index', [], Response::HTTP_SEE_OTHER);
     }
 }
+
