@@ -19,9 +19,4 @@ class HomeController extends AbstractController
             'paintings' => $paintings,
         ]);
     }
-    #[Route('/mail', name: 'mail')]
-    public function mail(): Response
-    {
-        return $this->render('mail/template_mail.html.twig');
-    }
 }
