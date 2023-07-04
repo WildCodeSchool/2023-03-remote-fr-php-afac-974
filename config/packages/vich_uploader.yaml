@@ -1,0 +1,13 @@
+vich_uploader:
+    db_driver: orm
+    metadata:
+        type: attribute
+    mappings:
+         artist_file:
+             uri_prefix: '%upload_artist_directory%'
+             upload_destination: '%kernel.project_dir%/public/%upload_artist_directory%'
+             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+         painting_file:
+             uri_prefix: '%upload_painting_directory%'
+             upload_destination: '%kernel.project_dir%/public/%upload_painting_directory%'
+             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

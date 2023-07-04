@@ -1,4 +1,6 @@
-
+.painting-frame img:hover{
+    cursor:zoom-in;
+}
 .galery:hover img {
     transform: scale(1.25) rotate(2deg);
     transition: all ease-in-out .4s;
@@ -46,7 +48,7 @@
     .card-deck {
         display: flex;
         flex-direction: column;
-        height: 150rem;
+        height:auto;
 
     }
 }

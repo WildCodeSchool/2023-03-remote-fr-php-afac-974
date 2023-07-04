@@ -1,0 +1,64 @@
+//Animation logo profil//
+.logoprofil:hover {
+    transform: scale(1.25) rotate(2deg);
+    transition: all ease-in-out .4s;
+}
+
+//Animation boutton//
+.avatar-user .btn {
+    border: unset;
+    border-radius: 5px;
+    color: #ffffff;
+    z-index: 1;
+    background: $primary;
+    position: relative;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.avatar-user .btn::before {
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.avatar-user .btn:hover {
+    color: $blue;
+    background-color: $grey;
+}
+
+//Animation Etoiles//
+.star input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.star .container {
+    user-select: none;
+}
+
+.star .container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+    fill: #584f4f;
+}
+
+.star .container svg:hover {
+    transform: scale(1.1);
+}
+
+.star .container input:checked~svg {
+    fill: $tertiary;
+}
