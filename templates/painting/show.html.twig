@@ -43,7 +43,9 @@
                 </div>
             </div>
         </div>
-
+    <div class="d-flex flex-row justify-content-center my-3">
+        <a class="btn btn-primary" href="{{ path('app_ecard_painting', {id: painting.id}) }}">Envoyer une e-card</a>
+    </div>
     <div class="mx-auto pt-4"><h2 class="text-center">Autres oeuvres de {{ painting.artist.name }} </h2>
         <hr class="w-50 mx-auto">
     </div>

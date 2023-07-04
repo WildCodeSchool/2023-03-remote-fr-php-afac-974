@@ -3,7 +3,9 @@
         <a class="logo-link w-25" href="/">
             <img class="logo" src="{{ asset('build/images/logo2.png') }}" alt="Logo">
         </a>
-        <div id="menuToggle" class="burger navbar-toggler mt-3 mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Ouvrir le menu">
+        <div id="menuToggle" class="burger navbar-toggler mt-3 mx-auto" type="button" data-bs-toggle="collapse"
+             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+             aria-label="Ouvrir le menu">
             <input id="checkbox" type="checkbox">
             <label class="toggle" for="checkbox">
                 <div class="bar bar--top"></div>
@@ -11,54 +13,62 @@
                 <div class="bar bar--bottom"></div>
             </label>
         </div>
-		<div class="navdown collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-			<ul class="navbar-nav mt-2 d-flex flex-row justify-content-around ">
-				<li class="nav-item">
-                    <a class=" mid-link nav-link active px-2 px-lg-4 text-primary-inverse" aria-current="page" href="/galery">Galerie</a>
-				</li>
-				<li class="nav-item">
-					<a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">E-Cards</a>
-				</li>
-				<li class="nav-item">
-					<a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="/about">A propos</a>
-				</li>
-			</ul>
-		</div>
+        <div class="navdown collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+            <ul class="navbar-nav mt-2 d-flex flex-row justify-content-around ">
+                <li class="nav-item">
+                    <a class=" mid-link nav-link active px-2 px-lg-4 text-primary-inverse" aria-current="page"
+                       href="/galery">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">E-Cards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="/about">A propos</a>
+                </li>
+            </ul>
+        </div>
+
         <ul class="user d-lg-flex flex-lg-column align-items-lg-end me-lg-0 w-25 list-unstyled">
-            <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end" id="navbarNavDropdown">
-                <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   {% if app.user %}
-                       <img src="{{ app.user.avatar }}" alt="Logo">
+            <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end"
+                id="navbarNavDropdown">
+                {% if app.user %}
+                    <a href="#"
+                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</a>
+                {% endif %}
+                <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center"
+                   href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% if app.user %}
+                        <img src="{{ app.user.avatar }}" alt="Logo">
                     {% else %}
-                    <img src="{{ asset('build/images/user.png') }}" alt="Logo">
+                        <img src="{{ asset('build/images/user.png') }}" alt="Logo">
                     {% endif %}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-center bg-primary-inverse mt-3">
                     {% if app.user %}
-                    <li>
-                        <a class="dropdown-item text-primary" href="#">Mon profil</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-primary" href="#">Mes favoris</a>
-                    </li>
+                        <li>
+                            <a class="dropdown-item text-primary" href="#">Mon profil</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-primary" href="#">Mes favoris</a>
+                        </li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li>
                                 <a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Administration</a>
                             </li>
-                        {% endif%}
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-primary" href="{{ path('app_logout') }}">Deconnexion</a>
-                    </li>
+                        {% endif %}
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-primary" href="{{ path('app_logout') }}">Deconnexion</a>
+                        </li>
                     {% else %}
-                    <li>
-                        <a class="dropdown-item text-primary" href="{{ path('app_login') }}">Connexion</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-primary" href="{{ path('app_register') }}">S'inscrire</a>
-                    </li>
+                        <li>
+                            <a class="dropdown-item text-primary" href="{{ path('app_login') }}">Connexion</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-primary" href="{{ path('app_register') }}">S'inscrire</a>
+                        </li>
                     {% endif %}
                 </ul>
             </li>
