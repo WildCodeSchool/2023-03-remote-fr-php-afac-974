@@ -1,26 +1,12 @@
-.footer-inverse{
-    rotate: 180deg;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-.navbar-inverse{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    rotate: 180deg;
-}
 .wholepage{
-    height: 100vh;
-    position: relative;
-    display: grid;
-    align-content: space-evenly;
-    justify-content: center;
+    rotate: 180deg;
+    .container404{
+        rotate: -180deg;
+    }
 }
 .container404 button{
     transition: transform .7s ease-in-out;
 }
-
 .container404 button:hover{
     transform: rotate(180deg);
 }
