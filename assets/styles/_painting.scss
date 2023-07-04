@@ -4,6 +4,11 @@
     transform: translate(-50%, -50%);
     max-width: 550px;
     max-height: 550px;
+    display: none;
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari et Chrome */
+    -o-animation: fadein 1s; /* Opera */
 
 }
 
@@ -17,22 +22,13 @@
     backdrop-filter: blur(4px);
 }
 
-#div-head {
+.div-head {
     display: block;
     animation: fadein 1s;
     -moz-animation: fadein 1s; /* Firefox */
     -webkit-animation: fadein 1s; /* Safari et Chrome */
     -o-animation: fadein 1s; /* Opera */
 }
-
-#description {
-    display: none;
-    animation: fadein 1s;
-    -moz-animation: fadein 1s; /* Firefox */
-    -webkit-animation: fadein 1s; /* Safari et Chrome */
-    -o-animation: fadein 1s; /* Opera */
-}
-
 @keyframes fadein {
     from {
         opacity: 0;

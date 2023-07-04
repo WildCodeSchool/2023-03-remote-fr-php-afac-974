@@ -11,11 +11,12 @@
 
             <div>
                 <h4 class="text-center fw-normal">Tapez ici votre recherche</h4>
-
+                {{ form_start(form) }}
                 <div class="d-flex gap-2 mb-2">
-                    <div>{{ form_start(form) }}
-                        {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, oeuvre ..."} }) }}</div>
-                    <a class="btn btn-primary" href="{{ path('galery_index') }}">reset</a>
+
+                    {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, oeuvre ..."} }) }}
+                    <a class="btn d-block w-50  btn-primary" href="{{ path('galery_index') }}">reset</a>
+
                 </div>
                 {{ form_end(form) }}
             </div>
@@ -23,10 +24,10 @@
         <div class=" card-deck grid gap-4 mt-2 mx-3">
             {% for painting in paintings %}
                 <div class="galery card-apparition position-relative overflow-hidden ">
-                    <a  class="stretched-link"
-                        href="{{ path('painting_show', { id: painting.id}) }}">
+                    <a class="stretched-link"
+                       href="{{ path('painting_show', { id: painting.id}) }}">
                         <img class=" galery-image w-100 h-100 object-fit-cover  "
-                             src=" {{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom")}}"
+                             src=" {{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom") }}"
                              alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
                     </a>
                     <div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
