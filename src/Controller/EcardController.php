@@ -17,7 +17,6 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Uid\Factory\UuidFactory;
 
 #[Route('/ecard', name: 'app_')]
-#[IsGranted('ROLE_USER')]
 class EcardController extends AbstractController
 {
     public function __construct(
@@ -26,6 +25,7 @@ class EcardController extends AbstractController
     }
 
     #[Route('/{id}', name: 'ecard_painting')]
+    #[IsGranted('ROLE_USER')]
     public function index(
         Painting $painting,
         Request $request,
