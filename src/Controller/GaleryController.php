@@ -24,17 +24,11 @@ class GaleryController extends AbstractController
     ): Response {
 
         $form = $this->createFormBuilder(null, [
-            'method' => 'get'
+            'method' => 'get',
+            'csrf_protection' => false
         ])
             ->add('search', SearchType::class)
             ->getForm();
-
-        $pagination = $paginator->paginate(
-            $paintingRepositery->queryFindAll(),
-            $request->query->getInt('page', 1),
-            6
-        );
-
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $search = $form->get('search')->getData();
