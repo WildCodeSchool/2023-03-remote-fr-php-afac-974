@@ -1,0 +1,12 @@
+.wholepage{
+    rotate: 180deg;
+    .container404{
+        rotate: -180deg;
+    }
+}
+.container404 .button404{
+    transition: transform .7s ease-in-out;
+}
+.container404 .button404:hover{
+    transform: rotate(180deg);
+}
