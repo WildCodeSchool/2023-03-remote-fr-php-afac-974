@@ -12,22 +12,22 @@
 
 <div class="container bg-primary rounded rounded-5 p-5 mt-4 position-relative overflow-hidden">
     <div class="z-2">
-    <img class="logo mx-auto d-block mb-5 " src="{{ asset('build/images/logo2.png') }}" alt="Logo">
-    <hr class="text-white ">
-    <p class=" text-white mt-5 ">Bonjour, <br> <br>
+        <img class="logo mx-auto d-block mb-5 " src="{{ asset('build/images/logo2.png') }}" alt="Logo">
+        <hr class="text-white ">
+        <p class=" text-white mt-5 ">Bonjour, <br> <br>
 
-        Vous avez reçu une carte postale très spéciale de la part de user.name, mais plutôt que de la recevoir
-        par courrier traditionnel, elle vous a été envoyée par e-mail. <br>Voila une surprise agréable et originale !
-        <br><br>
+            Vous avez reçu une carte postale très spéciale de la part de {{ user.firstname }} {{ user.lastname }}, mais plutôt que de la recevoir
+            par courrier traditionnel, elle vous a été envoyée par e-mail. <br>Voila une surprise agréable et originale !
+            <br><br>
 
-        Cliquez sur ce <a class="text-white" href="{{ url('app_home') }}">lien</a> pour la visualiser.  <br><br>
+            Cliquez sur ce <a class="text-white" href="{{ url('app_home') }}">lien</a> pour la visualiser.  <br><br>
 
 
-        Vous pouvez lui répondre sur notre site Art-AFAC. <br>
-        Il vous suffit de créer un compte ( gratuit ) et de choisir parmis nos oeuvres. <br>
-        Dites aux gens que vous pensez à eux, et faites voyager nos tableaux aux quatres coins du monde ! <br> <br>
+            Vous pouvez lui répondre sur notre site Art-AFAC. <br>
+            Il vous suffit de créer un compte ( gratuit ) et de choisir parmis nos oeuvres. <br>
+            Dites aux gens que vous pensez à eux, et faites voyager nos tableaux aux quatres coins du monde ! <br> <br>
 
-        L’équipe d’Art-Afac ;)</p>
+            L’équipe d’Art-Afac ;)</p>
     </div>
     <img class=" hexagon-mail opacity-25  position-absolute w-50  " src="{{ asset('build/images/hexagone.png') }}" alt="">
 
