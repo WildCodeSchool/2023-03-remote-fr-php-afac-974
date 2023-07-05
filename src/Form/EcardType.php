@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ecard;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,7 +21,7 @@ class EcardType extends AbstractType
                     'placeholder' => 'Tapez ici l\'adresse mail du destinataire'
                 ]
             ])
-            ->add('message', TextareaType::class, [
+            ->add('message', CKEditorType::class, [
                 'label' => 'Votre message :',
                 'attr' => [
                 'rows' => 12,
