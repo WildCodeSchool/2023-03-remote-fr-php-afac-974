@@ -7,9 +7,9 @@
         </a>
     <img class="img-fluid" src="{{ vich_uploader_asset(ecard.painting)|imagine_filter('limit450') }}" alt="{{ ecard.painting.title }}">
         <div class="m-3">
-            <p><strong>Expéditeur :</strong> {{ ecard.user.firstname ~ ' ' ~ ecard.user.lastname }} ({{ ecard.user.email }})</p>
-            <p><strong>Date d'envoi : </strong>{{ ecard.sendedAt|date('d/m/Y') }}</p>
-            <p class="w-100"><strong>Message :</strong>  <br> {{ ecard.message|nl2br }}</p>
+            <p><span class="fw-bold">Expéditeur :</span> {{ ecard.user.firstname ~ ' ' ~ ecard.user.lastname }} ({{ ecard.user.email }})</p>
+            <p><span class="fw-bold">Date d'envoi : </span>{{ ecard.sendedAt|date('d/m/Y') }}</p>
+            <p class="w-100"><span class="fw-bold">Message :</span>  <br> {{ ecard.message|nl2br }}</p>
         </div>
 </div>
     <div class="my-3 mx-3 d-flex flex-column align-items-center">
