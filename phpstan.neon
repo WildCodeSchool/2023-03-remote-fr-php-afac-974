@@ -8,6 +8,7 @@ parameters:
     ignoreErrors:
         - "#^Parameter.*(User).*(UserInterface).*#"
         - "#^Call to an undefined .*(UserInterface).*#"
+        - "#^Call to function file_get_contents#"
     reportUnmatchedIgnoredErrors: false
     checkGenericClassInNonGenericObjectType: false
     checkMissingIterableValueType: false
