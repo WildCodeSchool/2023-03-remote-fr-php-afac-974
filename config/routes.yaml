@@ -5,3 +5,7 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+
+access_denied:
+    path: /403
+    controller: App\Controller\ErrorController::accessDenied
