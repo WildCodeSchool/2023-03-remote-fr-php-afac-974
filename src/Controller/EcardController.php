@@ -65,6 +65,8 @@ class EcardController extends AbstractController
     #[Route('/show/{uuid}', name: 'ecard_show')]
     public function show(Ecard $ecard): Response
     {
-        return $this->render('');
+        return $this->render('ecard/show.html.twig', [
+            'ecard' => $ecard
+        ]);
     }
 }
