@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EcardRepository;
 use Doctrine\DBAL\Types\Types;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EcardRepository::class)]
@@ -24,6 +25,10 @@ class Ecard
     private ?string $sentTo = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\Length(
+        max: 1200,
+        maxMessage:'Le texte saisi est trop long, il ne doit pas dépasser {{ limit }} caractères.',
+    )]
     private ?string $message = null;
 
     #[ORM\Column(type: Types::GUID)]

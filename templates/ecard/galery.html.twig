@@ -2,7 +2,17 @@
 
 {% block body %}
 
-    {% if app.user %}
+
+    {% if ecards|length == 0 %}
+        <div class="container404 text-center  my-auto ">
+
+            <h1 class="fw-bold">Aucune E-card à afficher.</h1>
+            <p>Cliquez sur le bouton en dessous pour visiter notre galerie.</p>
+            <a href="{{ path('galery_index') }}" class="btn btn-primary">Galerie</a>
+
+
+        </div>
+    {% else %}
         <div class=" d-flex flex-row flex-wrap justify-content-center ">
             {% for ecard in ecards %}
 
@@ -21,23 +31,29 @@
                                 <p><span class="fw-bold">Date d'envoi : </span>{{ ecard.sendedAt|date('d/m/Y') }}</p>
                             </div>
                         </div>
-                        <div class="flip-card-back bg-primary-inverse shadow-lg text-start position-relative ">
-                            <p class="w-100 m-3 "><span class="fw-bold mb-3">Message :</span>
-                                <br> {{ ecard.message|nl2br }}</p>
-                            <a class=" text-black  position-absolute bottom-0 end-0 mb-1 me-1"
-                               href="{{ path('painting_show', { id: ecard.painting.id}) }}">+ d'infos sur l'oeuvre</a>
+                        <div class="flip-card-back bg-primary-inverse shadow-lg text-start position-relative p-4">
+                            <p class="w-100   "><span class="fw-bold mb-3">Message :</span>
+                                {{ ecard.message|raw }}</p>
+                            <div class="position-absolute bottom-0 d-flex flex-column bottom-0 end-0 mb-1 me-1 text-end">
+                                <a  class="text-black" href="{{ url('app_ecard_show', { uuid: ecard.uuid }) }}">Voir l'Ecard</a>
+                                <a class=" text-black   "
+                                   href="{{ path('painting_show', { id: ecard.painting.id}) }}">+ d'infos sur l'oeuvre</a>
+                            </div>
                         </div>
+
 
                     </div>
 
                 </div>
             {% endfor %}
         </div>
-
+        <div class="d-flex justify-content-center ">
+            {{ knp_pagination_render(ecards) }}
+        </div>
     {% endif %}
-    <div class="d-flex justify-content-center ">
-        {{ knp_pagination_render(ecards) }}
-    </div>
+
+
+
 {% endblock %}
 
     {% block title %}Mes E-cards envoyées

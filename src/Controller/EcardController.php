@@ -51,7 +51,9 @@ class EcardController extends AbstractController
                 ->from($this->getParameter('mailer_from'))
                 ->to($sentTo)
                 ->subject('Vous avez reçu une carte éléctronique ! - AFAC974')
-                ->html($this->renderView('mail/template_mail.html.twig', ['user' => $ecard->getUser()]));
+                ->html($this->renderView('mail/template_mail.html.twig', [
+                    'user' => $ecard->getUser(),'ecard' => $ecard
+                ]));
 
             $mailer->send($mail);
 
@@ -67,10 +69,13 @@ class EcardController extends AbstractController
     #[Route('/show/{uuid}', name: 'ecard_show')]
     public function show(Ecard $ecard): Response
     {
-        return $this->render('');
+        return $this->render('ecard/show.html.twig', [
+            'ecard' => $ecard
+        ]);
     }
 
     #[Route('/historique-ecard', name:"ecard_galery", priority: 1)]
+    #[IsGranted('ROLE_USER')]
     public function ecardGalery(
         PaginatorInterface $paginator,
         Request $request
