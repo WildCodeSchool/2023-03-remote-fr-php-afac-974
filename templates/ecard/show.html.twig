@@ -6,7 +6,7 @@
             <a class="text-black" href="{{ path('painting_show', { id: ecard.painting.id}) }}">
                 <h1 class="mb-3 mx-2 text-center">{{ ecard.painting.title }}</h1>
             </a>
-            <img class="img-fluid" src="{{ vich_uploader_asset(ecard.painting)|imagine_filter('limit450') }}"
+            <img class="img-fluid" src="{{ vich_uploader_asset(ecard.painting)|imagine_filters(['limit450', 'watermark_bottom']) }}"
                  alt="{{ ecard.painting.title }}">
             <div class="m-3">
                 <p><span class="fw-bold">Expéditeur :</span> {{ ecard.user.firstname ~ ' ' ~ ecard.user.lastname }}

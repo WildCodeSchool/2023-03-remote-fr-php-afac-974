@@ -12,7 +12,7 @@
                     href="{{ vich_uploader_asset(painting)|imagine_filter('watermark') }}"
                    target="_blank" rel="noopener noreferrer" >
                     <img class=" img-fluid d-block mx-auto "
-                         src=" {{ vich_uploader_asset(painting)|imagine_filter('limit600') }}"
+                         src=" {{ vich_uploader_asset(painting)|imagine_filters(['limit600', 'watermark_bottom']) }}"
                          alt="{{ painting.title }} de {{ painting.artist.name }}">
                 </a>
                 <div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50
@@ -57,7 +57,7 @@
 
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit450') }}"
+                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filters(['limit450', 'watermark_bottom']) }}"
                          alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
                     <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
