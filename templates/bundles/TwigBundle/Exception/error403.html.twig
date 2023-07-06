@@ -4,10 +4,23 @@
 
 {% block body %}
     <div class="text-center my-auto">
-        <h1 class="fw-bold">Erreur 403</h1>
-        <h2 class="mb-4">Accès interdit</h2>
-        <p>Vous n'avez pas accès à cet espace !</p>
-        <a href="{{ path('app_home') }}" class="btn btn-primary button404">Accueil</a>
+        <h1 class="fw-bold">Ah, je crois que vous vous êtes perdu...</h1>
+        <h2 class="mb-4">Vous devez être connecté pour accéder à cette page !</h2>
+        <a href="{{ path('app_login') }}" class="btn btn-primary">Se connecter</a>&nbsp;
+        <a href="{{ path('app_register') }}" class="btn btn-primary">Créer un compte</a>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="mx-auto d-inline-block">
+                    <p><b>Pourquoi créer un compte ?</b></p>
+                    <p class="d-flex justify-content-start">
+                        - La possibilité d'envoyer des e-Cards par courriel<br>
+                        - Vous pourrez recevoir notre lettre d'information<br>
+                        - Ajouter des peintures à vos favoris
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
