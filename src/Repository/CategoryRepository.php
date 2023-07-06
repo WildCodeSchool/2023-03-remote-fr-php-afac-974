@@ -36,7 +36,6 @@ class CategoryRepository extends ServiceEntityRepository
 
         // Dissocier les peintures associées en les mettant à jour avec la valeur NULL
         $paintings = $entity->getPaintings();
-    
         foreach ($paintings as $painting) {
             $painting->setCategory(null);
             $this->getEntityManager()->persist($painting);
