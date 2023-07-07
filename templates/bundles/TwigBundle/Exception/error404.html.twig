@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
+    <title>
+        {% block title %}Page introuvable{% endblock %}
+    </title>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body class="wholepage d-flex flex-column min-vh-100">
+
+    <header>
+        {% include 'include/_navbar.html.twig' %}
+    </header>
+<div class="container404 text-center  my-auto ">
+
+        <h1 class="fw-bold">Erreur 404</h1>
+        <h2 class="mb-4">Page introuvable</h2>
+        <p>On a tout retourné pourtant !</p>
+        <a href="{{ path('app_home') }}" class="btn btn-primary button404">Accueil</a>
+
+
+</div>
+    <footer class="bg-dark text-white w-100 ">
+        {% include ('include/_footer.html.twig') %}
+    </footer>
+</body>
+</html>

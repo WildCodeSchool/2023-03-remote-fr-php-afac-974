@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Artist index{% endblock %}
+{% block title %}Gestion des artistes{% endblock %}
 
 {% block body %}
     <h1 class="m-5">Artist index</h1>
@@ -28,7 +28,7 @@
                 <td>{{ artist.biography }}</td>
                 <td>{{ artist.image }}</td>
                 <td>
-                    <a class="btn btn-primary mb-2" href="{{ path('app_admin_artist_show', {'id': artist.id}) }}">Voir</a>
+                    <a class="btn btn-primary mb-2" href="{{ path('artist_show', {'id': artist.id}) }}">Voir</a>
                     <a class="btn btn-info" href="{{ path('app_admin_artist_edit', {'id': artist.id}) }}">Edit</a>
                 </td>
             </tr>
