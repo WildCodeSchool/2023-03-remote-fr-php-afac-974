@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Artist{% endblock %}
+{% block title %}Edition de {{ artist.name }}{% endblock %}
 
 {% block body %}
     <div class="m-5">
-    <h1>Edit Artist</h1>
+    <h1>Editer "{{ artist.name }}"</h1>
 
     {{ include('admin_artist/_form.html.twig', {'button_label': 'Update'}) }}
 

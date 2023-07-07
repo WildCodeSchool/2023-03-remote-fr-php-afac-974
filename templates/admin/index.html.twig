@@ -23,7 +23,7 @@
 		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
 			<img class="card-img-top rounded img-thumbnail h-75 object-fit-cover" src="{{asset('build/images/artist.png')}}" alt="Card image cap">
 			<div class="card-body">
-				<a href="#" class="btn btn-primary">Catégories</a>
+				<a href="{{ path('app_admin_category_index') }}" class="btn btn-primary">Catégories</a>
 			</div>
 		</div>
 		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
@@ -32,5 +32,6 @@
 				<a href="{{ path('app_admin_user_index')}}" class="btn btn-primary">Utilisateurs</a>
 			</div>
 		</div>
-
+</div>
+        <span class="chartbox mx-auto h-100 w-100">{{ render_chart(chart) }}</span>
 	{% endblock %}
