@@ -17,7 +17,16 @@
                 {{ artist.dateOfBirth|date('d/m/Y') }}</p>
         </div>
         <div class="biography mx-3">
-            <p class="text-black ">{{ artist.biography }}</p>
+            <span {{ stimulus_controller('symfony/ux-typed', {
+                strings: [
+                    artist.biography ,
+                ],
+                loop: false,
+                showCursor: true,
+                cursorChar: '🖌️' ,
+                smartBackspace: true
+            }) }} class="text-black ">
+            </span>
         </div>
     </div>
 </div>
@@ -25,7 +34,7 @@
 <div class=" d-flex flex-column  pt-5">
     <h2 class="text-center border-bottom border-black pb-3 text-black align-self-center"> Ses oeuvres</h2>
     <div class="row justify-content-center m-auto mt-3">
-        {% for painting in artist.paintings %}
+        {% for painting in artist.paintings|slice(1,4) %}
 
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
