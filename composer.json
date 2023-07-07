@@ -14,6 +14,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
         "fakerphp/faker": "^1.22",
+        "friendsofsymfony/ckeditor-bundle": "^2.4",
         "knplabs/knp-paginator-bundle": "^6.2",
         "liip/imagine-bundle": "^2.11",
         "phpdocumentor/reflection-docblock": "^5.3",
@@ -43,12 +44,19 @@
         "symfony/string": "6.2.*",
         "symfony/translation": "6.2.*",
         "symfony/twig-bundle": "6.2.*",
+        "symfony/uid": "6.2.*",
+        "symfony/ux-live-component": "^2.9",
+        "symfony/ux-twig-component": "^2.9",
+        "symfony/ux-chartjs": "^2.9",
+        "symfony/ux-typed": "^2.10",
         "symfony/validator": "6.2.*",
         "symfony/web-link": "6.2.*",
         "symfony/webapp-meta": "^1.0",
         "symfony/webpack-encore-bundle": "^2.0",
         "symfony/yaml": "6.2.*",
+        "symfonycasts/reset-password-bundle": "^1.17",
         "symfonycasts/verify-email-bundle": "^1.13",
+        "twbs/bootstrap-icons": "^1.10",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
         "vich/uploader-bundle": "^2.1"
@@ -88,7 +96,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "ckeditor:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

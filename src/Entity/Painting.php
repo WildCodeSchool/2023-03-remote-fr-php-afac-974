@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\PaintingRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -50,6 +52,17 @@ class Painting
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
+
+    #[ORM\OneToMany(mappedBy: 'painting', targetEntity: Ecard::class)]
+    private Collection $ecards;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'paintingsBookmarked')]
+    private Collection $users;
+
+    public function __construct()
+    {
+        $this->ecards = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -190,6 +203,63 @@ class Painting
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ecard>
+     */
+    public function getEcards(): Collection
+    {
+        return $this->ecards;
+    }
+
+    public function addEcard(Ecard $ecard): static
+    {
+        if (!$this->ecards->contains($ecard)) {
+            $this->ecards->add($ecard);
+            $ecard->setPainting($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEcard(Ecard $ecard): static
+    {
+        if ($this->ecards->removeElement($ecard)) {
+            // set the owning side to null (unless already changed)
+            if ($ecard->getPainting() === $this) {
+                $ecard->setPainting(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addPaintingsBookmarked($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removePaintingsBookmarked($this);
+        }
 
         return $this;
     }

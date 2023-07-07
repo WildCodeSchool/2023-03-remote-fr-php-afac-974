@@ -17,5 +17,12 @@ return [
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
+    SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle::class => ['all' => true],
     Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
+    Symfony\UX\TwigComponent\TwigComponentBundle::class => ['all' => true],
+    Symfony\UX\LiveComponent\LiveComponentBundle::class => ['all' => true],
+    FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
+    Symfony\UX\StimulusBundle\StimulusBundle::class => ['all' => true],
+    Symfony\UX\Chartjs\ChartjsBundle::class => ['all' => true],
+    Symfony\UX\Typed\TypedBundle::class => ['all' => true],
 ];

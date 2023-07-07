@@ -1,31 +1,29 @@
-.painting-frame img{
-    max-height: 80vh;
-    width: auto;
-}
-.description{
+.description {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-width: 550px;
+    max-height: 550px;
+    display: none;
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari et Chrome */
+    -o-animation: fadein 1s; /* Opera */
 
 }
+
 .name-painting {
     top: 0px;
     left: 50%;
     transform: translate(-50%, 0%);
 }
-.blur{
 
-    backdrop-filter:blur(4px);
+.blur {
+    backdrop-filter: blur(4px);
 }
-#div-head{
+
+.div-head {
     display: block;
-    animation: fadein 1s;
-    -moz-animation: fadein 1s; /* Firefox */
-    -webkit-animation: fadein 1s; /* Safari et Chrome */
-    -o-animation: fadein 1s; /* Opera */
-}
-#description{
-    display: none;
     animation: fadein 1s;
     -moz-animation: fadein 1s; /* Firefox */
     -webkit-animation: fadein 1s; /* Safari et Chrome */
@@ -33,52 +31,58 @@
 }
 @keyframes fadein {
     from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* sur Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* sur Safari et Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* sur Opera */
-    from {
-        opacity:0;
+        opacity: 0;
     }
     to {
         opacity: 1;
     }
 }
-@media screen and (max-width: 1200px) {
-    .description{
+
+@-moz-keyframes fadein { /* sur Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* sur Safari et Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* sur Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .description {
         position: relative;
-        top:auto;
+        top: auto;
         left: auto;
         transform: none;
-        margin:3rem auto;
+        margin: 3rem auto;
         width: 90%;
         height: auto;
 
     }
 }
 
-@media screen and (min-width: 1201px) {
-    .description{
+@media screen and (min-width: 991px) {
+    .description {
         position: absolute;
     }
 
 }
+
+
