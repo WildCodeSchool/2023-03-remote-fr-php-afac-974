@@ -11,23 +11,23 @@ class ChangePassword
     protected $password;
 
 
-    function getOldPassword()
+    Public function getOldPassword()
     {
         return $this->oldPassword;
     }
 
-    function getPassword()
+    Public function getPassword()
     {
         return $this->password;
     }
 
-    function setOldPassword($oldPassword)
+    Public function setOldPassword($oldPassword)
     {
         $this->oldPassword = $oldPassword;
         return $this;
     }
 
-    function setPassword($password)
+    Public function setPassword($password)
     {
         $this->password = $password;
         return $this;
