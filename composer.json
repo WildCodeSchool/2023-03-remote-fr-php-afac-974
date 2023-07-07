@@ -46,6 +46,7 @@
         "symfony/twig-bundle": "6.2.*",
         "symfony/uid": "6.2.*",
         "symfony/ux-chartjs": "^2.9",
+        "symfony/ux-typed": "^2.10",
         "symfony/validator": "6.2.*",
         "symfony/web-link": "6.2.*",
         "symfony/webapp-meta": "^1.0",
