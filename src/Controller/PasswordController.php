@@ -24,8 +24,7 @@ class PasswordController extends AbstractController
         UserPasswordHasherInterface $passwordHasher,
         UserRepository $userRepository,
         User $user
-    ): Response
-    {
+    ): Response {
 
         $form = $this->createForm(ProfileType::class, $user);
         $form->handleRequest($request);

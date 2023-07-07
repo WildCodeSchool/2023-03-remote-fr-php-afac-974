@@ -7,27 +7,27 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 class ChangePassword
 {
-    protected $oldPassword;
-    protected $password;
+    public string $oldPassword;
+    public string $password;
 
 
-    Public function getOldPassword()
+    public function getOldPassword(): string
     {
         return $this->oldPassword;
     }
 
-    Public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    Public function setOldPassword($oldPassword)
+    public function setOldPassword(string $oldPassword): self
     {
         $this->oldPassword = $oldPassword;
         return $this;
     }
 
-    Public function setPassword($password)
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;
