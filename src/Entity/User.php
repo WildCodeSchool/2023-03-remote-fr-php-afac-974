@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
@@ -20,6 +21,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
+    #[Assert\Email(message: 'L\'email {{ value }} n\'est pas valide.')]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -29,12 +32,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
+    #[Assert\Length(
+        min: 6,
+        minMessage: "Le mot de passe est trop court et doit faire au moins {{ limit }} caractères."
+    )]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -76,7 +86,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
