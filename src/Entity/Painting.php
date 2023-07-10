@@ -58,6 +58,9 @@ class Painting
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'paintingsBookmarked')]
     private Collection $users;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->ecards = new ArrayCollection();
@@ -260,6 +263,18 @@ class Painting
         if ($this->users->removeElement($user)) {
             $user->removePaintingsBookmarked($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

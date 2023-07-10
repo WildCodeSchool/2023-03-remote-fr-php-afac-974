@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use DateTimeImmutable;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/admin/painting')]
 #[IsGranted("ROLE_ADMIN")]
@@ -25,13 +26,15 @@ class AdminPaintingController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_painting_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PaintingRepository $paintingRepository): Response
+    public function new(Request $request, PaintingRepository $paintingRepository, SluggerInterface $slugger): Response
     {
         $painting = new Painting();
         $form = $this->createForm(PaintingType::class, $painting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($painting->getTitle());
+            $painting->setSlug($slug);
             $painting->setCreatedAt(new DateTimeImmutable());
             $paintingRepository->save($painting, true);
 

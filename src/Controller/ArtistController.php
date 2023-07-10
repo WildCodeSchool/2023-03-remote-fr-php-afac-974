@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/artist', name: 'artist_')]
 class ArtistController extends AbstractController
 {
-    #[Route('/{id}', name: 'show')]
+    #[Route('/{slug}', name: 'show')]
     public function show(Artist $artist): Response
     {
 
