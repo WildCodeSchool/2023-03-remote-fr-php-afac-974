@@ -25,7 +25,7 @@ class ProfileType extends AbstractType
                     'type' => PasswordType::class,
                     'first_options' => ['label' => 'Nouveau mot de passe'],
                     'second_options' => ['label' => 'Confirmer nouveau mot de passe'],
-                    'invalid_message' => ' Les deux mots de passe doivent être identiques',
+                    'invalid_message' => 'Les deux mots de passe doivent être identiques',
                     'options' => array(
                         'attr' => array(
                             'class' => 'password-field'

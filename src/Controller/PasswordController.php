@@ -42,7 +42,7 @@ class PasswordController extends AbstractController
 
             $this->addFlash('succes', 'Votre mot de passe à bien été changé !');
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute(' app_home');
         }
 
         return $this->render('profile/edit.html.twig', [

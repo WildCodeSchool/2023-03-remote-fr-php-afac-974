@@ -38,7 +38,7 @@ class ChangePassword
         $metadata->addPropertyConstraint(
             'oldPassword',
             new SecurityAssert\UserPassword([
-                'message' => 'Wrong value for your current password',
+                'message' => ' Wrong value for your current password',
             ])
         );
     }
