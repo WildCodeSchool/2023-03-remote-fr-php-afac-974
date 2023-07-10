@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary justify-content-center p-0">
     <div class="container-fluid flex-column flex-lg-row">
-        <a class="logo-link w-25" href="/">
+        <a class="logo-link w-25" href="{{ path('app_home') }}">
             <img class="logo" src="{{ asset('build/images/logo2.png') }}" alt="Logo">
         </a>
         <div id="menuToggle" class="burger navbar-toggler mt-3 mx-auto" type="button" data-bs-toggle="collapse"
@@ -20,10 +20,10 @@
                        href="/galery">Galerie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="#">E-Cards</a>
+                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="{{ path('app_ecard_galery') }}">E-Cards</a>
                 </li>
                 <li class="nav-item">
-                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="/about">A propos</a>
+                    <a class="mid-link nav-link text-primary-inverse px-2 px-lg-4" href="{{ path('about_index') }}">A propos</a>
                 </li>
             </ul>
         </div>

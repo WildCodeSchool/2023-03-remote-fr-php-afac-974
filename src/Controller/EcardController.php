@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Ecard;
 use App\Entity\Painting;
+use App\Entity\User;
 use App\Form\EcardType;
 use App\Repository\EcardRepository;
 use DateTime;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +26,7 @@ class EcardController extends AbstractController
     ) {
     }
 
-    #[Route('/{id}', name: 'ecard_painting')]
+    #[Route('/{id<\d+>}', name: 'ecard_painting')]
     #[IsGranted('ROLE_USER')]
     public function index(
         Painting $painting,
@@ -49,7 +51,9 @@ class EcardController extends AbstractController
                 ->from($this->getParameter('mailer_from'))
                 ->to($sentTo)
                 ->subject('Vous avez reçu une carte éléctronique ! - AFAC974')
-                ->html($this->renderView('mail/template_mail.html.twig', ['user' => $ecard->getUser()]));
+                ->html($this->renderView('mail/template_mail.html.twig', [
+                    'user' => $ecard->getUser(),'ecard' => $ecard
+                ]));
 
             $mailer->send($mail);
 
@@ -67,6 +71,25 @@ class EcardController extends AbstractController
     {
         return $this->render('ecard/show.html.twig', [
             'ecard' => $ecard
+        ]);
+    }
+
+    #[Route('/historique-ecard', name:"ecard_galery", priority: 1)]
+    #[IsGranted('ROLE_USER')]
+    public function ecardGalery(
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $pagination = $paginator->paginate(
+            $user->getEcards(),
+            $request->query->getInt('page', 1),
+            3
+        );
+        return $this->render('ecard/galery.html.twig', [
+            'ecards' => $pagination
         ]);
     }
 }
