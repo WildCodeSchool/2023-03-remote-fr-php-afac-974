@@ -51,7 +51,7 @@
     <div class="mx-auto pt-4"><h2 class="text-center">Autres oeuvres de {{ painting.artist.name }} </h2>
         <hr class="w-50 mx-auto">
     </div>
-    <div class="row mx-3 justify-content-center">
+    <div class="row m-0 justify-content-center">
 
         {% for painting in painting.artist.paintings|slice(1,4) %}
 
@@ -62,8 +62,6 @@
                     <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
                     </a>
-                    <div class="position-absolute w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
-                    </div>
                 </div>
             </div>
         {% endfor %}
