@@ -20,18 +20,6 @@ class ProfileType extends AbstractType
         $builder
             ->add('firstname', TextType::class, ['label' => 'Prénom'])
             ->add('lastname', TextType::class, ['label' => 'Nom'])
-            ->add('email', EmailType::class)
-            ->add('password', RepeatedType::class, array(
-                    'type' => PasswordType::class,
-                    'first_options' => ['label' => 'Nouveau mot de passe'],
-                    'second_options' => ['label' => 'Confirmer nouveau mot de passe'],
-                    'invalid_message' => 'Les deux mots de passe doivent être identiques',
-                    'options' => array(
-                        'attr' => array(
-                            'class' => 'password-field'
-                        )
-                    ),
-                    'required' => true,
-                ));
+            ->add('email', EmailType::class);
     }
 }

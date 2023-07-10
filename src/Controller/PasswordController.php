@@ -17,32 +17,27 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 #[IsGranted('ROLE_USER')]
 class PasswordController extends AbstractController
 {
-    #[Route('/edit/{id}', name: 'edit')]
-
+    #[Route('/edit', name: 'edit')]
     public function edit(
         Request $request,
         UserPasswordHasherInterface $passwordHasher,
-        UserRepository $userRepository,
-        User $user
+        UserRepository $userRepository
     ): Response {
 
+        /** @var User $user */
+        $user = $this->getUser();
         $form = $this->createForm(ProfileType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $newpwd = $form->get('password')->getData();
-            $newEncodedPassword = $passwordHasher->hashPassword($user, $newpwd);
             $user->setFirstname($form->get('firstname')->getData());
             $user->setLastname($form->get('lastname')->getData());
             $user->setEmail($form->get('email')->getData());
 
-            $user->setPassword($newEncodedPassword);
-
             $userRepository->save($user, true);
-
 
             $this->addFlash('succes', 'Votre mot de passe à bien été changé !');
 
-            return $this->redirectToRoute(' app_home');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('profile/edit.html.twig', [
