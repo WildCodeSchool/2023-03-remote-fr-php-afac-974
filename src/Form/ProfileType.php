@@ -21,6 +21,5 @@ class ProfileType extends AbstractType
         ->add('firstname', TextType::class, ['label' => 'Prénom'])
         ->add('lastname', TextType::class, ['label' => 'Nom'])
         ->add('email', EmailType::class);
+    }
 }
-}
-
