@@ -55,10 +55,16 @@ class Painting
 
     #[ORM\OneToMany(mappedBy: 'painting', targetEntity: Ecard::class)]
     private Collection $ecards;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'paintingsBookmarked')]
+    private Collection $users;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
     public function __construct()
     {
         $this->ecards = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,6 +236,45 @@ class Painting
                 $ecard->setPainting(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addPaintingsBookmarked($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removePaintingsBookmarked($this);
+        }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

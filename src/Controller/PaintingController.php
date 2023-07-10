@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/painting', name: 'painting_')]
 class PaintingController extends AbstractController
 {
-    #[Route('/{id}', name: 'show')]
+    #[Route('/{slug}', name: 'show')]
     public function show(Painting $painting): Response
     {
         return $this->render('painting/show.html.twig', [

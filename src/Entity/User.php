@@ -43,9 +43,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Ecard::class)]
     private Collection $ecards;
 
+    #[ORM\ManyToMany(targetEntity: Painting::class, inversedBy: 'users')]
+    private Collection $paintingsBookmarked;
+
     public function __construct()
     {
         $this->ecards = new ArrayCollection();
+        $this->paintingsBookmarked = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -180,6 +184,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $ecard->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Painting>
+     */
+    public function getPaintingsBookmarked(): Collection
+    {
+        return $this->paintingsBookmarked;
+    }
+
+    public function addPaintingsBookmarked(Painting $paintingsBookmarked): static
+    {
+        if (!$this->paintingsBookmarked->contains($paintingsBookmarked)) {
+            $this->paintingsBookmarked->add($paintingsBookmarked);
+        }
+
+        return $this;
+    }
+
+    public function removePaintingsBookmarked(Painting $paintingsBookmarked): static
+    {
+        $this->paintingsBookmarked->removeElement($paintingsBookmarked);
 
         return $this;
     }

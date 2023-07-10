@@ -2,11 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
-use App\Form\ProfileType;
-use Doctrine\ORM\EntityManager;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\HttpFoundation\Request;
+
 use App\Entity\Painting;
 use App\Repository\PaintingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,14 +14,16 @@ class ProfileController extends AbstractController
 {
     #[Route('/profile', name: 'app_profile')]
 
-    public function index(Painting $paintings, user $user): Response
+    public function index(PaintingRepository $paintingRepository): Response
     {
-        return $this->render(
-            'profile/index.html.twig',
-            [
-                'paintings' => $paintings,
-                'user' => $user
-            ]
-        );
+        $paintings = $paintingRepository->findAll();
+
+        $user = $this->getUser();
+
+        return $this->render('profile/index.html.twig', [
+            'controller_name' => 'ProfileController',
+            'paintings' => $paintings,
+            'user' => $user
+        ]);
     }
 }
