@@ -75,7 +75,7 @@
                                 class="painting-info align-self-end row  justify-content-center  mx-auto mb-2  py-2 px-1 bg-black bg-opacity-50 blur rounded ">
                                 <h4> {{ painting.title }}</h4>
                                 <a class="text-decoration-none text-primary-inverse "
-                                   href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a>
+                                   href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a>
                             </div>
                         </div>
                     </div>
