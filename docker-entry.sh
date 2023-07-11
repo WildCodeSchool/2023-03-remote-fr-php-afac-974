@@ -13,10 +13,8 @@ if [ ${APP_ENV} != "prod" ]; then
   php bin/console doctrine:fixtures:load --quiet --no-interaction --no-debug
 fi
 
-php bin/console cache:clear
-php bin/console cache:warmup
+rm -rf /var/www/var
 
-chmod -R 777 /var/www/var
 chmod -R 777 /var/www/public
 
 # run composer scripts like
