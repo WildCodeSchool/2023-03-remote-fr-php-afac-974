@@ -10,6 +10,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PaintingRepository::class)]
 #[Vich\Uploadable]
@@ -21,21 +22,39 @@ class Painting
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:'Ce champ ne doit pas être vide')]
+    #[Assert\Length(min: 4, minMessage: 'Le titre est trop court et doit faire plus de {{ limit }} caractères')]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Assert\NotBlank(message:'Ce champ ne doit pas être vide')]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\Length(max: 200, maxMessage: 'L\'anecdote est trop longue et doit faire moins de {{ limit }} caractères')]
     private ?string $anecdote = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\NotBlank(message:'Ce champ ne doit pas être vide')]
+    #[Assert\Regex(
+        pattern: '/[0-9]/',
+        message: 'La hauteur ne doit contenir que des chiffres.',
+    )]
     private ?int $height = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\NotBlank(message:'Ce champ ne doit pas être vide')]
+    #[Assert\Regex(
+        pattern: '/[0-9]/',
+        message: 'La largeur ne doit contenir que des chiffres.',
+    )]
     private ?int $width = null;
 
     #[Vich\UploadableField(mapping: 'painting_file', fileNameProperty: 'image')]
+    #[Assert\Image(
+        mimeTypes: ['image/jpg',' image/png','image/jpeg'],
+        mimeTypesMessage: 'Seuls les formats suivants sont acceptés : .jpeg , .jpg , .png',
+    )]
     private ?File $imageFile = null;
 
     #[ORM\Column(length: 255, nullable: true)]
