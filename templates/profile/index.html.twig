@@ -1,23 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}My Profile
+{% block title %}Mon profil
 {% endblock %}
 
 {% block body %}
 
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
 	<section class="avatar-user container text-center mt-3">
 		<h2 class="text-black"> Mon profil</h2>
 		<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
-		<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Logo">
+        {% if app.user.avatar is not null %}
+		<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{vich_uploader_asset(user) }}" alt="Logo">
+        {% else %}
+        <img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Image par défaut de l'user">
+        {% endif %}
 		<div class="text-center mt-2">
 
 		</div>
 	</section>
 {% if app.user %}
 	<section class="container">
-		<div class="row">
+		<div class="row mx-3">
 			<div class="col-lg-4 offset-lg-4 mt-3 bg-primary-inverse p-3 border-2 rounded text-center">
-				
+
 					<div class=" mb-3">
 						<label for="validationCustom01" class="form-label">Prénom: {{ app.user.firstname }}</label>
 					</div>
@@ -32,7 +44,6 @@
 						<div class="avatar-user mb-2 mt-3 text-center">
 								<a href="{{ path('app_profile_edit') }}" class="btn">Modifier profil</a>
 						</div>
-					</form>
 				</div>
 			</div>
 
