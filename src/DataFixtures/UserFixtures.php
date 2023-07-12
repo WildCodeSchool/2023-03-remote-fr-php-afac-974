@@ -27,7 +27,6 @@ class UserFixtures extends Fixture
             'adminpassword'
         );
         $admin->setPassword($hashedPassword);
-        $admin->setAvatar('https://img.freepik.com/vecteurs-premium/conception-avatar-personne_24877-38137.jpg?w=2000');
         $manager->persist($admin);
 
         $user = new User();
@@ -39,7 +38,6 @@ class UserFixtures extends Fixture
             'userpassword'
         );
         $user->setPassword($hashedPassword);
-        $user->setAvatar('https://img.freepik.com/premium-vector/person-avatar-design_24877-38130.jpg?w=2000');
         $manager->persist($user);
 
         $manager->flush();
