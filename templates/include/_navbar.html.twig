@@ -46,7 +46,8 @@
                 <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-center bg-primary-inverse mt-3">
                     {% if app.user %}
                         <li>
-                            <a class="dropdown-item text-primary" href="/profile">Mon profil</a>
+                            <a class="dropdown-item text-primary" href="{{ path('app_profile') }}">Mon profil</a>
+                        
                         </li>
                         <li>
                             <a class="dropdown-item text-primary" href="#">Mes favoris</a>
