@@ -26,7 +26,7 @@
                     <div class=" painting-link px-3 row bg-black blur bg-opacity-50 text-white rounded-1">
                         <a class="row justify-content-end text-white mt-3 text-decoration-none" id="btn-description" href="#"> X </a>
                         <div class="row text-center pt-4">
-                            <p class="col">Artiste : <a class="text-white" href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a></p>
+                            <p class="col">Artiste : <a class="text-white" href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a></p>
                             <p class="col">Date de réalisation : {{ painting.date|date('d/m/Y') }} </p>
 
                         </div>
@@ -51,19 +51,17 @@
     <div class="mx-auto pt-4"><h2 class="text-center">Autres oeuvres de {{ painting.artist.name }} </h2>
         <hr class="w-50 mx-auto">
     </div>
-    <div class="row mx-3 justify-content-center">
+    <div class="row justify-content-center mt-3">
 
-        {% for painting in painting.artist.paintings %}
+        {% for painting in painting.artist.paintings|slice(0,4) %}
 
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
                     <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filters(['limit450', 'watermark_bottom']) }}"
                          alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
-                    <a href="{{ path('painting_show', { id: painting.id}) }}" class="stretched-link">
+                    <a href="{{ path('painting_show', { slug: painting.slug}) }}" class="stretched-link">
                         <span class="visually-hidden-focusable">voir le détail</span>
                     </a>
-                    <div class="position-absolute w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
-                    </div>
                 </div>
             </div>
         {% endfor %}

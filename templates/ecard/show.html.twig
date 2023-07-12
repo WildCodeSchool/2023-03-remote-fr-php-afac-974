@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container d-flex flex-lg-row flex-column mx-auto align-items-center justify-content-center">
         <div class="main-ecard d-flex flex-column align-self-center bg-primary-inverse m-3 p-2 shadow-lg ">
-            <a class="text-black" href="{{ path('painting_show', { id: ecard.painting.id}) }}">
+            <a class="text-black" href="{{ path('painting_show', { slug: ecard.painting.slug}) }}">
                 <h1 class="mb-3 mx-2 text-center">{{ ecard.painting.title }}</h1>
             </a>
             <img class="img-fluid" src="{{ vich_uploader_asset(ecard.painting)|imagine_filters(['limit450', 'watermark_bottom']) }}"

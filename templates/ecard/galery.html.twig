@@ -29,7 +29,7 @@
                             <div class="position-absolute bottom-0 d-flex flex-column bottom-0 end-0 mb-1 me-1 text-end">
                                 <a  class="text-black" href="{{ url('app_ecard_show', { uuid: ecard.uuid }) }}">Voir l'Ecard</a>
                                 <a class=" text-black   "
-                                   href="{{ path('painting_show', { id: ecard.painting.id}) }}">+ d'infos sur l'oeuvre</a>
+                                   href="{{ path('painting_show', { slug: ecard.painting.slug}) }}">+ d'infos sur l'oeuvre</a>
                             </div>
                         </div>
 

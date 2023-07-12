@@ -22,6 +22,7 @@ class Ecard
     private ?Painting $painting = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Email(message: 'L\'email {{ value }} n\'est pas valide.')]
     private ?string $sentTo = null;
 
     #[ORM\Column(type: Types::TEXT)]

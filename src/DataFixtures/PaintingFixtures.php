@@ -9,10 +9,11 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PaintingFixtures extends Fixture implements DependentFixtureInterface
 {
-    public function __construct(private ParameterBagInterface $parameterBag)
+    public function __construct(private ParameterBagInterface $parameterBag, private SluggerInterface $slugger)
     {
     }
     public function load(ObjectManager $manager): void
@@ -38,6 +39,8 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
             $painting->setWidth($faker->numberBetween(50, 150));
             $painting->setImage('reeunion_de_famille187438.jpg');
             $painting->setCreatedAt(new DateTime('now'));
+            $slug = $this->slugger->slug($painting->getTitle());
+            $painting->setSlug($slug);
             $painting->setArtist($this->getReference('artist_' . $faker->numberBetween(1, 7)));
             $painting->setCategory($this->getReference('category_' . ($i % 4 + 1)));
             $manager->persist($painting);

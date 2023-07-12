@@ -25,7 +25,7 @@
             {% for painting in paintings %}
                 <div class="galery card-apparition position-relative overflow-hidden ">
                     <a class="stretched-link"
-                       href="{{ path('painting_show', { id: painting.id}) }}">
+                       href="{{ path('painting_show', { slug: painting.slug}) }}">
                         <img class=" galery-image w-100 h-100 object-fit-cover  "
                              src=" {{ vich_uploader_asset(painting)|imagine_filters(['limit450', 'watermark_bottom']) }}"
                              alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
@@ -33,7 +33,7 @@
                     <div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
                         <p class="text-white m-0">{{ painting.title }}</p>
                         <a class=" text-decoration-none text-white"
-                           href="{{ path('artist_show', { id: painting.artist.id }) }}">{{ painting.artist.name }}</a>
+                           href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a>
                     </div>
                 </div>
             {% endfor %}
