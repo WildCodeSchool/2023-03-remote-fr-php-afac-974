@@ -1,38 +1,39 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}My Profile edit
+{% block title %}Modifier mon profil
 {% endblock %}
 
 {% block body %}
 	{% if app.user %}
 
 
-		<section class="avatar-user container text-center mt-3">
-			<h2 class="text-black">Mon profil</h2>
-			<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
-			<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Logo">
-			<div class="text-center mt-2">
-				<a href="#" class="btn">Ajouter un avatar</a>
-			</div>
-		</section>
-	{% endif %}
+
+    <section class="avatar-user container text-center mt-3">
+        <h2 class="text-black">Mon profil</h2>
+        <hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
+        {% if app.user.avatar is not null %}
+        <img class="logoprofil rounded-5 h-25 mx-auto mb-3 border-2 rounded-circle border border-dark"
+             src="{{ vich_uploader_asset(user) }}" alt="Logo">
+            {% else %}
+                <img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Image par défaut de l'user">
+        {% endif %}
+    </section>
+{% endif %}
 
 
-	<div class="row mt-3">
-		<section class="container">
-			<div class="col-lg-4 offset-lg-4 mt-3 mb-5">
-				{{ form_start(form) }}
-				<div class=" mb-3 bg-primary-inverse p-3 border-2 rounded">
-					{{ form_widget(form) }}
-					<div class="avatar-user m-auto text-center ">
-						<button class="btn bg-secondary-inverse" type="submit">Enregistrer
-						</button>
-						<a class="text-primary m-3" href="{{ path('app_forgot_password_request') }}">
-							Réinitialiser votre mot de passe</a>
-					</div>
-				</div>
-				{{ form_end(form) }}
-			</div>
-	</div>
-</div></section>{% endblock %}
+<div class="row mx-0 mt-2">
+        <div class="col-lg-4 offset-lg-4 mt-3">
+            {{ form_start(form) }}
+            <div class=" mb-3 bg-primary-inverse p-3 border-2 rounded">
+                {{ form_widget(form) }}
+                <div class="avatar-user mb-2 text-center d-flex flex-column align-items-center ">
+                    <button class="btn bg-secondary-inverse my-4" type="submit">Enregistrer </button>
+                    <a class="btn btn-danger" href="{{ path('app_forgot_password_request') }}"> Reinitialiser votre mot de passe</a>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+</div>
+    {% endblock %}
+
