@@ -3,15 +3,20 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Serializable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[Vich\Uploadable]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -32,7 +37,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
     #[Assert\Length(
         min: 6,
         minMessage: "Le mot de passe est trop court et doit faire au moins {{ limit }} caractères."
@@ -47,6 +51,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
     private ?string $lastname = null;
 
+    #[Vich\UploadableField(mapping: 'user_file', fileNameProperty: 'avatar')]
+    #[Assert\Image(
+        mimeTypes: ['image/jpg', ' image/png', 'image/jpeg'],
+        mimeTypesMessage: 'Seuls les formats suivants sont acceptés : .jpeg , .jpg , .png',
+    )]
+    private ?File $imageFile = null;
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
 
@@ -56,11 +66,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Painting::class, inversedBy: 'users')]
     private Collection $paintingsBookmarked;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     public function __construct()
     {
         $this->ecards = new ArrayCollection();
         $this->paintingsBookmarked = new ArrayCollection();
     }
+
+    public function __serialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'email' => $this->email,
+            'roles' => $this->roles,
+            'password' => $this->password,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'avatar' => $this->avatar,
+            'updatedAt' => $this->updatedAt,
+            'paintingsBookmarked' => $this->paintingsBookmarked,
+            'ecards' => $this->ecards
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->id = $data['id'];
+        $this->email = $data['email'];
+        $this->roles = $data['roles'];
+        $this->password = $data['password'];
+        $this->firstname = $data['firstname'];
+        $this->lastname = $data['lastname'];
+        $this->avatar = $data['avatar'];
+        $this->updatedAt = $data['updatedAt'];
+        $this->paintingsBookmarked = $data['paintingsBookmarked'];
+        $this->ecards = $data['ecards'];
+    }
+
 
     public function getId(): ?int
     {
@@ -218,6 +262,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removePaintingsBookmarked(Painting $paintingsBookmarked): static
     {
         $this->paintingsBookmarked->removeElement($paintingsBookmarked);
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): User
+    {
+        $this->imageFile = $imageFile;
+        if ($imageFile) {
+            $this->updatedAt = new DateTimeImmutable('now');
+        }
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

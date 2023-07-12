@@ -1,10 +1,13 @@
 //Animation logo profil//
+.logoprofil {
+    max-width: 20rem;
+}
 .logoprofil:hover {
     transform: scale(1.25) rotate(2deg);
     transition: all ease-in-out .4s;
 }
 
-//Animation boutton//
+
 .avatar-user .btn {
     border: unset;
     border-radius: 5px;
@@ -33,7 +36,6 @@
     background-color: $grey;
 }
 
-//Animation Etoiles//
 .star input {
     position: absolute;
     opacity: 0;
