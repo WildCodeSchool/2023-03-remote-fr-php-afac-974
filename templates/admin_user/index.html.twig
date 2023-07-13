@@ -11,11 +11,11 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Mot de passe</th>
+                <th>Prénom</th>
+                <th>Nom</th>
                 <th>Avatar</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +29,8 @@
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.avatar }}</td>
                 <td>
-                    <a class="btn btn-primary my-1" href="{{ path('app_admin_user_show', {'id': user.id}) }}">Voir</a>
-                    <a class="btn btn-info" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Edit</a>
+                    <a class="btn btn-primary my-1" href="{{ path('app_admin_user_show', {'id': user.id}) }}">Aperçu</a>
+                    <a class="btn btn-info" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}

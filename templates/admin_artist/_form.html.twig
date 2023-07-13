@@ -1,6 +1,10 @@
-<div class="m-5">
+<section class="container">
+<class=" col-lg-4 offset-lg-4 ">
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+<div class="d-flex justify-content-center">
+    <button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
+    </div>
 {{ form_end(form) }}
-</div>
+</section>
+
