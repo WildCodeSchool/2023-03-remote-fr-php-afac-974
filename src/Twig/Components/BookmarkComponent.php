@@ -2,19 +2,28 @@
 
 namespace App\Twig\Components;
 
-use App\Entity\Painting;
 use App\Entity\User;
+use App\Entity\Painting;
 use App\Repository\UserRepository;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\UX\LiveComponent\Attribute\LiveArg;
 
 #[AsLiveComponent()]
-final class BookmarkComponent
+final class BookmarkComponent extends AbstractController
 {
     use DefaultActionTrait;
+
+    #[LiveProp(writable: true)]
+    public bool $redirect = false;
+
+    #[LiveProp(writable: true)]
+    public string $tag = 'button';
 
     #[LiveProp(writable: true)]
     public Painting $painting;
@@ -26,7 +35,7 @@ final class BookmarkComponent
     }
 
     #[LiveAction]
-    public function toggleBookmark(): void
+    public function toggleBookmark(): Response|self
     {
         /** @var User */
         $user = $this->security->getUser();
@@ -37,6 +46,10 @@ final class BookmarkComponent
         }
 
         $this->userRepository->save($user, flush: true);
+        if ($this->redirect) {
+            return $this->redirectToRoute('app_profile');
+        }
+        return $this;
     }
 
     public function isBookmarked(): bool

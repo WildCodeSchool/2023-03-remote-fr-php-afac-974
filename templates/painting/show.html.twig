@@ -38,7 +38,9 @@
 						<p class="col ">Technique :
 							{{ painting.category.name }}</p>
 						<p class="col">Hauteur :
-							{{ painting.height }}cm | Longueur :
+							{{ painting.height }}cm
+							<br>
+							Longueur :
 							{{ painting.width }}cm</p>
 
 					</div>
@@ -55,10 +57,11 @@
 
 	</div>
 	<div class="d-flex flex-row justify-content-center my-3">
-		<a class="btn btn-primary" href="{{ path('app_ecard_painting', {id: painting.id}) }}">Envoyer une e-card</a>
-		<button class=" btn btn-primary ms-4">
-			{{ component('BookmarkComponent',
-                        { painting: painting}) }}</button>
+		<a class="btn btn-primary me-2" href="{{ path('app_ecard_painting', {id: painting.id}) }}">Envoyer une e-card</a>
+
+		{{ component('BookmarkComponent', {
+					painting: painting,
+				}) }}
 	</div>
 	<div class="mx-auto pt-4">
 		<h2 class="text-center">Autres oeuvres de
