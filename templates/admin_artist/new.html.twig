@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajout d'un artiste{% endblock %}
+{% block title %}Ajout d'un artiste
+{% endblock %}
 
 {% block body %}
-    <h1 class="m-5">Créer un nouvel artiste</h1>
+	<h1 class=" mt-2 d-flex justify-content-center">Créer un nouvel artiste</h1>
 
-    {{ include('admin_artist/_form.html.twig') }}
-
-    <a class="btn btn-primary m-2" href="{{ path('app_admin_artist_index') }}">Retour à l'index</a>
+	{{ include('admin_artist/_form.html.twig') }}
+	<div class="d-flex justify-content-center">
+		<a class="btn btn-primary m-2" href="{{ path('app_admin_artist_index') }}">Retour à l'index</a>
+	</div>
 {% endblock %}
