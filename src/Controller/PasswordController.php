@@ -36,9 +36,9 @@ class PasswordController extends AbstractController
             $userRepository->save($user, true);
 
 
-            $this->addFlash('succes', 'Votre mot de passe à bien été changé !');
+            $this->addFlash('success', 'Votre profil à bien été mis à jour !');
 
-            return $this->redirectToRoute(' app_home');
+            return $this->redirectToRoute('app_profile');
         }
 
         return $this->render('profile/edit.html.twig', [

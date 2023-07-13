@@ -33,7 +33,8 @@
                     <div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
                         <p class="text-white m-0">{{ painting.title }}</p>
                         <a class=" text-decoration-none text-white"
-                           href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a>
+                           href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}
+                        </a>
                     </div>
                 </div>
             {% endfor %}

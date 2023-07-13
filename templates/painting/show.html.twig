@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ painting.title }}
+{% block title %}
+	{{ painting.title }}
 {% endblock %}
 
 {% block body %}
+
 
     <h1 class="text-center my-4 ">{{ painting.title }}</h1>
         <div class="container-fluid position-relative p-0 mb-5 ">
@@ -19,9 +21,14 @@
                  text-white blur px-3 mt-5 rounded-1 object-fit-cover div-head " id="div-head">
 
 
-                    <a class="text-white px-3 fs-6" id="btn-painting" href="#">+ d'infos</a>
-                </div>
-                <div class="description" id="description">
+			</a>
+			<div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50
+				                 text-white blur px-3 mt-3 rounded-1 object-fit-cover div-head " id="div-head">
+
+				<a class="text-white px-3 fs-6" id="btn-painting" href="#">+ d'infos</a>
+			</div>
+			<div class="description" id="description">
+
 
                     <div class="painting-link px-3 row bg-black blur bg-opacity-50 text-white rounded-1">
                         <a class="row justify-content-end text-white mt-3 text-decoration-none" id="btn-description" href="#"> X </a>
@@ -29,68 +36,81 @@
                             <p class="col">Artiste : <a class="text-white" href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a></p>
                             <p class="col">Date de réalisation : {{ painting.date|date('d/m/Y') }} </p>
 
-                        </div>
 
-                        <div class="row text-center">
-                            <p class="col ">Technique : {{ painting.category.name }}</p>
-                            <p class="col">Hauteur : {{ painting.height }}cm | Longueur : {{ painting.width }}cm</p>
-                        </div>
-                        <hr>
-                        <div class="p-5">
-                            <h2 class="text-center">Anecdote :</h2>
-                            <p class="p-2"> {{ painting.anecdote }}</p>
-                        </div>
+					</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    <div class="d-flex flex-row justify-content-center my-3">
-        <a class="btn btn-primary" href="{{ path('app_ecard_painting', {id: painting.id}) }}">Envoyer une e-card</a>
-    </div>
-    <div class="mx-auto pt-4"><h2 class="text-center">Autres oeuvres de {{ painting.artist.name }} </h2>
-        <hr class="w-50 mx-auto">
-    </div>
-    <div class="row justify-content-center mt-3">
+					<div class="row text-center">
+						<p class="col ">Technique :
+							{{ painting.category.name }}</p>
+						<p class="col">Hauteur :
+							{{ painting.height }}cm
+							<br>
+							Longueur :
+							{{ painting.width }}cm</p>
 
-        {% for painting in painting.artist.paintings|slice(0,4) %}
+					</div>
+					<hr>
+					<div class="p-5">
+						<h2 class="text-center">Anecdote :</h2>
+						<p class="p-2">
+							{{ painting.anecdote }}</p>
+					</div>
 
-            <div class="col-md-6 col-xl-3 mt-3 mb-3">
-                <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
-                    <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit450') }}"
-                         alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
-                    <a href="{{ path('painting_show', { slug: painting.slug}) }}" class="stretched-link">
-                        <span class="visually-hidden-focusable">voir le détail</span>
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <script>
-        const description = document.getElementById("description");
-        const divHead = document.getElementById("div-head")
-        const btnHead = document.getElementById("btn-painting");
-        const btnDescription = document.getElementById("btn-description")
+				</div>
+			</div>
+		</div>
 
-        btnHead.onclick = function () {
-            if (description.style.display !== "block") {
-                description.style.display = "block";
-                divHead.style.display= "none";
-            } else {
-                description.style.display = "none";
-                divHead.style.display="block";
-            }
-        };
-        btnDescription.onclick = function() {
-            if (divHead.style.display !== "block") {
-                divHead.style.display = "block";
-                description.style.display ="none";
-            } else{
-                divHead.style.display = "none";
-                description.style.display ="block";
-            }
-        };
+	</div>
+	<div class="d-flex flex-row justify-content-center my-3">
+		<a class="btn btn-primary me-2" href="{{ path('app_ecard_painting', {id: painting.id}) }}">Envoyer une e-card</a>
 
+		{{ component('BookmarkComponent', {
+					painting: painting,
+				}) }}
+	</div>
+	<div class="mx-auto pt-4">
+		<h2 class="text-center">Autres oeuvres de
+			{{ painting.artist.name }}
+		</h2>
+		<hr class="w-50 mx-auto">
+	</div>
+	<div class="row justify-content-center mt-3">
 
-    </script>
+		{% for painting in painting.artist.paintings|slice(0,4) %}
+
+			<div class="col-md-6 col-xl-3 mt-3 mb-3">
+				<div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
+					<img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit450') }}" alt="aperçu de l'oeuvre {{ painting.title }} réalisé par {{ painting.artist.name }}.">
+					<a href="{{ path('painting_show', { slug: painting.slug}) }}" class="stretched-link">
+						<span class="visually-hidden-focusable">voir le détail</span>
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<script>
+		const description = document.getElementById("description");
+const divHead = document.getElementById("div-head")
+const btnHead = document.getElementById("btn-painting");
+const btnDescription = document.getElementById("btn-description")
+
+btnHead.onclick = function () {
+if (description.style.display !== "block") {
+description.style.display = "block";
+divHead.style.display = "none";
+} else {
+description.style.display = "none";
+divHead.style.display = "block";
+}
+};
+btnDescription.onclick = function () {
+if (divHead.style.display !== "block") {
+divHead.style.display = "block";
+description.style.display = "none";
+} else {
+divHead.style.display = "none";
+description.style.display = "block";
+}
+};
+	</script>
 {% endblock %}

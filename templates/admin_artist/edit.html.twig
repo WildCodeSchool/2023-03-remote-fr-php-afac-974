@@ -4,12 +4,15 @@
 
 {% block body %}
     <div class="m-5">
+    <div class="d-flex justify-content-center m-4">
     <h1>Editer "{{ artist.name }}"</h1>
+</div>
 
-    {{ include('admin_artist/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a class="btn btn-primary mb-2" href="{{ path('app_admin_artist_index') }}">Retour à l'index</a>
-
+    {{ include('admin_artist/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="d-flex justify-content-center">
+    <a class="btn btn-primary m-5 " href="{{ path('app_admin_artist_index') }}">Retour à l'index</a>
+    </div>
     {{ include('admin_artist/_delete_form.html.twig') }}
+
     </div>
 {% endblock %}
