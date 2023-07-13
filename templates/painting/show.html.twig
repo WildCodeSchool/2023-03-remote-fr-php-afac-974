@@ -6,36 +6,31 @@
 
 {% block body %}
 
-
-    <h1 class="text-center my-4 ">{{ painting.title }}</h1>
-        <div class="container-fluid position-relative p-0 mb-5 ">
-            <div class="mx-2">
-                <a
-                    href="{{ vich_uploader_asset(painting)|imagine_filter('watermark') }}"
-                   target="_blank" rel="noopener noreferrer" >
-                    <img class=" img-fluid d-block mx-auto "
-                         src=" {{ vich_uploader_asset(painting)|imagine_filter('limit600') }}"
-                         alt="{{ painting.title }} de {{ painting.artist.name }}">
-                </a>
-                <div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50
-                 text-white blur px-3 mt-5 rounded-1 object-fit-cover div-head " id="div-head">
-
+	<h1 class="text-center my-4 ">{{ painting.title }}</h1>
+	<div class="container-fluid position-relative p-0 mb-5 ">
+		<div class="mx-2">
+			<a href="{{ vich_uploader_asset(painting)|imagine_filter('watermark') }}" target="_blank" rel="noopener noreferrer">
+				<img class=" img-fluid d-block mx-auto " src=" {{ vich_uploader_asset(painting)|imagine_filter('limit600') }}" alt="{{ painting.title }} de {{ painting.artist.name }}">
 
 			</a>
 			<div class="name-painting p-2 rounded position-absolute bg-black bg-opacity-50
-				                 text-white blur px-3 mt-3 rounded-1 object-fit-cover div-head " id="div-head">
+								                 text-white blur px-3 mt-3 rounded-1 object-fit-cover div-head " id="div-head">
 
 				<a class="text-white px-3 fs-6" id="btn-painting" href="#">+ d'infos</a>
 			</div>
 			<div class="description" id="description">
 
-
-                    <div class="painting-link px-3 row bg-black blur bg-opacity-50 text-white rounded-1">
-                        <a class="row justify-content-end text-white mt-3 text-decoration-none" id="btn-description" href="#"> X </a>
-                        <div class="row text-center pt-4">
-                            <p class="col">Artiste : <a class="text-white" href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a></p>
-                            <p class="col">Date de réalisation : {{ painting.date|date('d/m/Y') }} </p>
-
+				<div class=" painting-link px-3 row bg-black blur bg-opacity-50 text-white rounded-1">
+					<a class="row justify-content-end text-white mt-3 text-decoration-none" id="btn-description" href="#">
+						X
+					</a>
+					<div class="row text-center pt-4">
+						<p class="col">Artiste :
+							<a class="text-white" href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a>
+						</p>
+						<p class="col">Date de réalisation :
+							{{ painting.date|date('d/m/Y') }}
+						</p>
 
 					</div>
 
