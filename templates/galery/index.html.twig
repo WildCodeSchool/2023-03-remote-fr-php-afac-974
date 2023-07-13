@@ -10,12 +10,12 @@
         <div class="d-flex flex-row justify-content-center">
 
             <div>
-                <h4 class="text-center fw-normal">Tapez ici votre recherche</h4>
+                <h1 class="text-center fw-normal">Tapez votre recherche ci-dessous</h1>
                 {{ form_start(form) }}
                 <div class="d-flex gap-2 mb-2">
 
-                    {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, oeuvre ..."} }) }}
-                    <a class="btn d-block w-50  btn-primary" href="{{ path('galery_index') }}">reset</a>
+                    {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, œuvre..."} }) }}
+                    <a class="btn d-block w-50  btn-primary" href="{{ path('galery_index') }}">Effacer</a>
 
                 </div>
                 {{ form_end(form) }}
@@ -33,12 +33,15 @@
                     <div class="position-absolute bg-black w-100 z-1 bottom-0 bg-opacity-50 p-3 d-flex flex-column">
                         <p class="text-white m-0">{{ painting.title }}</p>
                         <a class=" text-decoration-none text-white"
-                           href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}</a>
+                           href="{{ path('artist_show', { slug: painting.artist.slug }) }}">{{ painting.artist.name }}
+                        </a>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
     <div class="d-flex justify-content-center ">{{ knp_pagination_render(paintings) }}</div>
-
+<div class=" opacity-75 bouton-aleatoire  position-fixed">
+    <a href="{{ path('painting_random') }}" class="btn btn-dark py-3 text-white">Galerie aléatoire <i class="bi bi-infinity"></i>  </a>
+</div>
 {% endblock %}

@@ -1,23 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edition de l'utilisateur{% endblock %}
+{% block title %}Edition de l'utilisateur
+{% endblock %}
 
 {% block body %}
-    <h1 class="mx-auto my-3">Modifier l'utilisateur "{{ user.firstname }} {{ user.lastname }}"</h1>
-<div class="row">
-    <div class="card col-7 col-lg-4 m-auto bg-primary text-primary-inverse p-0">
-        <img src="{{ user.avatar }}" class="card-img-top img-fluid" alt="...">
-        <div class="card-body ">
-            <h5 class="card-title">{{ user.firstname }} {{ user.lastname }}</h5>
-            <h6>{{ user.email }}</h6>
-            {{ include('admin_user/_form.html.twig', {'button_label': 'Modifier'}) }}
-
-        </div>
-    </div>
+	<h1 class="mx-auto my-3 fs-2">Modifier l'utilisateur "{{ user.firstname }}
+		{{ user.lastname }}"</h1>
+	<div class="row mx-0">
+		<div class="card col-7 col-lg-3 m-auto bg-primary text-primary-inverse p-0">
+            {% if user.avatar is not null %}
+                <img src="{{ vich_uploader_asset(user) }}" class="card-img-top img-fluid" alt="Avatar de l'utilisateur : {{ user.firstname }} {{ user.lastname }}">
+            {% else %}
+                <img src="{{ asset('build/images/user.png') }}" class="card-img-top img-fluid" alt="Avatar de l'utilisateur : {{ user.firstname }} {{ user.lastname }}">
+            {% endif %}
+			<div class="card-body ">
+				<h5 class="card-title">{{ user.firstname }}
+					{{ user.lastname }}</h5>
+				<h6>{{ user.email }}</h6>
+                {{ form_row(form.roles) }}
+            </div>
 </div>
-    <div class="d-flex flex-column align-items-center">
-        <a class="btn btn-info my-3" href="{{ path('app_admin_user_index') }}">Retour à l'index</a>
-
-        {{ include('admin_user/_delete_form.html.twig') }}
+    </div>
+		<div class="d-flex flex-row justify-content-center my-4">
+			<span class="mx-2">{{ include('admin_user/_form.html.twig', {'button_label': 'Modifier'}) }}</span>
+	    	<span class="mx-2">{{ include('admin_user/_delete_form.html.twig') }}</span>
+	</div>
+    <div class="d-flex flex-row justify-content-center">
+    <a class="btn btn-info my-2" href="{{ path('app_admin_user_index') }}">Retour à l'index</a>
     </div>
 {% endblock %}

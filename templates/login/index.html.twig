@@ -6,26 +6,43 @@
 
 {% block body %}
     {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-    <div class="row my-auto">
-        <div class="bg-primary align-middle mx-auto p-5 col-10 offset-lg-3 col-lg-4">
-            <h1 class="text-center text-white mb-2">Connexion</h1>
-            <form action="{{ path('app_login') }}" method="post" class=" mb-5 d-flex flex-column align-items-center">
-        <div class="mb-3">
-        <label class="text-primary-inverse" for="username">Email:</label>
-        <input class="form-control  text-center" type="text" id="username" name="_username" value="{{ last_username }}">
+    <h1 class="visually-hidden">Connexion</h1>
+    <div class="my-auto mx-auto w-100 ">
+        <div class=" mx-auto   col-10 offset-lg-3 col-lg-4  position-relative">
+            <div class=" position-relative    overflow-hidden rounded  z-0">
+                <img src="{{ asset('build/images/bandeau-connexion.png') }}" alt="" class="  img-fluid ">
+                <div class="bg-black bg-opacity-25">
+                    <img src="{{ asset('build/images/fond_login_out.png') }}"
+                         class="  img-fluid  position-absolute  object-fit-cover"
+                         alt="Photo d'un paysage de la Réunion">
+                    <div class="position-relative bg-black bg-opacity-25  py-4">
+                        <form action="{{ path('app_login') }}" method="post"
+                              class=" mb-5 d-flex flex-column align-items-center ">
+                            <div class="mb-3">
+                                <label class="text-primary-inverse" for="username">Email :</label>
+                                <input class="form-control  text-center" type="text" id="username" name="_username"
+                                       value="{{ last_username }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-primary-inverse" for="password">Mot de passe :</label>
+                                <input class="form-control text-center" type="password" id="password" name="_password">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            </div>
+                            <button class="btn btn-primary" type="submit">Se connecter</button>
+                        </form>
+                        <div class="text-center">
+                            <a class="text-white" href="{{ path('app_forgot_password_request') }}">Réinitialiser votre
+                                mot de
+                                passe</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
-        <div class="mb-3">
-        <label class="text-primary-inverse" for="password">Mot de passe:</label>
-        <input class="form-control text-center" type="password" id="password" name="_password">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        </div>
-        <button class="btn btn-info" type="submit">Se connecter</button>
-    </form>
-        <div class="text-center">
-        <a class="text-white" href="{{ path('app_forgot_password_request') }}">Reinitialiser votre mot de passe</a>
-        </div>
-    </div>
     </div>
 {% endblock %}
