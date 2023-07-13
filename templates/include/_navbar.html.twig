@@ -32,8 +32,8 @@
             <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end"
                 id="navbarNavDropdown">
                 {% if app.user %}
-                    <a href="#"
-                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</a>
+                    <p 
+                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</p>
                 {% endif %}
                 <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center"
                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
