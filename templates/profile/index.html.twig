@@ -60,14 +60,15 @@
 
 					<div class="star avatar-user card1 m-1  row  position-relative ">
 
-						<img src="{{ asset('build/images/artist.png') }}" class="border-2 border border-dark img-fluid m-0 p-0" alt="...">
+						<img src="{{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom") }}" class="border-2 border border-dark img-fluid m-0 p-0" alt="aperçu de l'oeuvre en favoris" >
 						<div class="position-absolute bg-black bottom-0 blur  bg-opacity-50 d-flex flex-row justify-content-between">
-							{{ component('BookmarkComponent',
-                        { painting: painting}) }}
-							<a href="#" class=" text-white ">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewbox="0 0 16 16">
-									<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-								</svg>
+							{{ component('BookmarkComponent', {
+								painting: painting,
+								tag: 'a',
+								redirect: true
+							}) }}
+							<a href="{{ path('app_ecard_painting', {id: painting.id}) }}" class=" text-white ">
+								<i class="bi bi-envelope"></i>
 							</a>
 						</div>
 					</div>
