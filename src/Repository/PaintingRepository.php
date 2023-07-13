@@ -2,10 +2,12 @@
 
 namespace App\Repository;
 
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\Query;
 use App\Entity\Painting;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use DoctrineExtensions\Query\Mysql\Rand;
 
 /**
  * @extends ServiceEntityRepository<Painting>
@@ -52,6 +54,19 @@ class PaintingRepository extends ServiceEntityRepository
         ->orWhere('a.name LIKE :search')
         ->setParameter('search', '%' . $search . '%')
         ->getQuery();
+    }
+
+    /**
+     * @throws NonUniqueResultException
+     */
+    public function randPainting(): mixed
+    {
+        return $this->createQueryBuilder('p')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->orderBy('rand')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
     //    /**
     //     * @return Painting[] Returns an array of Painting objects

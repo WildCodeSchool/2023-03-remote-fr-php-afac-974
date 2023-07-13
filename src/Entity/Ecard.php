@@ -22,10 +22,12 @@ class Ecard
     private ?Painting $painting = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
     #[Assert\Email(message: 'L\'email {{ value }} n\'est pas valide.')]
     private ?string $sentTo = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide.')]
     #[Assert\Length(
         max: 1200,
         maxMessage:'Le texte saisi est trop long, il ne doit pas dépasser {{ limit }} caractères.',
