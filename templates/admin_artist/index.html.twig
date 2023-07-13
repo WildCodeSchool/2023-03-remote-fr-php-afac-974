@@ -3,19 +3,19 @@
 {% block title %}Gestion des artistes{% endblock %}
 
 {% block body %}
-    <h1 class="m-5">Artist index</h1>
+    <h1 class="mt-5 mb-1 d-flex justify-content-center">Index des Artistes</h1>
 
 <div class="m-5 table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>DateOfBirth</th>
-                <th>Nationality</th>
-                <th>Biography</th>
+                <th>Nom</th>
+                <th>Naissance</th>
+                <th>Nationalité</th>
+                <th>Biographie</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +28,8 @@
                 <td>{{ artist.biography }}</td>
                 <td>{{ artist.image }}</td>
                 <td>
-                    <a class="btn btn-primary mb-2" href="{{ path('artist_show', {'slug': artist.slug}) }}">Voir</a>
-                    <a class="btn btn-info" href="{{ path('app_admin_artist_edit', {'id': artist.id}) }}">Edit</a>
+                    <a class="btn btn-primary mb-2" href="{{ path('artist_show', {'slug': artist.slug}) }}">Aperçu</a>
+                    <a class="btn btn-info" href="{{ path('app_admin_artist_edit', {'id': artist.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -39,7 +39,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a class="btn btn-success" href="{{ path('app_admin_artist_new') }}">Create new</a>
+<div class="d-flex justify-content-center">
+    <a class="btn btn-success " href="{{ path('app_admin_artist_new') }}">Ajouter un artiste</a>
+</div>
 </div>
 {% endblock %}
