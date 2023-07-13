@@ -34,7 +34,7 @@
 
             <div class="carousel-inner home-carousel ">
 
-                <div class="carousel-item active h-100 ">
+                <div class="carousel-item active h-100 " data-bs-interval="3000">
                     <img src="{{ asset('build/images/home-picture.jpg') }}"
                          class="object-fit-cover w-100 h-100 img-fluid" alt="Photo d'un paysage de la Réunion">
                     <div class="carousel-caption d-flex align-content-stretch flex-wrap justify-content-evenly h-100 ">
@@ -54,7 +54,7 @@
                 {% for painting in paintings %}
 
 
-                    <div class="carousel-item  h-100   ">
+                    <div class="carousel-item  h-100" data-bs-interval="3000">
                         <img src="{{ vich_uploader_asset(painting)|imagine_filter('watermark_bottom') }}"
                              class="object-fit-cover w-100 h-100 img-fluid " alt="...">
                         <div
