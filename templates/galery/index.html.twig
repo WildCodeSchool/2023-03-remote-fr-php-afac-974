@@ -10,12 +10,12 @@
         <div class="d-flex flex-row justify-content-center">
 
             <div>
-                <h4 class="text-center fw-normal">Tapez ici votre recherche</h4>
+                <h1 class="text-center fw-normal">Tapez votre recherche ci-dessous</h1>
                 {{ form_start(form) }}
                 <div class="d-flex gap-2 mb-2">
 
-                    {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, oeuvre ..."} }) }}
-                    <a class="btn d-block w-50  btn-primary" href="{{ path('galery_index') }}">reset</a>
+                    {{ form_widget(form.search,{ 'attr': {'placeholder': "Artiste, œuvre..."} }) }}
+                    <a class="btn d-block w-50  btn-primary" href="{{ path('galery_index') }}">Effacer</a>
 
                 </div>
                 {{ form_end(form) }}

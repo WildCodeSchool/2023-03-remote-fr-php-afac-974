@@ -3,7 +3,7 @@
 {% block body %}
 
 
-        <h1 class="text-center mt-3">Mes E-cards envoyées </h1>
+        <h1 class="text-center mt-3">Mes E-cards envoyées</h1>
         <div class=" d-flex flex-row flex-wrap justify-content-center my-auto ">
 
             {% for ecard in ecards %}
@@ -27,9 +27,9 @@
                             <p class="w-100   "><span class="fw-bold mb-3">Message :</span>
                                 {{ ecard.message|raw }}</p>
                             <div class="position-absolute bottom-0 d-flex flex-column bottom-0 end-0 mb-1 me-1 text-end">
-                                <a  class="text-black" href="{{ url('app_ecard_show', { uuid: ecard.uuid }) }}">Voir l'Ecard</a>
+                                <a  class="text-black" href="{{ url('app_ecard_show', { uuid: ecard.uuid }) }}">Voir l'E-card</a>
                                 <a class=" text-black   "
-                                   href="{{ path('painting_show', { slug: ecard.painting.slug}) }}">+ d'infos sur l'oeuvre</a>
+                                   href="{{ path('painting_show', { slug: ecard.painting.slug}) }}">Plus d'informations sur l'œuvre</a>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
                 <div class=" text-center">
 
                     <h2 class="fw-bold">Aucune E-card à afficher.</h2>
-                    <p>Cliquez sur le bouton en dessous pour visiter notre galerie.</p>
+                    <p>Cliquez sur le bouton ci-dessous pour visiter notre galerie.</p>
                     <a href="{{ path('galery_index') }}" class="btn btn-primary">Galerie</a>
 
 
