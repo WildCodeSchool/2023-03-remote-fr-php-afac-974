@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
-    <title>
-        Oeuvre aléatoire - Art-AFAC
-    </title>
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %}
-
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-
+{% extends 'base.html.twig' %}
+{% block header %}
+<header class="visually-hidden"></header>
+{% endblock %}
     {% block body %}
+
         <h1 class="visually-hidden">Oeuvre aléatoire</h1>
         <div class="bg-black d-flex flex-column flex-lg-row justify-content-between  px-5 position-relative vh-100">
             <div class="mt-2  button-random">
@@ -40,5 +27,8 @@
             }, 5000);
         </script>
     {% endblock %}
+{% block footer %}
+    <footer class="visually-hidden"></footer>
+{% endblock %}
 
 
