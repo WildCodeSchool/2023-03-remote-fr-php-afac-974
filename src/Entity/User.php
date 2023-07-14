@@ -53,7 +53,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[Vich\UploadableField(mapping: 'user_file', fileNameProperty: 'avatar')]
     #[Assert\Image(
-        mimeTypes: ['image/jpg', ' image/png', 'image/jpeg'],
+        mimeTypes: ['image/jpg', 'image/png', 'image/jpeg'],
         mimeTypesMessage: 'Seuls les formats suivants sont acceptés : .jpeg , .jpg , .png',
     )]
     private ?File $imageFile = null;
