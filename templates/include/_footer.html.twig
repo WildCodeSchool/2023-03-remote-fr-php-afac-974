@@ -1,34 +1,33 @@
 <div class="footer p-2 bg-primary">
-	<div class="container-fluid d-flex flex-row justify-content-between px-4">
-		<div class="accordion accordion-flush my-auto " id="accordionFlushExample">
-			<div class="accordion-item bg-primary">
-				<h2 class="accordion-header" id="flush-headingOne">
-					<a href="#" class="collapsed bg-primary text-white fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-						AFAC
-					</a>
-				</h2>
-				<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-					<div class="accordion-body text-white p-0">
-						<p>
-							&copy;
-							{{ 'now'|date('Y') }}
-							Association AFAC<br>
-							10 rue Albert Fréjaville<br>
-							97430 Le Tampon, île de La Réunion
-							<br>
-							Adresse e-mail : afac974@gmail.com
-							<br>
-							(+262) 692 851 842</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class=" my-auto">
-			<a href="{{ path('app_page_index') }}" class="text-light text-decoration-none me-5">RGPD</a>
-			<a href="https://www.facebook.com/pedagolab" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-facebook text-white fs-2 m-2"></i>
+
+    <div class="container-fluid d-flex flex-row justify-content-between px-4">
+        <div class="accordion accordion-flush my-auto " id="accordionFlushExample">
+            <div class="accordion-item bg-primary">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <a href="#" class="collapsed bg-primary text-white fs-4" type="button" data-bs-toggle="collapse"
+                       data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        AFAC
+                    </a>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white p-0">
+                        <p> &copy; {{ 'now'|date('Y') }}
+                            Association AFAC<br>
+                            10 rue Albert Fréjaville<br>
+                            97430 Le Tampon, île de La Réunion <br>
+                            Adresse e-mail : afac974@gmail.com <br>
+                            (+262) 692 851 842</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" my-auto">
+            <a href="{{ path('app_page_index') }}" class="text-light text-decoration-none me-5">RGPD</a>
+            <a href="https://www.facebook.com/pedagolab" target="_blank" rel="noopener noreferrer">
+                     <i class="bi bi-facebook text-white fs-2 m-2"></i>
             </a>
-		</div>
+        </div>
 
 	</div>
 </div>

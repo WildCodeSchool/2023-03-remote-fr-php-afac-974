@@ -19,4 +19,14 @@ class PaintingController extends AbstractController
 
         ]);
     }
+    #[Route('/random', name: 'random', priority: 1)]
+    public function showRandom(PaintingRepository $paintingRepository): Response
+    {
+
+        $painting = $paintingRepository->randPainting();
+
+        return $this->render('painting/random.html.twig', [
+        'painting' => $painting,
+        ]);
+    }
 }
