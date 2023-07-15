@@ -32,7 +32,7 @@
             <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end"
                 id="navbarNavDropdown">
                 {% if app.user %}
-                    <p 
+                    <p
                        class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</p>
                 {% endif %}
                 <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center"
@@ -54,7 +54,7 @@
 
                         </li>
                         <li>
-                            <a class="dropdown-item text-primary" href="#">Mes favoris</a>
+                            <a class="dropdown-item text-primary" href="#favoris">Mes favoris</a>
                         </li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li>
