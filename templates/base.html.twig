@@ -1,29 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
-        <title>
-            {% block title %}Page{% endblock %} - Art-AFAC
-        </title>
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
+    <title>
+        {% block title %}Page{% endblock %} - Art-AFAC
+    </title>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body class="d-flex flex-column min-vh-100">
-        <header>
-            {% include 'include/_navbar.html.twig' %}
-        </header>
-        {% block body %}{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100">
 
-        <footer class="bg-dark text-white w-100 mt-auto">
-            {% include ('include/_footer.html.twig') %}
-        </footer>
-    </body>
+{% block header %}
+    <header>
+        {% include 'include/_navbar.html.twig' %}
+    </header>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+    <footer class="bg-dark text-white w-100 mt-auto">
+        {% include ('include/_footer.html.twig') %}
+    </footer>
+{% endblock %}
+
+</body>
 </html>
