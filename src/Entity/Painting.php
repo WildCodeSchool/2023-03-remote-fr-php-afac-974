@@ -67,6 +67,7 @@ class Painting
     private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'paintings')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Artist $artist = null;
 
     #[ORM\Column(nullable: true)]

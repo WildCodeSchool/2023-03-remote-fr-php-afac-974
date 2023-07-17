@@ -15,4 +15,7 @@
         <span class="mx-3">{{ include('admin_artist/_delete_form.html.twig') }}</span>
         <a class="btn btn-primary" href="{{ path('app_admin_artist_index') }}">Retour à l'index</a>
     </div>
+    <p class="text-center mt-3 fw-bold"><i class="bi bi-exclamation-circle"></i>
+        Attention, supprimer un artiste supprimera également les oeuvres qui lui sont reliées. <i class="bi bi-exclamation-circle"></i>
+    </p>
 {% endblock %}
