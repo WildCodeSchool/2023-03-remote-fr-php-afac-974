@@ -39,7 +39,7 @@
                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {% if app.user %}
                     {% if app.user.avatar %}
-                        <img src="{{ vich_uploader_asset(app.user) }}" alt="Logo">
+                        <img src="{{ vich_uploader_asset(app.user)|imagine_filter('limit450') }}" alt="Logo">
                     {% else %}
                         <img src="{{ asset('build/images/user.png') }}" alt="Logo">
                     {% endif %}
