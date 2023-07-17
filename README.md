@@ -175,11 +175,11 @@ for the creation of the database and the fixture loader.
 ## Login Credentials 
 For the admin : 
 * Email : admin@afac.com
-* Password : adminpass
+* Password : adminpassword
 
 For the user :
 * Email : user@afac.com
-* Password : userpass
+* Password : userpassword
 
 
 ## Bundles
