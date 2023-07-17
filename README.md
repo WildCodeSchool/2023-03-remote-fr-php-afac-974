@@ -1,5 +1,7 @@
 # Project 3 - Starter Kit - Symfony
 
+* [Art-Afac presentation](#presentation-artafac)
+
 ## Presentation
 
 This starter kit is here to easily start a repository for Wild Code School students.
@@ -121,5 +123,73 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+<img src="assets/images/logo2.png"> 
+
+## <p id="presentation-artafac"></p>
+
+#  Presentation d'ART-AFAC - AFAC-974
+For this project we were called by the AFAC-974 association. The objective was to create a virtual galery of
+paintings for artists from "La Réunion" which is a French Department in the Indian Ocean.
+AFAC-974 ask us to put some remarkable features like the possibility for users to send virtuals postal cards from the
+paintings they loved, the possibility for users to bookmarked some paintings, to edit their profile and the possibility
+to use our automatic galery.
+
+## Team
+
+* Victoria GAMBIER
+* Johann GONIN
+* Virginie LEBLEU
+* Julien LISS
+* Valentin PHILIPPEAU
+
+## Using this project
+1. Change your env.local with your database information.
+2. Run the command : 
+``` bash
+ bash script.sh 
+```
+for the creation of the database and the fixture loader.
+3. Dont forget to implement your mailer for the e-card page.
+4. Enjoy your visit.
+
+## Login Credentials 
+For the admin : 
+* Email : admin@afac.com
+* Password : adminpass
+
+For the user :
+* Email : user@afac.com
+* Password : userpass
+
+
+## Bundles
+For this project we used many bundles : 
+* ### Liip-imagine-Bundle :
+For our pictures, to be able to put watermarks and resize some of them.
+* ### KNP Paginator Bundle : 
+We have used KNP for the pagination of the galery.
+* ### Vich Uploader Bundle :
+To allow image upload for users and admin.
+* ### Symfony Casts Reset Password Bundle :
+To enable the reset password for users.
+* ### FOS CKEditor Bundle :
+To allow users to customize the formatting of their message when they send their e-cards.
+* ### Symfony UX / Stimulus
+* #### Typed : 
+For the artist page to simulate a typewriter typing a message.
+* #### Live Component : 
+For the bookmark component.
+* #### Chartjs Bundle :
+In order to have a graph representing a "top 10" of the most sent paintings in e-cards.
+
+
 ## Acknowledgments
+
+We would like to thank : 
+* The AFAC-974 association for this wonderful opportunity,
+* The Wild Code School for having helping us to learning code.
+* All the people in Stack Overflow and others forum for their help for some of our features
+* And most of all, we would like to thank our teacher, grand-master, dojo-sensei, Jean-François for his help, his
+patience, all his code-reviews and all the things we've learned from him.
+
 
