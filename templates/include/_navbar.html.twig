@@ -32,14 +32,19 @@
             <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end"
                 id="navbarNavDropdown">
                 {% if app.user %}
+<<<<<<< HEAD
                     <p
                        class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</p>
+=======
+                    <span
+                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</span>
+>>>>>>> 26af07084d408425293fe37231095ae407218efd
                 {% endif %}
                 <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center"
                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {% if app.user %}
                     {% if app.user.avatar %}
-                        <img src="{{ vich_uploader_asset(app.user) }}" alt="Logo">
+                        <img src="{{ vich_uploader_asset(app.user)|imagine_filter('limit450') }}" alt="Logo">
                     {% else %}
                         <img src="{{ asset('build/images/user.png') }}" alt="Logo">
                     {% endif %}
