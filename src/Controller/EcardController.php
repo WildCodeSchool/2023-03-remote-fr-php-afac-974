@@ -56,7 +56,7 @@ class EcardController extends AbstractController
                 ]));
 
             $mailer->send($mail);
-
+            $this->addFlash('success', 'Votre e-card à bien été envoyée !');
             return $this->redirectToRoute('app_home');
         }
 
