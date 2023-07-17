@@ -1,6 +1,28 @@
 # Project 3 - Starter Kit - Symfony
 
-* [Art-Afac presentation](#presentation-artafac)
+<!-- TOC -->
+* [Project 3 - Starter Kit - Symfony](#project-3---starter-kit---symfony)
+  * [Presentation](#presentation)
+  * [Getting Started for Students](#getting-started-for-students)
+    * [Prerequisites](#prerequisites)
+    * [Install](#install)
+    * [Working](#working)
+    * [Testing](#testing)
+    * [Windows Users](#windows-users)
+    * [Run locally with Docker](#run-locally-with-docker)
+  * [Deployment](#deployment)
+  * [Built With](#built-with)
+  * [Contributing](#contributing)
+  * [Versioning](#versioning)
+  * [Authors](#authors)
+  * [License](#license)
+* [Presentation d'ART-AFAC - AFAC-974](#presentation-dart-afac---afac-974)
+  * [Team](#team)
+  * [Using this project](#using-this-project)
+  * [Login Credentials](#login-credentials-)
+  * [Bundles](#bundles)
+  * [Acknowledgments](#acknowledgments)
+<!-- TOC -->
 
 ## Presentation
 
@@ -124,8 +146,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 <img src="assets/images/logo2.png"> 
-
-## <p id="presentation-artafac"></p>
 
 #  Presentation d'ART-AFAC - AFAC-974
 For this project we were called by the AFAC-974 association. The objective was to create a virtual galery of
