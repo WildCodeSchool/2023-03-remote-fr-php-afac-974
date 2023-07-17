@@ -1,46 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des artistes{% endblock %}
+{% block title %}Gestion des artistes
+{% endblock %}
 
 {% block body %}
-    <h1 class="mt-5 mb-1 d-flex justify-content-center">Index des Artistes</h1>
+	<h1 class="mt-5 mb-1 d-flex justify-content-center">Index des Artistes</h1>
 
-<div class="m-5 table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Naissance</th>
-                <th>Nationalité</th>
-                <th>Biographie</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for artist in artists %}
-            <tr>
-                <td>{{ artist.id }}</td>
-                <td>{{ artist.name }}</td>
-                <td>{{ artist.dateOfBirth ? artist.dateOfBirth|date('d/m/y') : '' }}</td>
-                <td>{{ artist.nationality }}</td>
-                <td>{{ artist.biography }}</td>
-                <td>{{ artist.image }}</td>
-                <td>
-                    <a class="btn btn-primary mb-2" href="{{ path('artist_show', {'slug': artist.slug}) }}">Aperçu</a>
-                    <a class="btn btn-info" href="{{ path('app_admin_artist_edit', {'id': artist.id}) }}">Editer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-<div class="d-flex justify-content-center">
-    <a class="btn btn-success " href="{{ path('app_admin_artist_new') }}">Ajouter un artiste</a>
-</div>
-</div>
+	<div class="m-5 table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Naissance</th>
+					<th>Nationalité</th>
+					<th>Biographie</th>
+					<th>Image</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for artist in artists %}
+					<tr>
+						<td>{{ artist.id }}</td>
+						<td>{{ artist.name }}</td>
+						<td>{{ artist.dateOfBirth ? artist.dateOfBirth|date('d/m/y') : '' }}</td>
+						<td>{{ artist.nationality }}</td>
+						<td>{{ artist.biography }}</td>
+						<td>{{ artist.image }}</td>
+						<td>
+							<a class="btn btn-primary mb-2" href="{{ path('artist_show', {'slug': artist.slug}) }}">Aperçu</a>
+							<a class="btn btn-info" href="{{ path('app_admin_artist_edit', {'id': artist.id}) }}">Editer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="7">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="d-flex justify-content-around">
+			<a class="btn bg-secondary-inverse text-white" href="{{ path('app_admin') }}">Retour</a>
+			<div class="m-auto">
+				<a class="btn btn-success " href="{{ path('app_admin_artist_new') }}">Ajouter un artiste</a>
+
+			</div>
+		</div>
+	</div>
 {% endblock %}

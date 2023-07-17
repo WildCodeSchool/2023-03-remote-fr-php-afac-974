@@ -32,14 +32,14 @@
             <li class="nav-item dropdown navbar-collapse collapse list-unstyled pt-3 justify-content-end"
                 id="navbarNavDropdown">
                 {% if app.user %}
-                    <a href="#"
-                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</a>
+                    <span
+                       class="my-auto me-3 text-white text-decoration-none">Bonjour {{ app.user.firstname }}</span>
                 {% endif %}
                 <a class="nav-link dropdown-toggle text-primary-inverse d-flex flex-row justify-content-center align-items-center"
                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {% if app.user %}
                     {% if app.user.avatar %}
-                        <img src="{{ vich_uploader_asset(app.user) }}" alt="Logo">
+                        <img src="{{ vich_uploader_asset(app.user)|imagine_filter('limit450') }}" alt="Logo">
                     {% else %}
                         <img src="{{ asset('build/images/user.png') }}" alt="Logo">
                     {% endif %}
@@ -54,7 +54,7 @@
 
                         </li>
                         <li>
-                            <a class="dropdown-item text-primary" href="#">Mes favoris</a>
+                            <a class="dropdown-item text-primary" href="#favoris">Mes favoris</a>
                         </li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li>

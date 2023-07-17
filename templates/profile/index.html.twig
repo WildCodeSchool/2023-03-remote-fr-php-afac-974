@@ -5,74 +5,85 @@
 
 {% block body %}
 
-    {% for category, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
+	{% for category, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert alert-{{ category }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
 
 	<section class="avatar-user container text-center mt-3">
-		<h2 class="text-black"> Mon profil</h2>
+		<h2 class="text-black">
+			Mon profil</h2>
 		<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
         {% if app.user.avatar is not null %}
-		<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{vich_uploader_asset(user) }}" alt="Logo">
+		<img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{vich_uploader_asset(user)|imagine_filter('limit600') }}" alt="Logo">
         {% else %}
         <img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Image par défaut de l'user">
         {% endif %}
-		<div class="text-center mt-2">
-
-		</div>
+		
 	</section>
-{% if app.user %}
-	<section class="container">
-		<div class="row mx-3">
-			<div class="col-lg-4 offset-lg-4 mt-3 bg-primary-inverse p-3 border-2 rounded text-center">
+	{% if app.user %}
+		<section class="container">
+			<div class="row mx-3">
+				<div class="col-lg-4 offset-lg-4 mt-3 bg-primary-inverse p-3 border-2 rounded text-center">
 
 					<div class=" mb-3">
-						<label for="validationCustom01" class="form-label">Prénom: {{ app.user.firstname }}</label>
+						<label for="validationCustom01" class="form-label">Prénom:
+							{{ app.user.firstname }}</label>
 					</div>
 					<div class="mb-3">
-						<label for="validationCustom02" class="form-label">Nom: {{ app.user.lastname }}</label>
+						<label for="validationCustom02" class="form-label">Nom:
+							{{ app.user.lastname }}</label>
 					</div>
 					<div class="mb-3">
 						<label for="validationCustomUsername" class="form-label ">Email:
 							{{ app.user.email }}</label>
 
-{% endif %}
-						<div class="avatar-user mb-2 mt-3 text-center">
-								<a href="{{ path('app_profile_edit') }}" class="btn">Modifier profil</a>
-						</div>
+					{% endif %}
+					<div class="avatar-user mb-2 mt-3 text-center">
+						<a href="{{ path('app_profile_edit') }}" class="btn">Modifier profil</a>
+					</div>
 				</div>
 			</div>
 
 
-		<div class="d-flex flex-column pt-5">
-			<h2 class=" text-black align-self-center">
-				Mes favoris</h2>
+			<div class="d-flex flex-column pt-5">
+				<h2 class=" text-black align-self-center" id="favoris">
+					Mes favoris</h2>
 
-			<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
-			<div class=" justify-content-center d-flex flex-wrap flex-column align-items-center flex-md-row gap-auto w-100 mb-4">
+				<hr class="w-25 mx-auto mb-5 opacity-100 mt-1 border-2">
+
+				{% if user.paintingsbookmarked is empty %}
+
+					<p class="text-center fs-5 mb-5">Il n'y a aucun favori(s) dans votre liste</p>
+
+				{% else %}
 
 
-				{% for painting in user.paintingsbookmarked %}
+					<div class=" justify-content-center d-flex flex-wrap flex-column align-items-center flex-md-row gap-auto w-100 mb-4">
 
-					<div class="star avatar-user card1 m-1  row  position-relative ">
 
-						<img src="{{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom") }}" class="border-2 border border-dark img-fluid m-0 p-0" alt="aperçu de l'oeuvre en favoris" >
-						<div class="position-absolute bg-black bottom-0 blur  bg-opacity-50 d-flex flex-row justify-content-between">
-							{{ component('BookmarkComponent', {
+						{% for painting in user.paintingsbookmarked %}
+
+							<div class="star avatar-user card1 m-1  row  position-relative ">
+
+								<img src="{{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom") }}" class="border-2 border border-dark img-fluid m-0 p-0" alt="aperçu de l'oeuvre en favoris">
+								<div class="position-absolute bg-primary bottom-0 blur  bg-opacity-50 d-flex flex-row justify-content-between">
+									{{ component('BookmarkComponent', {
 								painting: painting,
 								tag: 'a',
 								redirect: true
 							}) }}
-							<a href="{{ path('app_ecard_painting', {id: painting.id}) }}" class=" text-white ">
-								<i class="bi bi-envelope"></i>
-							</a>
-						</div>
+									<a href="{{ path('app_ecard_painting', {id: painting.id}) }}" class=" text-white ">
+										<i class="bi bi-envelope"></i>
+									</a>
+								</div>
+							</div>
+						{% endfor %}
 					</div>
-				{% endfor %}
-			</div>
-		</section>
-	{% endblock %}
+				{% endif %}
+
+			</section>
+		{% endblock %}

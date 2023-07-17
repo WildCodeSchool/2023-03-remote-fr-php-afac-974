@@ -1,49 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des oeuvres{% endblock %}
+{% block title %}Gestion des oeuvres
+{% endblock %}
 
 {% block body %}
-    <h1 class="d-flex flex-row justify-content-center my-3">Index des oeuvres</h1>
-    <div class="m-5 table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Date</th>
-                <th>Anecdote</th>
-                <th>Hauteur</th>
-                <th>Longueur</th>
-                <th>Image</th>
-                <th>Creer le</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for painting in paintings %}
-                <tr>
-                    <td>{{ painting.id }}</td>
-                    <td>{{ painting.title }}</td>
-                    <td>{{ painting.date ? painting.date|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ painting.anecdote }}</td>
-                    <td>{{ painting.height }}</td>
-                    <td>{{ painting.width }}</td>
-                    <td>{{ painting.image }}</td>
-                    <td>{{ painting.createdAt ? painting.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>
-                        <a class="btn btn-primary my-1" href="{{ path('app_admin_painting_show', {'id': painting.id}) }}">Aperçu</a>
-                        <a class="btn btn-info" href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">Editer</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="9">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <div class="d-flex justify-content-center">
-    <a class="btn btn-success m-3 mt-0" href="{{ path('app_admin_painting_new') }}">Ajouter une oeuvre</a>
-    </div>
+	<h1 class="d-flex flex-row justify-content-center my-3">Index des oeuvres</h1>
+	<div class="m-5 table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Titre</th>
+					<th>Date</th>
+					<th>Anecdote</th>
+					<th>Hauteur</th>
+					<th>Longueur</th>
+					<th>Image</th>
+					<th>Creer le</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for painting in paintings %}
+					<tr>
+						<td>{{ painting.id }}</td>
+						<td>{{ painting.title }}</td>
+						<td>{{ painting.date ? painting.date|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ painting.anecdote }}</td>
+						<td>{{ painting.height }}</td>
+						<td>{{ painting.width }}</td>
+						<td>{{ painting.image }}</td>
+						<td>{{ painting.createdAt ? painting.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+						<td>
+							<a class="btn btn-primary my-1" href="{{ path('app_admin_painting_show', {'id': painting.id}) }}">Aperçu</a>
+							<a class="btn btn-info" href="{{ path('app_admin_painting_edit', {'id': painting.id}) }}">Editer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="9">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="d-flex justify-content-around">
+			<a class="btn bg-secondary-inverse text-white" href="{{ path('app_admin') }}">Retour</a>
+			<div class="m-auto">
+				<a class="btn btn-success " href="{{ path('app_admin_artist_new') }}">Ajouter une oeuvre</a>
+
+			</div>
+		</div>
+	</div>
 {% endblock %}

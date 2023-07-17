@@ -5,34 +5,40 @@
 
 {% block body %}
 	<h1 class="mx-auto my-3">Index des catégories</h1>
+	<div class="m-5 table-responsive">
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Catégorie</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for category in categories %}
+		<table class="table table-striped">
+			<thead>
 				<tr>
-					<td>{{ category.id }}</td>
-					<td>{{ category.name }}</td>
-					<td style="text-align: right">
-						<div>
-							<a class="btn btn-info " href="{{ path('app_admin_category_edit', {'id': category.id}) }}">Modifier</a>
-						</div>
-					</td>
+					<th>ID</th>
+					<th>Catégorie</th>
 				</tr>
+			</thead>
+			<tbody>
+				{% for category in categories %}
+					<tr>
+						<td>{{ category.id }}</td>
+						<td>{{ category.name }}</td>
+						<td style="text-align: right">
+							<div>
+								<a class="btn btn-info " href="{{ path('app_admin_category_edit', {'id': category.id}) }}">Editer</a>
+							</div>
+						</td>
+					</tr>
 
-			{% else %}
-				<tr>
-					<td colspan="8">Aucune catégorie disponible</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-	<div class="table-responsive container d-flex justify-content-center mb-3">
-		<a class="btn btn-success" href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a>
+				{% else %}
+					<tr>
+						<td colspan="8">Aucune catégorie disponible</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div class="d-flex justify-content-around">
+			<a class="btn bg-secondary-inverse text-white" href="{{ path('app_admin') }}">Retour</a>
+			<div class="m-auto">
+				<a class="btn btn-success " href="{{ path('app_admin_artist_new') }}">Ajouter une catégorie</a>
+
+			</div>
+		</div>
 	</div>
 {% endblock %}
