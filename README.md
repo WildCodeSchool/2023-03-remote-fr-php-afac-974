@@ -164,22 +164,23 @@ to use our automatic galery.
 
 ## Using this project
 1. Change your env.local with your database information.
-2. Run the command : 
+2. Enable in your php.ini the extensions : fileinfo, gd, intl and zip. And increase your memory_limit to 1024.
+3. Run the command : 
 ``` bash
  bash script.sh 
 ```
 for the creation of the database and the fixture loader.
-3. Dont forget to implement your mailer for the e-card page.
-4. Enjoy your visit.
+4. Dont forget to implement your mailer for the e-card page.
+5. Enjoy your visit.
 
 ## Login Credentials 
 For the admin : 
 * Email : admin@afac.com
-* Password : adminpass
+* Password : adminpassword
 
 For the user :
 * Email : user@afac.com
-* Password : userpass
+* Password : userpassword
 
 
 ## Bundles
