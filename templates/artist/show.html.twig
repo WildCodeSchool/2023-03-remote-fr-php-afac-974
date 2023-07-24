@@ -34,7 +34,7 @@
 <div class=" d-flex flex-column  pt-5">
     <h2 class="text-center border-bottom border-black pb-3 text-black align-self-center"> Ses oeuvres</h2>
     <div class="row justify-content-center mx-2 mt-3">
-        {% for painting in artist.paintings|slice(1,4) %}
+        {% for painting in artist.paintings|slice(0,3) %}
             <div class="col-md-6 col-xl-3 mt-3 mb-3">
                 <div class="galery card-apparition position-relative overflow-hidden mx-2 mb-2">
                     <img class="w-100 h-100 object-fit-cover" src=" {{ vich_uploader_asset(painting)|imagine_filter('limit450') }}"
