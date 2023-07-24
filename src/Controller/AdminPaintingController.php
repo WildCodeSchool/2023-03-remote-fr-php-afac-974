@@ -56,12 +56,18 @@ class AdminPaintingController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_painting_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Painting $painting, PaintingRepository $paintingRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Painting $painting,
+        PaintingRepository $paintingRepository,
+        SluggerInterface $slugger
+    ): Response {
         $form = $this->createForm(PaintingType::class, $painting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($painting->getTitle());
+            $painting->setSlug($slug);
             $paintingRepository->save($painting, true);
 
             return $this->redirectToRoute('app_admin_painting_index', [], Response::HTTP_SEE_OTHER);

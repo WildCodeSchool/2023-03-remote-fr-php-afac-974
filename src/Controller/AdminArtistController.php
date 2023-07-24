@@ -55,12 +55,18 @@ class AdminArtistController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_artist_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Artist $artist, ArtistRepository $artistRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Artist $artist,
+        ArtistRepository $artistRepository,
+        SluggerInterface $slugger
+    ): Response {
         $form = $this->createForm(ArtistType::class, $artist);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($artist->getName());
+            $artist->setSlug($slug);
             $artistRepository->save($artist, true);
 
             return $this->redirectToRoute('app_admin_artist_index', [], Response::HTTP_SEE_OTHER);
