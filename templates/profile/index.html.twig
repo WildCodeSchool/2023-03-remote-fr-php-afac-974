@@ -22,7 +22,7 @@
         {% else %}
         <img class="logoprofil h-25 mx-auto mb-3 border-2 rounded-circle border border-dark" src="{{ asset('build/images/user.png') }}" alt="Image par défaut de l'user">
         {% endif %}
-		
+
 	</section>
 	{% if app.user %}
 		<section class="container">
@@ -69,7 +69,7 @@
 
 							<div class="star avatar-user card1 m-1  row  position-relative ">
 
-								<img src="{{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom") }}" class="border-2 border border-dark img-fluid m-0 p-0" alt="aperçu de l'oeuvre en favoris">
+								<img src="{{ vich_uploader_asset(painting)|imagine_filter("watermark_bottom") }}" class="border-2 border border-dark img-fluid m-0 p-0 object-fit-cover" alt="aperçu de l'oeuvre en favoris">
 								<div class="position-absolute bg-primary bottom-0 blur  bg-opacity-50 d-flex flex-row justify-content-between">
 									{{ component('BookmarkComponent', {
 								painting: painting,
