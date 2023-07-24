@@ -52,7 +52,7 @@ class AdminController extends AbstractController
             'scales' => [
                 'y' => [
                     'suggestedMin' => 0,
-                    'suggestedMax' => array_sum($data),
+                    'suggestedMax' => max($data),
                 ],
             ],
             'responsive' => true,
