@@ -16,14 +16,14 @@
             </div>
         </div>
 
-        <div class="main-ecard bg-primary-inverse m-3 p-2 shadow-lg">
+        <div class="main-ecard bg-primary-inverse m-3 my-5 p-2 shadow-lg">
             <p class="w-100"><span class="fw-bold">Message :</span> <br> {{ ecard.message|purify }}</p>
         </div>
     </div>
     <div class="my-3 mx-3 d-flex flex-column align-items-center">
         {% if app.user %}
-            <h3>{{ app.user.firstname }}, répondez à {{ ecard.user.firstname }} en choisissant une œuvre dans notre galerie !</h3>
-            <a href="{{ path('galery_index') }}" class="btn btn-info w-25"> Cliquez-ici !</a>
+            <h3>Répondez à {{ ecard.user.firstname }} en choisissant une œuvre dans notre galerie !</h3>
+            <a href="{{ path('galery_index') }}" class="btn btn-info"> Cliquez-ici !</a>
         {% else %}
             <p>Envie de lui répondre ? Inscrivez-vous en cliquant sur le bouton ci-dessous !</p>
             <a class="btn btn-primary">Inscription</a>
