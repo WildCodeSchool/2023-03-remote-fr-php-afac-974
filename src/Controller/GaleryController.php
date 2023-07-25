@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 #[Route('/galery', name: 'galery_')]
 class GaleryController extends AbstractController
@@ -22,12 +23,13 @@ class GaleryController extends AbstractController
         PaginatorInterface $paginator,
         Request $request
     ): Response {
-
         $form = $this->createFormBuilder(null, [
             'method' => 'get',
             'csrf_protection' => false
         ])
-            ->add('search', SearchType::class)
+            ->add('search', SearchType::class, [
+                'constraints' => [new NotBlank()]
+            ])
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
