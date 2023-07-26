@@ -7,3 +7,9 @@
 .main-ecard h1{
     font-size: 1.5rem;
 }
+@media screen and (max-width: 450px)  {
+    .main-ecard {
+        max-width: 23rem;
+    }
+}
+

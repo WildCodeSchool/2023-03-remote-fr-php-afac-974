@@ -22,7 +22,8 @@ class PaintingType extends AbstractType
         $builder
             ->add('title', TextType::class, ['label' => 'Titre'])
             ->add('date', DateType::class, [
-        'widget' => 'single_text',
+                'widget' => 'single_text',
+                'label' => 'Date de création'
             ])
             ->add('anecdote')
             ->add('height', TextType::class, ['label' => 'Hauteur'])

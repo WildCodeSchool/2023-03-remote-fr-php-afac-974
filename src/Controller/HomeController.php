@@ -13,7 +13,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(PaintingRepository $paintingRepository): Response
     {
-        $paintings = $paintingRepository->findBy([], null, 4);
+        $paintings = $paintingRepository->findBy([], ['id' => 'DESC'], 4);
 
         return $this->render('home/index.html.twig', [
             'paintings' => $paintings,
