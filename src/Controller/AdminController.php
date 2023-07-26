@@ -47,12 +47,11 @@ class AdminController extends AbstractController
                 ],
             ],
         ]);
-
         $chart->setOptions([
             'scales' => [
                 'y' => [
                     'suggestedMin' => 0,
-                    'suggestedMax' => array_sum($data),
+                    'suggestedMax' => empty($data) ? 10 : max($data),
                 ],
             ],
             'responsive' => true,

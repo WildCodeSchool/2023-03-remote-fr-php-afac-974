@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Artist;
 use App\Form\ArtistType;
 use App\Repository\ArtistRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +18,16 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class AdminArtistController extends AbstractController
 {
     #[Route('/', name: 'app_admin_artist_index', methods: ['GET'])]
-    public function index(ArtistRepository $artistRepository): Response
+    public function index(ArtistRepository $artistRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $query = $artistRepository->findAll();
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            6
+        );
         return $this->render('admin_artist/index.html.twig', [
-            'artists' => $artistRepository->findAll(),
+            'artists' => $pagination,
         ]);
     }
 
@@ -36,7 +43,7 @@ class AdminArtistController extends AbstractController
             $artist->setSlug($slug);
 
             $artistRepository->save($artist, true);
-
+            $this->addFlash('success', 'Un nouvel artiste à été crée !');
             return $this->redirectToRoute('app_admin_artist_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -55,14 +62,20 @@ class AdminArtistController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_artist_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Artist $artist, ArtistRepository $artistRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Artist $artist,
+        ArtistRepository $artistRepository,
+        SluggerInterface $slugger
+    ): Response {
         $form = $this->createForm(ArtistType::class, $artist);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($artist->getName());
+            $artist->setSlug($slug);
             $artistRepository->save($artist, true);
-
+            $this->addFlash('success', 'L\'artiste à bien été modifié.');
             return $this->redirectToRoute('app_admin_artist_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -77,6 +90,7 @@ class AdminArtistController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $artist->getId(), $request->request->get('_token'))) {
             $artistRepository->remove($artist, true);
+            $this->addFlash('danger', 'L\'artiste à bien été supprimé.');
         }
 
         return $this->redirectToRoute('app_admin_artist_index', [], Response::HTTP_SEE_OTHER);

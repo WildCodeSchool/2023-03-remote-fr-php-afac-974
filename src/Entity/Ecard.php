@@ -19,6 +19,7 @@ class Ecard
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'ecards')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Painting $painting = null;
 
     #[ORM\Column(length: 255)]

@@ -4,10 +4,10 @@
 {% endblock %}
 
 {% block body %}
-	<h2 class="text-black align-self-center mt-5">
+	<h2 class="text-black text-center mt-5">
 		Administration des contenus</h2>
 	<hr class="w-25 mx-auto mb-5 opacity-100 mt-3 border-2">
-	<div class="row d-flex justify-content-center">
+	<div class="row d-flex justify-content-center mx-auto">
 		<div class="article-card card text-center border-dark border-2  bg-primary-inverse m-5" style="width: 15rem;">
 			<img class="card-img-top rounded img-thumbnail h-75 object-fit-cover" src="{{asset('build/images/artist.png')}}" alt="Card image cap">
 			<div class="card-body">
@@ -33,5 +33,7 @@
 			</div>
 		</div>
 </div>
-        <span class="chartbox mx-auto h-100 w-100">{{ render_chart(chart) }}</span>
+    <div class="d-flex flex-row justify-content-center">
+        <span class="chartbox h-100 w-100">{{ render_chart(chart) }}</span>
+    </div>
 	{% endblock %}

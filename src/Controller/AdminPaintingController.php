@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Painting;
 use App\Form\PaintingType;
 use App\Repository\PaintingRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,19 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class AdminPaintingController extends AbstractController
 {
     #[Route('/', name: 'app_admin_painting_index', methods: ['GET'])]
-    public function index(PaintingRepository $paintingRepository): Response
-    {
+    public function index(
+        PaintingRepository $paintingRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $query = $paintingRepository->queryFindAll();
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            8
+        );
         return $this->render('admin_painting/index.html.twig', [
-            'paintings' => $paintingRepository->findAll(),
+            'paintings' => $pagination,
         ]);
     }
 
@@ -37,6 +47,7 @@ class AdminPaintingController extends AbstractController
             $painting->setSlug($slug);
             $painting->setCreatedAt(new DateTimeImmutable());
             $paintingRepository->save($painting, true);
+            $this->addFlash('success', 'Une nouvelle oeuvre à été crée !');
 
             return $this->redirectToRoute('app_admin_painting_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -56,13 +67,20 @@ class AdminPaintingController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_painting_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Painting $painting, PaintingRepository $paintingRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Painting $painting,
+        PaintingRepository $paintingRepository,
+        SluggerInterface $slugger
+    ): Response {
         $form = $this->createForm(PaintingType::class, $painting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($painting->getTitle());
+            $painting->setSlug($slug);
             $paintingRepository->save($painting, true);
+            $this->addFlash('success', 'L\'oeuvre à bien été modifiée.');
 
             return $this->redirectToRoute('app_admin_painting_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -78,6 +96,7 @@ class AdminPaintingController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $painting->getId(), $request->request->get('_token'))) {
             $paintingRepository->remove($painting, true);
+            $this->addFlash('danger', 'L\'oeuvre à bien été supprimée.');
         }
 
         return $this->redirectToRoute('app_admin_painting_index', [], Response::HTTP_SEE_OTHER);

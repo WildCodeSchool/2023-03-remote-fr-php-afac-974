@@ -23,6 +23,7 @@ class EcardType extends AbstractType
             ])
             ->add('message', CKEditorType::class, [
                 'label' => 'Votre message :',
+                'purify_html' => true,
                 'attr' => [
                 'rows' => 12,
                     'placeholder' => 'Veuillez taper votre message ici'
